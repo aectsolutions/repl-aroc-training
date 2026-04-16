@@ -1,0 +1,1172 @@
+[
+  {
+    "id": 44,
+    "category": "Meteorology",
+    "en": "Which cloud type is most associated with severe turbulence, heavy rain, hail, and lightning?",
+    "options_en": [
+      "Cirrostratus",
+      "Altostratus",
+      "Cumulonimbus",
+      "Nimbostratus"
+    ],
+    "correct": 2,
+    "explanation_en": "Cumulonimbus (Cb) clouds are vertically developed clouds associated with severe weather including heavy rain, hail, lightning, and severe turbulence. They are the most hazardous cloud type for aviation."
+  },
+  {
+    "id": 45,
+    "category": "Meteorology",
+    "en": "What type of cloud is typically thin, wispy, and composed of ice crystals found at high altitudes?",
+    "options_en": [
+      "Cumulus",
+      "Stratus",
+      "Cirrus",
+      "Altostratus"
+    ],
+    "correct": 2,
+    "explanation_en": "Cirrus clouds are thin, feather-like ice crystal clouds found at high altitudes (above 6,000m/20,000ft). They appear as delicate wisps or 'mares' tails' and generally indicate fair weather, though they can signal an approaching warm front."
+  },
+  {
+    "id": 46,
+    "category": "Meteorology",
+    "en": "A katabatic wind is BEST described as:",
+    "options_en": [
+      "A warm wind rising up a mountain slope during the day",
+      "A cold wind flowing downhill due to cooling of air at the surface",
+      "A sea breeze that develops in the afternoon",
+      "A strong wind caused by pressure gradient differences"
+    ],
+    "correct": 1,
+    "explanation_en": "A katabatic wind is a downslope wind caused by the cooling of air at higher elevations (particularly at night). The cool, dense air flows downhill under gravity, and is strongest just before sunrise when surface cooling is greatest."
+  },
+  {
+    "id": 47,
+    "category": "Meteorology",
+    "en": "When is a katabatic wind typically at its strongest?",
+    "options_en": [
+      "In the early afternoon",
+      "During mid-morning",
+      "Just prior to sunrise",
+      "Immediately after sunset"
+    ],
+    "correct": 2,
+    "explanation_en": "Katabatic winds are strongest just prior to sunrise because the ground surface and the air in contact with it have had the maximum time to cool overnight, creating the greatest density difference and strongest downslope flow."
+  },
+  {
+    "id": 48,
+    "category": "Meteorology",
+    "en": "A sea breeze develops because:",
+    "options_en": [
+      "The sea cools faster than the land during the day",
+      "The land heats faster than the sea during the day, causing air to rise over land",
+      "High-pressure systems always form over the ocean",
+      "Cold fronts push maritime air onshore"
+    ],
+    "correct": 1,
+    "explanation_en": "During the day, land heats faster than the sea. Warm air rises over land creating lower pressure, and cooler air from over the sea flows onshore to replace it. This creates the sea breeze, typically developing mid-morning and reaching maximum strength in the afternoon."
+  },
+  {
+    "id": 49,
+    "category": "Meteorology",
+    "en": "A Foehn (or Fohn) wind on the lee side of a mountain produces:",
+    "options_en": [
+      "Cool, moist air with heavy precipitation",
+      "Warm, dry air with good visibility",
+      "Cold, dry air with low cloud",
+      "Unstable air with thunderstorm activity"
+    ],
+    "correct": 1,
+    "explanation_en": "A Foehn wind occurs when moist air is forced up over a mountain range, losing moisture as precipitation on the windward side. As it descends the lee side, it warms adiabatically and arrives as warm, dry air with significantly reduced humidity and improved visibility."
+  },
+  {
+    "id": 50,
+    "category": "Meteorology",
+    "en": "What is the BEST indicator that radiation fog may form?",
+    "options_en": [
+      "Strong winds and overcast skies",
+      "A small temperature/dew point spread with clear skies and light winds",
+      "Rapidly falling barometric pressure",
+      "The passage of a cold front"
+    ],
+    "correct": 1,
+    "explanation_en": "Radiation fog forms on clear, calm nights when the ground cools by radiation, cooling the air in contact with it. A small temperature/dew point spread (3 degrees C or less), clear skies, and light winds are the ideal conditions. When the temperature drops to the dew point, condensation occurs and fog forms."
+  },
+  {
+    "id": 51,
+    "category": "Meteorology",
+    "en": "Stable air is MOST likely to produce which of the following conditions?",
+    "options_en": [
+      "Cumulonimbus clouds, good visibility, turbulence",
+      "Stratiform clouds, poor visibility in haze, smooth air",
+      "Cumulus clouds, showery precipitation, gusty winds",
+      "Clear skies, excellent visibility, strong thermals"
+    ],
+    "correct": 1,
+    "explanation_en": "Stable air resists vertical movement. It produces stratiform (layered) clouds, continuous precipitation if any, smooth air, and fair to poor visibility due to haze, smoke, and fog being trapped near the surface."
+  },
+  {
+    "id": 52,
+    "category": "Meteorology",
+    "en": "Wind shear is defined as:",
+    "options_en": [
+      "A steady increase in wind speed throughout the day",
+      "A sudden change in wind speed and/or direction over a short distance",
+      "Wind that consistently blows from the same direction",
+      "The prevailing wind pattern over a 24-hour period"
+    ],
+    "correct": 1,
+    "explanation_en": "Wind shear is a sudden change in wind speed and/or direction over a short distance or time period. It is particularly hazardous near thunderstorms, strong temperature inversions, and frontal boundaries, and can cause rapid changes in airspeed and altitude for aircraft."
+  },
+  {
+    "id": 53,
+    "category": "Meteorology",
+    "en": "In the Southern Hemisphere, wind circulates around a LOW pressure system in which direction?",
+    "options_en": [
+      "Clockwise",
+      "Counter-clockwise",
+      "Straight inward toward the centre",
+      "From east to west only"
+    ],
+    "correct": 0,
+    "explanation_en": "In the Southern Hemisphere, due to the Coriolis effect, wind circulates clockwise around a low-pressure system and counter-clockwise around a high-pressure system. This is the opposite of the Northern Hemisphere."
+  },
+  {
+    "id": 54,
+    "category": "Meteorology",
+    "en": "Closely spaced isobars on a weather chart indicate:",
+    "options_en": [
+      "Light winds and calm conditions",
+      "A steep pressure gradient and stronger winds",
+      "An area of fog formation",
+      "High humidity and precipitation"
+    ],
+    "correct": 1,
+    "explanation_en": "Isobars are lines connecting points of equal atmospheric pressure. When they are closely spaced, it indicates a steep pressure gradient, which produces stronger winds. Widely spaced isobars indicate light winds."
+  },
+  {
+    "id": 55,
+    "category": "Meteorology",
+    "en": "The weather conditions typically associated with the passage of a cold front include:",
+    "options_en": [
+      "Gradual clearing, steady temperatures, light winds",
+      "A sudden wind shift, drop in temperature, cumuliform clouds and possible thunderstorms",
+      "Fog formation and drizzle with steady winds",
+      "High cirrus clouds with no precipitation"
+    ],
+    "correct": 1,
+    "explanation_en": "Cold front passage is marked by a sudden wind shift (typically from northerly to southerly in Australia), a drop in temperature, rising pressure, cumuliform clouds, and potentially heavy showers or thunderstorms with turbulence and gusty winds."
+  },
+  {
+    "id": 56,
+    "category": "Meteorology",
+    "en": "Density altitude is BEST described as:",
+    "options_en": [
+      "The altitude read directly from the altimeter",
+      "The height above mean sea level",
+      "The pressure altitude corrected for non-standard temperature",
+      "The altitude above the aerodrome elevation"
+    ],
+    "correct": 2,
+    "explanation_en": "Density altitude is the pressure altitude corrected for non-standard temperature. It represents the altitude at which the aircraft 'thinks' it is flying based on air density. Higher temperatures, higher elevation, and higher humidity all increase density altitude, reducing aircraft performance."
+  },
+  {
+    "id": 57,
+    "category": "Meteorology",
+    "en": "The temperature at which air becomes saturated and water vapour begins to condense is called the:",
+    "options_en": [
+      "Lapse rate",
+      "Inversion point",
+      "Dew point",
+      "Condensation level"
+    ],
+    "correct": 2,
+    "explanation_en": "The dew point is the temperature at which air becomes fully saturated (100% relative humidity) and water vapour begins to condense into visible moisture such as fog, dew, or clouds. When the temperature and dew point converge, precipitation or fog formation is likely."
+  },
+  {
+    "id": 58,
+    "category": "Meteorology",
+    "en": "What type of weather observation is a METAR?",
+    "options_en": [
+      "A weather forecast for the next 24-30 hours",
+      "A routine observation of current weather conditions at an aerodrome",
+      "A severe weather warning issued by the Bureau of Meteorology",
+      "A pilot report of in-flight weather conditions"
+    ],
+    "correct": 1,
+    "explanation_en": "A METAR (Meteorological Aerodrome Report) is a routine observation of actual/current weather conditions at an aerodrome, typically issued every 30 minutes or hourly. It includes wind, visibility, cloud, temperature, dew point, and pressure information."
+  },
+  {
+    "id": 59,
+    "category": "Meteorology",
+    "en": "What type of weather product is a TAF?",
+    "options_en": [
+      "An observation of current conditions",
+      "A forecast of expected weather conditions at an aerodrome over a period of time",
+      "A warning of severe turbulence",
+      "A record of historical weather data"
+    ],
+    "correct": 1,
+    "explanation_en": "A TAF (Terminal Area Forecast) is a forecast of expected weather conditions for a specific aerodrome, typically covering a 24 to 30 hour period. It uses the same coding as METARs and includes forecast changes in wind, visibility, cloud, and significant weather."
+  },
+  {
+    "id": 60,
+    "category": "Meteorology",
+    "en": "A SPECI weather report is issued when:",
+    "options_en": [
+      "Conditions are expected to improve significantly",
+      "Rapidly changing or significant weather conditions occur between routine observations",
+      "A new day begins at midnight UTC",
+      "Wind speeds exceed 15 knots"
+    ],
+    "correct": 1,
+    "explanation_en": "A SPECI is a special weather observation issued whenever significant changes in weather conditions occur between regular METAR reports. This includes rapid changes in visibility, wind, cloud ceiling, or the onset of significant weather phenomena."
+  },
+  {
+    "id": 61,
+    "category": "AROC Radio Procedures",
+    "en": "The international aeronautical emergency frequency is:",
+    "options_en": [
+      "118.1 MHz",
+      "126.7 MHz",
+      "121.5 MHz",
+      "124.5 MHz"
+    ],
+    "correct": 2,
+    "explanation_en": "121.5 MHz is the international aeronautical emergency (distress) frequency. It is monitored by ATC and search and rescue services. Any pilot in distress should transmit a MAYDAY call on this frequency if unable to contact ATC on any other frequency."
+  },
+  {
+    "id": 62,
+    "category": "AROC Radio Procedures",
+    "en": "The MULTICOM frequency used for broadcasting in non-towered areas in Australia is:",
+    "options_en": [
+      "121.5 MHz",
+      "126.7 MHz",
+      "118.7 MHz",
+      "119.1 MHz"
+    ],
+    "correct": 1,
+    "explanation_en": "126.7 MHz is the MULTICOM frequency used in Australia for self-announce broadcasts at non-towered aerodromes and in Class G airspace areas where no specific CTAF frequency is assigned. It is not monitored by ATC."
+  },
+  {
+    "id": 63,
+    "category": "AROC Radio Procedures",
+    "en": "A MAYDAY call is used when:",
+    "options_en": [
+      "A pilot wishes to report a minor equipment malfunction",
+      "An aircraft is threatened by serious and/or imminent danger requiring immediate assistance",
+      "A pilot needs to request a frequency change",
+      "Weather conditions require an alternate route"
+    ],
+    "correct": 1,
+    "explanation_en": "MAYDAY is the international distress signal used when an aircraft is in a condition of being threatened by serious and/or imminent danger and requires immediate assistance. It takes absolute priority over all other communications."
+  },
+  {
+    "id": 64,
+    "category": "AROC Radio Procedures",
+    "en": "A PAN PAN call is used when:",
+    "options_en": [
+      "An aircraft has crashed and requires rescue",
+      "There is an urgency condition concerning the safety of an aircraft or person but the situation does not require immediate assistance",
+      "The pilot has lost radio contact with ATC",
+      "A pilot wishes to land at an aerodrome without a tower"
+    ],
+    "correct": 1,
+    "explanation_en": "PAN PAN is the international urgency signal. It indicates there is concern about the safety of the aircraft, vehicle, or person on board, but the situation does not require immediate assistance. It has priority over all communications except MAYDAY."
+  },
+  {
+    "id": 65,
+    "category": "AROC Radio Procedures",
+    "en": "In aviation radio communications, the word 'ROGER' means:",
+    "options_en": [
+      "Yes, I agree",
+      "I will comply with your instruction",
+      "I have received all of your last transmission",
+      "Please repeat your message"
+    ],
+    "correct": 2,
+    "explanation_en": "ROGER means 'I have received all of your last transmission.' It is an acknowledgement only and does NOT mean 'yes' or that the pilot will comply. It should not be used to answer a question requiring a yes or no response."
+  },
+  {
+    "id": 66,
+    "category": "AROC Radio Procedures",
+    "en": "In aviation radio communications, the word 'WILCO' means:",
+    "options_en": [
+      "I have received your message",
+      "I understand your message and will comply with it",
+      "I do not understand, please repeat",
+      "I am unable to comply"
+    ],
+    "correct": 1,
+    "explanation_en": "WILCO is an abbreviation of 'will comply' and means 'I understand your message and will comply with it.' Since WILCO already includes acknowledgement, saying 'Roger, Wilco' together is redundant."
+  },
+  {
+    "id": 67,
+    "category": "AROC Radio Procedures",
+    "en": "The correct aviation term for 'Yes' in radio communications is:",
+    "options_en": [
+      "Roger",
+      "Wilco",
+      "Affirm",
+      "Copy"
+    ],
+    "correct": 2,
+    "explanation_en": "AFFIRM (or AFFIRMATIVE) is the correct standard aviation phraseology meaning 'yes.' ROGER should not be used in place of 'yes' as it only means the transmission was received, not that the pilot agrees."
+  },
+  {
+    "id": 68,
+    "category": "AROC Radio Procedures",
+    "en": "When transmitting a MAYDAY call, the distress signal should be spoken:",
+    "options_en": [
+      "Once, followed by the aircraft callsign",
+      "Twice, followed by the nature of the emergency",
+      "Three times — 'MAYDAY MAYDAY MAYDAY'",
+      "Continuously until a response is received"
+    ],
+    "correct": 2,
+    "explanation_en": "The standard format for a distress call begins with the word MAYDAY spoken three times: 'MAYDAY MAYDAY MAYDAY.' This is followed by the station being called (or ALL STATIONS), the aircraft callsign, nature of the emergency, position, altitude, pilot intentions, and number of persons on board."
+  },
+  {
+    "id": 69,
+    "category": "AROC Radio Procedures",
+    "en": "What does 'SAY AGAIN' mean in aviation radio communications?",
+    "options_en": [
+      "I am repeating my message",
+      "Please repeat your last transmission",
+      "I did not understand your instruction",
+      "The message has been acknowledged"
+    ],
+    "correct": 1,
+    "explanation_en": "SAY AGAIN is the standard aviation phraseology requesting the other station to repeat their last transmission. The word 'REPEAT' is avoided in aviation radio because it has a specific meaning in military operations (requesting repeated artillery fire)."
+  },
+  {
+    "id": 70,
+    "category": "AROC Radio Procedures",
+    "en": "A readability scale of 5 means:",
+    "options_en": [
+      "Unreadable",
+      "Readable now and then",
+      "Readable with difficulty",
+      "Perfectly readable"
+    ],
+    "correct": 3,
+    "explanation_en": "The readability scale ranges from 1 to 5: 1 = Unreadable, 2 = Readable now and then, 3 = Readable with difficulty, 4 = Readable, 5 = Perfectly readable. This scale is used when responding to a radio check."
+  },
+  {
+    "id": 71,
+    "category": "AROC Radio Procedures",
+    "en": "What should be the LAST item in a readback of an ATC clearance or instruction?",
+    "options_en": [
+      "The frequency assigned",
+      "The instruction details",
+      "Your aircraft callsign",
+      "The word 'Roger'"
+    ],
+    "correct": 2,
+    "explanation_en": "The last item in any readback of an ATC clearance or instruction should always be your aircraft (or RPAS) callsign. This confirms who is reading back the instruction and ensures ATC can verify the correct station has received it."
+  },
+  {
+    "id": 72,
+    "category": "AROC Radio Procedures",
+    "en": "The squawk code 7700 on a transponder indicates:",
+    "options_en": [
+      "Radio failure",
+      "Unlawful interference (hijack)",
+      "Emergency/distress",
+      "VFR flight in uncontrolled airspace"
+    ],
+    "correct": 2,
+    "explanation_en": "Transponder code 7700 indicates a general emergency/distress. Code 7600 indicates radio communication failure, and code 7500 indicates unlawful interference (hijack). These are standard ICAO squawk codes recognised internationally."
+  },
+  {
+    "id": 73,
+    "category": "AROC Radio Procedures",
+    "en": "The letter 'M' in the ICAO phonetic alphabet is spoken as:",
+    "options_en": [
+      "Metro",
+      "Mike",
+      "Mark",
+      "Morse"
+    ],
+    "correct": 1,
+    "explanation_en": "In the ICAO/NATO phonetic alphabet used for aviation communications, 'M' is spoken as 'Mike.' The phonetic alphabet is: Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-ray, Yankee, Zulu."
+  },
+  {
+    "id": 74,
+    "category": "Human Performance",
+    "en": "What does the 'I' in the IMSAFE self-assessment checklist stand for?",
+    "options_en": [
+      "Instruction",
+      "Illness",
+      "Instrument",
+      "Identification"
+    ],
+    "correct": 1,
+    "explanation_en": "IMSAFE stands for Illness, Medication, Stress, Alcohol, Fatigue, and Emotion/Eating. The 'I' stands for Illness — pilots should ask themselves 'Am I suffering from any illness or symptom that might affect my ability to fly safely?'"
+  },
+  {
+    "id": 75,
+    "category": "Human Performance",
+    "en": "Which of the following BEST describes acute fatigue?",
+    "options_en": [
+      "A long-term state of exhaustion that requires extended rest to recover",
+      "Short-term tiredness caused by physical/mental strain, immobility, heavy workload, or lack of sleep",
+      "A medical condition requiring treatment by an aviation medical examiner",
+      "A permanent reduction in cognitive ability"
+    ],
+    "correct": 1,
+    "explanation_en": "Acute fatigue is short-term tiredness resulting from physical/mental strain, heavy workload, emotional pressure, monotony, or lack of sleep. It can usually be resolved with adequate rest. Chronic fatigue, by contrast, is a long-term condition that accumulates when insufficient rest occurs between episodes of acute fatigue."
+  },
+  {
+    "id": 76,
+    "category": "Human Performance",
+    "en": "Chronic fatigue occurs when:",
+    "options_en": [
+      "A pilot flies too high without supplemental oxygen",
+      "There is insufficient time for full recovery between episodes of acute fatigue",
+      "A pilot consumes medication before flight",
+      "Dehydration occurs during extended operations"
+    ],
+    "correct": 1,
+    "explanation_en": "Chronic fatigue develops when there is not enough time for full recovery between episodes of acute fatigue. Unlike acute fatigue which can be resolved with a good rest, chronic fatigue requires a prolonged period of rest and may need medical attention."
+  },
+  {
+    "id": 77,
+    "category": "Human Performance",
+    "en": "The combination of stress and fatigue in a pilot is considered:",
+    "options_en": [
+      "Manageable with caffeine and energy drinks",
+      "Only an issue for commercial airline pilots",
+      "An extremely hazardous combination that can impair judgment",
+      "Not relevant to RPAS operations"
+    ],
+    "correct": 2,
+    "explanation_en": "Stress and fatigue together create an extremely hazardous combination. Continuous stress additions decrease performance, impair judgment, and lead to unwarranted risk-taking. This applies equally to RPAS pilots, even though they are not physically in the aircraft."
+  },
+  {
+    "id": 78,
+    "category": "Human Performance",
+    "en": "What is situational awareness in the context of RPAS operations?",
+    "options_en": [
+      "Knowing the battery level of the RPAS at all times",
+      "A comprehensive awareness of the surrounding environment, airspace, weather, and operational conditions",
+      "The ability to read aeronautical charts",
+      "Having line of sight with the RPAS at all times"
+    ],
+    "correct": 1,
+    "explanation_en": "Situational awareness is the comprehensive perception and understanding of all factors affecting the operation, including the surrounding environment, other aircraft, weather conditions, airspace status, RPAS status, and potential hazards. Loss of situational awareness is a leading contributor to aviation incidents."
+  },
+  {
+    "id": 79,
+    "category": "Human Performance",
+    "en": "The 'PAVE' checklist is a pre-flight risk assessment tool. What does 'PAVE' stand for?",
+    "options_en": [
+      "Pilot, Aircraft, enVironment, External pressures",
+      "Pressure, Altitude, Velocity, Equipment",
+      "Plan, Assess, Verify, Execute",
+      "Pilot, Awareness, Visibility, Emergency"
+    ],
+    "correct": 0,
+    "explanation_en": "PAVE stands for Pilot (fitness and currency), Aircraft (airworthiness and equipment), enVironment (weather, terrain, airspace), and External pressures (time, schedule, task completion). It is a structured tool for identifying and mitigating risks before flight."
+  },
+  {
+    "id": 80,
+    "category": "Human Performance",
+    "en": "Spatial disorientation for an RPAS pilot is MOST likely caused by:",
+    "options_en": [
+      "Flying the RPAS too fast",
+      "Visual illusions when the RPAS is at a distance, making orientation difficult to determine",
+      "Using first-person view (FPV) goggles indoors",
+      "Operating in controlled airspace"
+    ],
+    "correct": 1,
+    "explanation_en": "RPAS pilots can experience spatial disorientation when the aircraft is at a distance and visual cues are insufficient to accurately determine its orientation, heading, or attitude. Without the physiological cues available to manned aircraft pilots, RPAS operators are susceptible to visual illusions."
+  },
+  {
+    "id": 81,
+    "category": "Human Performance",
+    "en": "The Threat and Error Management (TEM) model identifies which three components?",
+    "options_en": [
+      "Weather, Equipment, Pilot",
+      "Threats, Errors, Undesired Aircraft States",
+      "Hazards, Controls, Consequences",
+      "Plan, Do, Check"
+    ],
+    "correct": 1,
+    "explanation_en": "The TEM model identifies Threats (external factors that increase operational complexity), Errors (actions or inactions by the crew that deviate from intentions), and Undesired Aircraft States (positions or conditions of the aircraft that clearly reduce safety margins). The goal is to manage threats and trap errors before they lead to undesired states."
+  },
+  {
+    "id": 82,
+    "category": "Electrical Systems",
+    "en": "What is the nominal voltage of a single fully charged LiPo (Lithium Polymer) battery cell?",
+    "options_en": [
+      "3.0V",
+      "3.7V",
+      "4.2V",
+      "5.0V"
+    ],
+    "correct": 2,
+    "explanation_en": "A single LiPo cell has a nominal voltage of 3.7V, but when fully charged it reaches 4.2V. The minimum safe voltage is approximately 3.0V per cell. Discharging below this level can cause permanent damage and create safety hazards."
+  },
+  {
+    "id": 83,
+    "category": "Electrical Systems",
+    "en": "What is the recommended storage voltage per cell for LiPo batteries when not in use for extended periods?",
+    "options_en": [
+      "3.0V per cell",
+      "3.7V to 3.85V per cell",
+      "4.2V per cell",
+      "4.5V per cell"
+    ],
+    "correct": 1,
+    "explanation_en": "LiPo batteries should be stored at approximately 3.7V to 3.85V per cell (around 50% charge) for long-term storage. Storing them fully charged (4.2V) causes accelerated chemical degradation and increases the risk of swelling/puffing. Storing them fully discharged can cause cells to drop below safe voltage."
+  },
+  {
+    "id": 84,
+    "category": "Electrical Systems",
+    "en": "A LiPo battery that appears swollen or 'puffed' indicates:",
+    "options_en": [
+      "The battery is fully charged and ready for flight",
+      "Internal gas buildup due to damage or degradation — the battery should be retired",
+      "Normal expansion due to temperature changes",
+      "The battery needs to be balanced charged"
+    ],
+    "correct": 1,
+    "explanation_en": "A swollen or puffed LiPo battery indicates internal gas buildup from chemical decomposition, typically caused by overcharging, over-discharging, physical damage, or age-related degradation. A puffed battery should be immediately removed from service and safely disposed of, as it poses a fire risk."
+  },
+  {
+    "id": 85,
+    "category": "Electrical Systems",
+    "en": "What happens when a LiPo battery is overcharged beyond 4.2V per cell?",
+    "options_en": [
+      "The battery stores more energy for longer flight times",
+      "Lithium plating occurs on the anode, gas is produced, and the battery may vent or catch fire",
+      "The battery management system automatically prevents any damage",
+      "The battery simply stops accepting charge"
+    ],
+    "correct": 1,
+    "explanation_en": "When overcharged, lithium metal plates on the anode and the cathode produces carbon dioxide gas. Internal pressure rises until the battery casing can rupture, venting flammable gases that can ignite. This is why proper chargers with cell-level voltage monitoring are essential."
+  },
+  {
+    "id": 86,
+    "category": "Electrical Systems",
+    "en": "What does the 'C' rating on a LiPo battery indicate?",
+    "options_en": [
+      "The total capacity of the battery in watt-hours",
+      "The maximum safe discharge rate relative to the battery's capacity",
+      "The number of charge cycles the battery can endure",
+      "The battery's voltage under load"
+    ],
+    "correct": 1,
+    "explanation_en": "The C rating indicates the maximum safe continuous discharge rate relative to the battery's capacity. For example, a 2000mAh battery with a 25C rating can safely discharge at 25 x 2000 = 50,000mA (50A). Higher C ratings allow greater current draw for more demanding applications."
+  },
+  {
+    "id": 87,
+    "category": "Electrical Systems",
+    "en": "Electromagnetic interference (EMI) can affect RPAS operations by:",
+    "options_en": [
+      "Only affecting the camera quality",
+      "Disrupting the command and control link between pilot and aircraft, potentially causing a flyaway",
+      "Reducing battery life by 50%",
+      "Making the RPAS fly faster"
+    ],
+    "correct": 1,
+    "explanation_en": "EMI or radio frequency interference (RFI) can disrupt the control link (C2 link) between the pilot and the RPAS, potentially causing signal loss or a flyaway. Sources include power lines, transmission towers, and other electronic equipment. Pilots should check the local RF environment before flight."
+  },
+  {
+    "id": 88,
+    "category": "Electrical Systems",
+    "en": "An IMU (Inertial Measurement Unit) in a drone typically combines which sensors?",
+    "options_en": [
+      "Camera and GPS only",
+      "Gyroscopes, accelerometers, and sometimes magnetometers",
+      "Barometer and thermometer only",
+      "LiDAR and ultrasonic sensors"
+    ],
+    "correct": 1,
+    "explanation_en": "An IMU typically combines gyroscopes (measuring angular velocity/rotation), accelerometers (measuring linear acceleration), and often magnetometers (measuring magnetic field for heading reference). These sensors work together to determine the drone's orientation, movement, and heading."
+  },
+  {
+    "id": 89,
+    "category": "Electrical Systems",
+    "en": "A barometric sensor (barometer) in a drone is primarily used to determine:",
+    "options_en": [
+      "Wind speed",
+      "Altitude by measuring atmospheric pressure",
+      "Distance to obstacles",
+      "Battery voltage"
+    ],
+    "correct": 1,
+    "explanation_en": "A barometric pressure sensor measures atmospheric pressure, which decreases with altitude. The drone's flight controller uses this data to estimate altitude above the takeoff point. This provides more stable altitude holding than GPS-only altitude measurement, especially at low altitudes."
+  },
+  {
+    "id": 90,
+    "category": "Navigation",
+    "en": "What is the difference between true north and magnetic north?",
+    "options_en": [
+      "There is no difference; they are the same point",
+      "True north is the geographic North Pole; magnetic north is where a compass needle points, and they differ by the magnetic variation/declination",
+      "Magnetic north is always exactly 10 degrees east of true north",
+      "True north changes over time but magnetic north is fixed"
+    ],
+    "correct": 1,
+    "explanation_en": "True north is the geographic North Pole (the axis around which the Earth rotates). Magnetic north is where a compass needle points, determined by Earth's magnetic field. The angular difference between them is called magnetic variation (or declination), which changes depending on location and slowly changes over time."
+  },
+  {
+    "id": 91,
+    "category": "Navigation",
+    "en": "Magnetic variation in Australia is generally:",
+    "options_en": [
+      "Zero degrees everywhere",
+      "Easterly across the entire continent",
+      "Varies from approximately 4 degrees East to 12 degrees East across the continent",
+      "Always exactly 10 degrees West"
+    ],
+    "correct": 2,
+    "explanation_en": "Magnetic variation across Australia generally ranges from approximately 4 degrees East in Western Australia to approximately 12 degrees East in eastern Australia. The exact value varies by location and changes slowly over time. This information is shown on aeronautical charts with isogonic lines."
+  },
+  {
+    "id": 92,
+    "category": "Navigation",
+    "en": "Lines of latitude run:",
+    "options_en": [
+      "North to south, converging at the poles",
+      "East to west, parallel to the equator",
+      "Diagonally across the globe",
+      "Only through the Southern Hemisphere"
+    ],
+    "correct": 1,
+    "explanation_en": "Lines of latitude (parallels) run east to west around the Earth, parallel to the equator. They measure angular distance north or south of the equator (0 to 90 degrees). Lines of longitude (meridians) run north to south from pole to pole."
+  },
+  {
+    "id": 93,
+    "category": "Navigation",
+    "en": "One degree of latitude is approximately equal to:",
+    "options_en": [
+      "1 nautical mile",
+      "10 nautical miles",
+      "60 nautical miles",
+      "100 nautical miles"
+    ],
+    "correct": 2,
+    "explanation_en": "One degree of latitude equals approximately 60 nautical miles (111 km). Therefore, one minute of latitude equals approximately 1 nautical mile (1.852 km). This relationship is fundamental to navigation and distance calculation on aeronautical charts."
+  },
+  {
+    "id": 94,
+    "category": "Aeronautical Charts",
+    "en": "Which aeronautical chart is MOST commonly used for RPAS flight planning in the vicinity of controlled aerodromes in Australia?",
+    "options_en": [
+      "En-Route Chart Low (ERC-L)",
+      "World Aeronautical Chart (WAC)",
+      "Visual Terminal Chart (VTC)",
+      "En-Route Chart High (ERC-H)"
+    ],
+    "correct": 2,
+    "explanation_en": "The Visual Terminal Chart (VTC) is the most commonly used chart for RPAS operations near controlled aerodromes. It provides detailed information about the terminal area including airspace boundaries, obstacles, terrain features, and aerodrome details at a large scale suitable for low-level operations."
+  },
+  {
+    "id": 95,
+    "category": "Aeronautical Charts",
+    "en": "On an Australian VTC, an aerodrome information box typically contains:",
+    "options_en": [
+      "Only the aerodrome name",
+      "The aerodrome name, navigation aids, frequencies, elevation, and runway information",
+      "Only the GPS coordinates",
+      "Only the CTAF frequency"
+    ],
+    "correct": 1,
+    "explanation_en": "An aerodrome information box on a VTC contains key data including: the aerodrome name, navigation aid identifier, types and frequencies of navigation aids, aerodrome frequency/CTAF, elevation, and runway details. This information is essential for RPAS pilots operating near aerodromes."
+  },
+  {
+    "id": 96,
+    "category": "Aeronautical Charts",
+    "en": "Airspace categories and their lateral and vertical limits in Australia are depicted on which charts?",
+    "options_en": [
+      "Only the Visual Terminal Chart (VTC)",
+      "En-Route Chart Low (ERC-L), Terminal Area Chart (TAC), and Visual Terminal Chart (VTC)",
+      "Only road maps and topographic charts",
+      "Only the NAIPS website, not on paper charts"
+    ],
+    "correct": 1,
+    "explanation_en": "Airspace categories and their limits are depicted on En-Route Charts (ERC-L and ERC-H), Terminal Area Charts (TAC), and Visual Terminal Charts (VTC). Each chart serves different purposes and scales but all show the relevant airspace information for their coverage area."
+  },
+  {
+    "id": 97,
+    "category": "Aeronautical Charts",
+    "en": "On a VTC, a solid blue line surrounding an aerodrome indicates:",
+    "options_en": [
+      "Restricted airspace",
+      "Class C controlled airspace boundary",
+      "A danger area",
+      "A mandatory broadcast zone"
+    ],
+    "correct": 1,
+    "explanation_en": "On Australian VTCs, Class C controlled airspace is depicted with a solid blue line. Class D airspace is shown with a blue dashed line. Understanding these chart symbols is essential for RPAS pilots to identify where they need specific approvals to operate."
+  },
+  {
+    "id": 98,
+    "category": "Aeronautical Charts",
+    "en": "On a VTC, a blue dashed line surrounding an aerodrome indicates:",
+    "options_en": [
+      "Class A airspace",
+      "Prohibited area",
+      "Class D controlled airspace boundary",
+      "A helicopter landing area"
+    ],
+    "correct": 2,
+    "explanation_en": "A blue dashed line on a VTC indicates the boundary of Class D controlled airspace. Class D airspace typically extends from the surface to a specified altitude around tower-controlled aerodromes. RPAS pilots need CASA approval and ATC clearance to operate within Class D airspace."
+  },
+  {
+    "id": 99,
+    "category": "Airspace",
+    "en": "Class A airspace in Australia is typically found:",
+    "options_en": [
+      "At the surface around all aerodromes",
+      "Above FL180 (18,000 feet) in designated areas and on published airways",
+      "Only over the ocean",
+      "Below 1,000 feet AGL"
+    ],
+    "correct": 1,
+    "explanation_en": "Class A airspace in Australia is found above FL180 and on published airways. Only IFR (Instrument Flight Rules) operations are permitted. No VFR flights or RPAS operations are allowed in Class A airspace without specific exemption."
+  },
+  {
+    "id": 100,
+    "category": "Airspace",
+    "en": "Class C airspace in Australia typically extends from the surface to what altitude around major aerodromes?",
+    "options_en": [
+      "1,000 feet AGL",
+      "2,500 feet AGL",
+      "4,000 to 8,500 feet above the aerodrome elevation",
+      "FL180"
+    ],
+    "correct": 2,
+    "explanation_en": "Class C airspace surrounds major aerodromes (like capital city airports) and typically extends from the surface to between 4,000 and 8,500 feet above aerodrome elevation. Both IFR and VFR traffic are permitted but all aircraft require ATC clearance. RPAS operations require CASA approval."
+  },
+  {
+    "id": 101,
+    "category": "Airspace",
+    "en": "What is the MAIN difference between Class D and Class E airspace?",
+    "options_en": [
+      "Class D allows RPAS but Class E does not",
+      "Class D has a control tower and requires radio contact; Class E does not require radio contact for VFR flights",
+      "Class E is above FL180; Class D is below 1,000 feet",
+      "There is no difference; they are the same"
+    ],
+    "correct": 1,
+    "explanation_en": "Class D airspace is associated with tower-controlled aerodromes where radio contact with ATC is mandatory for all aircraft. Class E is controlled airspace but does not have a control tower; IFR flights receive separation services but VFR flights may operate without ATC contact (though they must comply with VFR requirements)."
+  },
+  {
+    "id": 102,
+    "category": "Airspace",
+    "en": "A CTAF (Common Traffic Advisory Frequency) is used at:",
+    "options_en": [
+      "International airports only",
+      "Non-towered aerodromes and certain areas for pilots to self-announce position and intentions",
+      "Military restricted areas only",
+      "Only above FL180"
+    ],
+    "correct": 1,
+    "explanation_en": "A CTAF is a designated frequency used at non-towered aerodromes (and some areas outside towered aerodromes) for pilots to broadcast their position and intentions to other traffic in the area. It is not monitored by ATC but allows situational awareness between pilots."
+  },
+  {
+    "id": 103,
+    "category": "Emergency Procedures",
+    "en": "In the event of a command and control (C2) link failure during RPAS operations, the MOST important first action is to:",
+    "options_en": [
+      "Immediately call emergency services (000)",
+      "Attempt to re-establish the link and monitor the RPAS failsafe response (e.g., RTH, hover, or land)",
+      "Abandon the operation and leave the area",
+      "Contact CASA to report the incident"
+    ],
+    "correct": 1,
+    "explanation_en": "Upon C2 link loss, the pilot should first attempt to re-establish the link while monitoring whether the RPAS executes its pre-programmed failsafe action (Return to Home, hover, or land). The pilot should be familiar with the aircraft's failsafe behaviour before each flight."
+  },
+  {
+    "id": 104,
+    "category": "Emergency Procedures",
+    "en": "A 'flyaway' is BEST described as:",
+    "options_en": [
+      "A planned automated flight along waypoints",
+      "An uncontrolled flight where the RPAS does not respond to pilot inputs and flies away from the intended area",
+      "A normal return-to-home sequence",
+      "Flying the RPAS beyond visual line of sight intentionally"
+    ],
+    "correct": 1,
+    "explanation_en": "A flyaway is an uncontrolled, unintended flight where the RPAS does not respond to pilot control inputs and flies away from the intended operational area. Causes can include EMI, GPS errors, compass interference, or software malfunctions. Pilots should note last known position, altitude, and heading."
+  },
+  {
+    "id": 105,
+    "category": "Emergency Procedures",
+    "en": "During a drone flyaway event, the RPIC should immediately:",
+    "options_en": [
+      "Chase the drone on foot",
+      "Inform all crew members and bystanders, and if in controlled airspace, notify ATC",
+      "Turn off the controller to reset the connection",
+      "Continue normal operations with a backup drone"
+    ],
+    "correct": 1,
+    "explanation_en": "During a flyaway, the RPIC should immediately inform all crew members and bystanders of the situation. If operating in controlled airspace, ATC must be notified. The pilot should record the last known position, altitude, and heading, and take note of battery endurance remaining to estimate where the RPAS may land or crash."
+  },
+  {
+    "id": 106,
+    "category": "Emergency Procedures",
+    "en": "The typical failsafe options that can be pre-programmed in an RPAS for C2 link loss include:",
+    "options_en": [
+      "Self-destruct, continue mission, hover indefinitely",
+      "Return to Home (RTH), hover in place, or auto-land",
+      "Fly higher, switch to manual mode, circle overhead",
+      "Contact ATC automatically, activate parachute, continue mission"
+    ],
+    "correct": 1,
+    "explanation_en": "Most consumer and commercial RPAS offer three common failsafe options for C2 link loss: Return to Home (RTH) — the most common option, where the drone returns to the launch point; Hover in place — maintaining position until the link is re-established or battery is low; and Auto-land — descending vertically to land at the current position."
+  },
+  {
+    "id": 107,
+    "category": "Emergency Procedures",
+    "en": "Vortex Ring State (settling with power) in a multirotor RPAS is MOST likely to occur when:",
+    "options_en": [
+      "Flying at maximum forward speed",
+      "Descending vertically through its own downwash at a rate greater than about 50% of the maximum descent rate",
+      "Hovering in a strong crosswind",
+      "Climbing rapidly to maximum altitude"
+    ],
+    "correct": 1,
+    "explanation_en": "Vortex Ring State occurs when a multirotor descends vertically (or near-vertically) into its own downwash. The disturbed air recirculates through the rotors, causing a loss of lift even at full power. Recovery involves moving forward or laterally to fly into clean, undisturbed air."
+  },
+  {
+    "id": 108,
+    "category": "Risk Management",
+    "en": "In a risk matrix, risk is assessed as a function of:",
+    "options_en": [
+      "Cost and schedule only",
+      "Likelihood (probability) and consequence (severity)",
+      "Equipment age and maintenance history",
+      "Weather conditions and time of day"
+    ],
+    "correct": 1,
+    "explanation_en": "A risk matrix evaluates risk by combining the likelihood (probability) of a hazard occurring with the severity (consequence) of the potential outcome. By plotting both dimensions, the risk level (e.g., low, medium, high, extreme) can be determined to guide decision-making and mitigation strategies."
+  },
+  {
+    "id": 109,
+    "category": "Risk Management",
+    "en": "A 'bow-tie' risk analysis model shows:",
+    "options_en": [
+      "Only the consequences of an incident",
+      "Only the causes of a hazard",
+      "The hazard at the centre, with preventive barriers (controls) on the left and recovery/mitigation barriers on the right",
+      "A timeline of events in chronological order"
+    ],
+    "correct": 2,
+    "explanation_en": "The bow-tie model places the top event (hazard) at the centre. The left side shows threats and their preventive barriers (controls that prevent the event from occurring). The right side shows consequences and their recovery/mitigation barriers (controls that reduce the impact if the event does occur). It provides a comprehensive visual representation of risk scenarios."
+  },
+  {
+    "id": 110,
+    "category": "Risk Management",
+    "en": "The first step in the risk management process is:",
+    "options_en": [
+      "Implementing control measures",
+      "Monitoring and reviewing",
+      "Hazard identification",
+      "Developing an emergency response plan"
+    ],
+    "correct": 2,
+    "explanation_en": "Hazard identification is the starting point of the risk management process. You must first identify what can go wrong before you can assess the risk, develop controls, and implement mitigation strategies. The general process is: Identify hazards, Assess risks, Develop controls, Implement, then Monitor and review."
+  },
+  {
+    "id": 111,
+    "category": "Risk Management",
+    "en": "In the hierarchy of controls, which control measure is MOST effective?",
+    "options_en": [
+      "Personal Protective Equipment (PPE)",
+      "Administrative controls (procedures and training)",
+      "Elimination of the hazard",
+      "Engineering controls"
+    ],
+    "correct": 2,
+    "explanation_en": "The hierarchy of controls ranks control measures from most to least effective: 1. Elimination (remove the hazard entirely), 2. Substitution (replace with less hazardous alternative), 3. Engineering controls (isolate people from the hazard), 4. Administrative controls (procedures, training), 5. PPE (personal protective equipment). Elimination is always the most effective control."
+  },
+  {
+    "id": 112,
+    "category": "Risk Management",
+    "en": "A Safety Management System (SMS) is BEST described as:",
+    "options_en": [
+      "A single document listing all safety rules",
+      "A systematic approach to managing safety, including organisational structures, policies, procedures, and accountability",
+      "An emergency plan activated only during incidents",
+      "A computer system that tracks aircraft maintenance"
+    ],
+    "correct": 1,
+    "explanation_en": "An SMS is a comprehensive, systematic approach to managing safety that integrates organisational structures, accountabilities, policies, and procedures. It includes safety risk management, safety assurance, safety promotion, and safety policy as its four pillars/components."
+  },
+  {
+    "id": 113,
+    "category": "Flight Planning",
+    "en": "When planning an RPAS flight, the maximum take-off weight (MTOW) includes:",
+    "options_en": [
+      "Only the weight of the airframe",
+      "The total weight including airframe, battery, payload, and all accessories attached to the RPAS",
+      "Only the weight of the battery and payload",
+      "The weight of the RPAS without the battery"
+    ],
+    "correct": 1,
+    "explanation_en": "Maximum Take-Off Weight (MTOW) is the total weight of the RPAS including the airframe, batteries, all payloads (cameras, sensors, LiDAR, etc.), and any accessories attached to the aircraft. This total weight determines which regulatory category applies under CASA regulations."
+  },
+  {
+    "id": 114,
+    "category": "Flight Planning",
+    "en": "For RPAS operations, a NOTAM should be checked because it provides:",
+    "options_en": [
+      "Long-term weather forecasts",
+      "Temporary or permanent changes to aeronautical information that may affect operations",
+      "Aircraft maintenance schedules",
+      "Insurance requirements"
+    ],
+    "correct": 1,
+    "explanation_en": "NOTAMs (Notices to Air Missions) alert pilots to temporary or permanent changes that may affect operations, such as airspace restrictions, military exercises, runway closures, obstacles, and other hazards. Checking NOTAMs is an essential part of pre-flight planning to ensure safe operations."
+  },
+  {
+    "id": 115,
+    "category": "Flight Planning",
+    "en": "A ReOC holder who has a NOTAM requirement in their instrument of approval must:",
+    "options_en": [
+      "Issue the NOTAM verbally to nearby pilots",
+      "Submit a NOTAM request to Airservices Australia (if authorised) or to CASA",
+      "Only inform local police of the operation",
+      "Post notice on social media"
+    ],
+    "correct": 1,
+    "explanation_en": "If a ReOC holder's instrument of approval requires NOTAM issuance, they must complete the Airservices Australia NOTAM request form and submit it to either Airservices Australia (if they are a NOTAM authorised person) or to CASA (if they are not). This ensures other airspace users are informed of the RPAS operation."
+  },
+  {
+    "id": 116,
+    "category": "Flight Planning",
+    "en": "What effect does high density altitude have on RPAS performance?",
+    "options_en": [
+      "Improved performance due to thinner air reducing drag",
+      "Reduced performance due to thinner air providing less lift from the rotors",
+      "No effect on multirotor RPAS",
+      "Only affects fixed-wing RPAS, not multirotors"
+    ],
+    "correct": 1,
+    "explanation_en": "High density altitude (caused by high temperature, high elevation, or high humidity) means thinner air. Thinner air reduces rotor efficiency, resulting in less lift and thrust. This means reduced payload capacity, shorter flight times, and decreased overall performance for all RPAS including multirotors."
+  },
+  {
+    "id": 117,
+    "category": "Operations and Procedures",
+    "en": "The 'CANCA' protocol used in multi-crew RPAS operations stands for:",
+    "options_en": [
+      "Check, Alert, Navigate, Communicate, Assess",
+      "Communicate (internally), Aviate, Navigate, Communicate (externally), Administrate",
+      "Control, Adjust, Notify, Confirm, Act",
+      "Clear, Approach, Navigate, Climb, Advise"
+    ],
+    "correct": 1,
+    "explanation_en": "CANCA is the multi-crew RPAS operations protocol: Communicate (between crew members), Aviate (fly the aircraft safely), Navigate (ensure correct flight path), Communicate (externally to ATC/stakeholders), and Administrate (complete required documentation and reporting)."
+  },
+  {
+    "id": 118,
+    "category": "Operations and Procedures",
+    "en": "An anabatic wind is:",
+    "options_en": [
+      "A wind that flows down a mountain slope at night",
+      "A wind that rises up a slope due to daytime heating of the hillside",
+      "A strong wind associated with cold front passage",
+      "A wind that blows from the sea to the land"
+    ],
+    "correct": 1,
+    "explanation_en": "An anabatic wind rises up a slope during the daytime. Solar heating warms the air in contact with the slope, making it less dense than the surrounding air at the same altitude. This buoyant air rises along the slope. Anabatic winds are the daytime counterpart of katabatic (downslope) winds."
+  },
+  {
+    "id": 119,
+    "category": "Operations and Procedures",
+    "en": "In Mode 2 transmitter configuration, pulling the right stick to the left will cause the RPAS to:",
+    "options_en": [
+      "Yaw to the left",
+      "Roll to the left (move laterally left)",
+      "Climb",
+      "Pitch forward"
+    ],
+    "correct": 1,
+    "explanation_en": "In Mode 2 (the most common transmitter configuration), the right stick controls pitch (forward/back) and roll (left/right). Moving the right stick to the left causes the RPAS to roll left, moving it laterally to the left. The left stick controls throttle (up/down) and yaw (left/right rotation)."
+  },
+  {
+    "id": 120,
+    "category": "Operations and Procedures",
+    "en": "The four forces acting on an RPAS in flight are:",
+    "options_en": [
+      "Lift, Weight, Thrust, Drag",
+      "Speed, Direction, Altitude, Power",
+      "Roll, Pitch, Yaw, Throttle",
+      "Gravity, Inertia, Friction, Momentum"
+    ],
+    "correct": 0,
+    "explanation_en": "The four fundamental forces acting on any aircraft including RPAS are: Lift (upward force generated by the rotors/wings), Weight (downward force due to gravity), Thrust (forward force from the propulsion system), and Drag (rearward force opposing motion through the air). For level, unaccelerated flight, lift equals weight and thrust equals drag."
+  },
+  {
+    "id": 121,
+    "category": "Operations and Procedures",
+    "en": "Controlled airspace that extends upward from a specified altitude (not from the surface) is called a:",
+    "options_en": [
+      "Control Zone (CTR)",
+      "Control Area (CTA)",
+      "Prohibited Area",
+      "Restricted Area"
+    ],
+    "correct": 1,
+    "explanation_en": "A Control Area (CTA) is controlled airspace that extends upward from a specified altitude above the earth's surface. A Control Zone (CTR), by contrast, extends from the surface upward to a specified altitude. RPAS pilots must understand the difference as it determines whether operations at low altitudes may be in uncontrolled airspace beneath a CTA."
+  },
+  {
+    "id": 122,
+    "category": "Operations and Procedures",
+    "en": "What is geofencing in the context of RPAS operations?",
+    "options_en": [
+      "A physical fence placed around the operating area",
+      "Software-defined virtual boundaries that restrict or warn when the RPAS approaches restricted areas",
+      "GPS jamming to prevent flyaways",
+      "A requirement to operate within fenced private property only"
+    ],
+    "correct": 1,
+    "explanation_en": "Geofencing uses software-defined virtual boundaries programmed into the RPAS flight controller or control app. When the aircraft approaches or reaches these boundaries (which often correspond to restricted airspace, airports, or other no-fly zones), it may warn the pilot, prevent entry, or automatically return to the operating area."
+  },
+  {
+    "id": 123,
+    "category": "Operations and Procedures",
+    "en": "What is the purpose of a pre-flight compass calibration on an RPAS?",
+    "options_en": [
+      "To charge the battery faster",
+      "To ensure the magnetometer accurately reads the Earth's magnetic field for reliable heading and navigation",
+      "To test the camera gimbal",
+      "To set the maximum flight altitude"
+    ],
+    "correct": 1,
+    "explanation_en": "Compass calibration ensures the magnetometer accurately reads the local magnetic field for reliable heading information and GPS-assisted flight modes. Calibration should be performed when flying in a new location, after firmware updates, or when the manufacturer's app recommends it. Nearby metal structures or magnetic sources can cause errors if not calibrated."
+  },
+  {
+    "id": 124,
+    "category": "Maintenance and Logging",
+    "en": "A ReOC holder is required to maintain which of the following records?",
+    "options_en": [
+      "Only the pilot's personal diary",
+      "Flight logs, maintenance records, and pilot currency details",
+      "Only financial records of operations",
+      "Only customer complaint records"
+    ],
+    "correct": 1,
+    "explanation_en": "ReOC holders must keep comprehensive records including flight logs (detailing each operation), maintenance records (all maintenance performed on each RPAS), and pilot currency details (ensuring all remote pilots meet ongoing training and proficiency requirements). These must be available for CASA inspection."
+  },
+  {
+    "id": 125,
+    "category": "Maintenance and Logging",
+    "en": "A flight log for RPAS operations should typically include:",
+    "options_en": [
+      "Only the pilot's name and the date",
+      "Date, pilot name, RPAS details, location, flight duration, purpose, weather conditions, and any incidents",
+      "Only the battery serial number and charge cycles",
+      "Only the client's name and payment details"
+    ],
+    "correct": 1,
+    "explanation_en": "A comprehensive flight log should record: date and time, pilot name and licence number, RPAS type and registration/serial number, location, flight duration, purpose of flight, weather conditions, crew members, any incidents or equipment issues, and any relevant observations. This documentation supports regulatory compliance and operational safety."
+  },
+  {
+    "id": 126,
+    "category": "Insurance and Legal",
+    "en": "For RPAS operations under a ReOC in Australia, aviation insurance is:",
+    "options_en": [
+      "Not required under any circumstances",
+      "Mandatory by CASA regulation for all ReOC operations",
+      "Recommended but not legally mandated by CASA, though strongly advised for commercial operations",
+      "Only required when flying over people"
+    ],
+    "correct": 2,
+    "explanation_en": "While CASA does not legally mandate aviation insurance for ReOC holders, comprehensive public liability insurance covering RPAS operations is strongly recommended for all commercial operations. Many clients and contracts require proof of insurance, and operating without insurance exposes the operator to significant financial liability in the event of an incident."
+  },
+  {
+    "id": 127,
+    "category": "Insurance and Legal",
+    "en": "Under CASR Part 101, an RPAS incident that results in serious injury to a person must be reported to:",
+    "options_en": [
+      "Only the local police",
+      "The Australian Transport Safety Bureau (ATSB)",
+      "Only the RPAS manufacturer",
+      "No reporting is required for RPAS incidents"
+    ],
+    "correct": 1,
+    "explanation_en": "Under aviation safety regulations, RPAS incidents involving serious injury, death, or significant damage must be reported to the Australian Transport Safety Bureau (ATSB) as the independent transport safety investigation body. Failure to report is a serious regulatory breach."
+  },
+  {
+    "id": 128,
+    "category": "Operations and Procedures",
+    "en": "The BVLOS (Beyond Visual Line of Sight) exam administered by CASA consists of how many questions?",
+    "options_en": [
+      "20 questions",
+      "30 questions",
+      "40 questions",
+      "85 questions"
+    ],
+    "correct": 2,
+    "explanation_en": "The CASA BVLOS exam for operations outside controlled airspace (OCTA) consists of 40 multiple-choice questions. The pass rate is 70%. It covers BVLOS flights, aeronautics, instrumentation, and human factors. It is an alternate pathway for RePL holders who do not hold a crewed aviation Instrument Rating."
+  },
+  {
+    "id": 129,
+    "category": "Meteorology",
+    "en": "A temperature inversion occurs when:",
+    "options_en": [
+      "Temperature decreases with altitude, as expected",
+      "Temperature increases with altitude, trapping pollutants and reducing visibility below the inversion layer",
+      "Temperature remains constant at all altitudes",
+      "Temperature drops suddenly by more than 10 degrees"
+    ],
+    "correct": 1,
+    "explanation_en": "Normally temperature decreases with altitude. A temperature inversion is the reverse — a layer where temperature increases with altitude. This creates a stable cap that traps haze, smoke, and pollutants below the inversion, reducing visibility. It also suppresses convection and turbulence but can create significant wind shear at the inversion boundary."
+  },
+  {
+    "id": 130,
+    "category": "Meteorology",
+    "en": "The standard atmospheric lapse rate is approximately:",
+    "options_en": [
+      "1 degree C per 1,000 feet",
+      "2 degrees C per 1,000 feet",
+      "3 degrees C per 1,000 feet",
+      "5 degrees C per 1,000 feet"
+    ],
+    "correct": 1,
+    "explanation_en": "The International Standard Atmosphere (ISA) lapse rate is approximately 2 degrees Celsius per 1,000 feet (or 6.5 degrees C per 1,000 metres). This means that in standard conditions, the temperature decreases by about 2 degrees C for every 1,000 feet increase in altitude. The actual lapse rate on any given day may differ significantly."
+  },
+  {
+    "id": 131,
+    "category": "Aeronautical Charts",
+    "en": "Wind direction reported in a TAF or METAR is referenced to:",
+    "options_en": [
+      "Magnetic north",
+      "True north",
+      "Grid north",
+      "The local runway heading"
+    ],
+    "correct": 1,
+    "explanation_en": "Wind direction in METARs and TAFs is always referenced to true north, not magnetic north. However, when ATC or ATIS provides wind information over the radio, it is given referenced to magnetic north. This is an important distinction for pilots interpreting weather reports versus radio communications."
+  },
+  {
+    "id": 132,
+    "category": "Aeronautical Charts",
+    "en": "A NOTAMs system in Australia is managed by:",
+    "options_en": [
+      "Bureau of Meteorology",
+      "Airservices Australia",
+      "Department of Defence",
+      "State Government aviation departments"
+    ],
+    "correct": 1,
+    "explanation_en": "In Australia, the NOTAM (Notice to Air Missions) system is managed by Airservices Australia. NOTAMs are distributed through the NAIPS (National Aeronautical Information Processing System) and can be accessed online. RPAS operators with NOTAM requirements submit their requests to Airservices Australia."
+  },
+  {
+    "id": 133,
+    "category": "Operations and Procedures",
+    "en": "The QNH altimeter setting provides altitude above:",
+    "options_en": [
+      "The aerodrome elevation",
+      "Mean sea level (MSL)",
+      "The ground level at the current position",
+      "The standard pressure datum of 1013.25 hPa"
+    ],
+    "correct": 1,
+    "explanation_en": "QNH is the atmospheric pressure at sea level. When set on an altimeter, it provides the altitude above mean sea level (AMSL). QFE provides height above the aerodrome elevation, and the standard setting (1013.25 hPa) provides pressure altitude (used above the transition altitude)."
+  }
+]
