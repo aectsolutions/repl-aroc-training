@@ -2019,6 +2019,48 @@ function clearErrorBook() {
   updateErrorBookBadge();
   showErrorBook();
 }
+
+// Error book sync: export/import via URL hash or clipboard
+function exportErrorBook() {
+  const eb = getErrorBook();
+  if (Object.keys(eb).length === 0) { alert(lang === 'en' ? 'Error book is empty' : '错题集为空'); return; }
+  const data = btoa(JSON.stringify(eb));
+  const url = window.location.origin + window.location.pathname + '#eb=' + data;
+  navigator.clipboard.writeText(url).then(() => {
+    alert(lang === 'en' ? 'Sync link copied to clipboard! Open it on another device/browser to import.' : '同步链接已复制到剪贴板！在其他设备/浏览器打开即可导入。');
+  }).catch(() => {
+    prompt(lang === 'en' ? 'Copy this link to sync error book:' : '复制此链接以同步错题集：', url);
+  });
+}
+
+function importErrorBook(data) {
+  try {
+    const imported = JSON.parse(atob(data));
+    const existing = getErrorBook();
+    // Merge: keep higher counts
+    Object.keys(imported).forEach(k => {
+      if (!existing[k] || imported[k].count > existing[k].count) {
+        existing[k] = imported[k];
+      }
+    });
+    saveErrorBook(existing);
+    return Object.keys(imported).length;
+  } catch { return 0; }
+}
+
+// Auto-import from URL hash on load
+function checkUrlImport() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#eb=')) {
+    const data = hash.substring(4);
+    const count = importErrorBook(data);
+    if (count > 0) {
+      window.location.hash = '';
+      alert(lang === 'en' ? `Imported ${count} error book entries!` : `已导入${count}条错题记录！`);
+      updateErrorBookBadge();
+    }
+  }
+}
 function updateErrorBookBadge() {
   const eb = getErrorBook();
   const count = Object.keys(eb).length;
@@ -2082,6 +2124,7 @@ function showErrorBook() {
 
   actionsEl.innerHTML = `
     <button class="eb-practice-btn" onclick="practiceErrorBook()">🔄 ${lang === 'en' ? `Practice ${questions.length} Questions` : `练习${questions.length}道错题`}</button>
+    <button class="eb-practice-btn" style="background:var(--blue)" onclick="exportErrorBook()">📤 ${lang === 'en' ? 'Sync / Export' : '同步 / 导出'}</button>
     <button class="eb-clear-btn" onclick="if(confirm('${lang === 'en' ? 'Clear all error book records?' : '清空所有错题记录？'}'))clearErrorBook()">🗑 ${lang === 'en' ? 'Clear All' : '清空'}</button>
     <button class="eb-back-btn" onclick="resetAll()">← ${lang === 'en' ? 'Back' : '返回'}</button>
   `;
@@ -2251,6 +2294,7 @@ function toggleTheme() {
 
 renderCategoryTags();
 updateErrorBookBadge();
+checkUrlImport();
 </script>
 </body>
 </html>
