@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RePL & AROC Training | AECT Solutions</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a1a2e;
+  --dark: #16213e;
+  --blue: #0f3460;
+  --accent: #e94560;
+  --accent-hover: #d63050;
+  --green: #27ae60;
+  --green-bg: #eafaf1;
+  --red: #e74c3c;
+  --red-bg: #fdf2f1;
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #868e96;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.25s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 50%, var(--blue) 100%);
+  color: var(--white);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--accent);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  opacity: 0.75;
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+.lang-toggle {
+  display: flex;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  padding: 8px 18px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+}
+
+/* Main container */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* Start Screen */
+.screen { display: none; }
+.screen.active { display: block; }
+
+.start-screen {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+.start-hero {
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-lg);
+}
+
+.start-hero h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.start-hero p {
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 520px;
+  margin: 0 auto 8px;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.info-card {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  text-align: left;
+}
+
+.info-card .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.info-card .icon.blue { background: #e8f0fe; }
+.info-card .icon.red { background: #fce8ec; }
+.info-card .icon.green { background: #e6f4ea; }
+
+.info-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--gray-800);
+}
+
+.info-card p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.cat-tag {
+  padding: 6px 14px;
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cat-tag:hover, .cat-tag.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: #fef0f2;
+}
+
+.start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(233,69,96,0.3);
+}
+
+.start-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233,69,96,0.4);
+}
+
+/* Quiz Screen */
+.progress-section {
+  margin-bottom: 24px;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.progress-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--gray-600);
+}
+
+.stat-value {
+  font-weight: 700;
+  color: var(--gray-900);
+  font-size: 15px;
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.score-badge.good { background: var(--green-bg); color: var(--green); }
+.score-badge.bad { background: var(--red-bg); color: var(--red); }
+.score-badge.neutral { background: var(--gray-100); color: var(--gray-700); }
+
+.progress-bar-track {
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--accent));
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.timer-bar {
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.timer-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 1s linear;
+}
+
+.timer-fill.warning { background: var(--red); }
+
+/* Question Card */
+.question-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid var(--gray-200);
+}
+
+.question-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.question-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: #e8f0fe;
+  color: var(--blue);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.question-number {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 600;
+}
+
+.question-body {
+  padding: 24px;
+}
+
+.question-text {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--gray-900);
+  margin-bottom: 24px;
+}
+
+/* Options */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--gray-800);
+}
+
+.option-btn:hover:not(.disabled) {
+  border-color: var(--blue);
+  background: #f0f4ff;
+}
+
+.option-btn .option-letter {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--gray-700);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.option-btn:hover:not(.disabled) .option-letter {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.option-btn.correct {
+  border-color: var(--green);
+  background: var(--green-bg);
+}
+
+.option-btn.correct .option-letter {
+  background: var(--green);
+  color: var(--white);
+}
+
+.option-btn.wrong {
+  border-color: var(--red);
+  background: var(--red-bg);
+}
+
+.option-btn.wrong .option-letter {
+  background: var(--red);
+  color: var(--white);
+}
+
+.option-btn.disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.option-btn.disabled.correct {
+  opacity: 1;
+}
+
+/* Feedback */
+.feedback-box {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 1.6;
+  display: none;
+}
+
+.feedback-box.show { display: block; }
+.feedback-box.correct-feedback {
+  background: var(--green-bg);
+  border: 1px solid #a3d9b1;
+  color: #1a7a3a;
+}
+
+.feedback-box.wrong-feedback {
+  background: var(--red-bg);
+  border: 1px solid #f0a8a1;
+  color: #a12b22;
+}
+
+.feedback-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.next-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--blue);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.next-btn:hover {
+  background: var(--navy);
+}
+
+/* Retry Banner */
+.retry-banner {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border: 1px solid #ffcc80;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.retry-banner .retry-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.retry-banner .retry-text {
+  font-size: 14px;
+  color: #e65100;
+  font-weight: 500;
+}
+
+.retry-banner .retry-text strong {
+  font-weight: 700;
+}
+
+/* Results Screen */
+.results-screen {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+.result-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 48px 32px;
+  margin-bottom: 24px;
+  border: 1px solid var(--gray-200);
+}
+
+.result-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 24px;
+}
+
+.result-icon.pass { background: var(--green-bg); }
+.result-icon.fail { background: var(--red-bg); }
+
+.result-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.result-title.pass-title { color: var(--green); }
+.result-title.fail-title { color: var(--red); }
+
+.result-subtitle {
+  font-size: 16px;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+}
+
+.score-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-circle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.score-circle .score-text {
+  font-size: 42px;
+  font-weight: 800;
+  z-index: 1;
+}
+
+.score-circle .score-percent {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.result-stat {
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--gray-50);
+}
+
+.result-stat .label {
+  font-size: 12px;
+  color: var(--gray-600);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.result-stat .value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.retry-btn, .restart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 8px;
+}
+
+.retry-btn {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.retry-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.restart-btn {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.restart-btn:hover {
+  background: var(--gray-300);
+}
+
+/* Certificate */
+.certificate {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 40%, var(--blue) 100%);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.certificate::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(233,69,96,0.08);
+}
+
+.certificate::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -20%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(15,52,96,0.15);
+}
+
+.certificate * { position: relative; z-index: 1; }
+
+.cert-badge {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 15px rgba(233,69,96,0.4);
+}
+
+.cert-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.cert-detail {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.cert-score {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 20px 0 8px;
+  color: var(--accent);
+  text-shadow: 0 2px 10px rgba(233,69,96,0.3);
+}
+
+.cert-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+.cert-brand {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+/* Category breakdown */
+.breakdown-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.breakdown-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--gray-800);
+}
+
+.breakdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.breakdown-row:last-child { border-bottom: none; }
+
+.breakdown-cat {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.breakdown-score {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breakdown-bar {
+  width: 80px;
+  height: 6px;
+  background: var(--gray-200);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.breakdown-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.breakdown-bar-fill.pass { background: var(--green); }
+.breakdown-bar-fill.fail { background: var(--red); }
+
+.breakdown-pct {
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header-inner { padding: 12px 16px; }
+  .header-title { font-size: 14px; }
+  .header-subtitle { font-size: 11px; }
+  .brand-icon { width: 36px; height: 36px; font-size: 13px; }
+  .lang-btn { padding: 6px 14px; font-size: 13px; }
+  .container { padding: 16px 14px 40px; }
+  .start-hero { padding: 32px 20px; }
+  .start-hero h1 { font-size: 22px; }
+  .question-body { padding: 18px; }
+  .question-text { font-size: 15px; }
+  .option-btn { padding: 14px 16px; font-size: 14px; }
+  .option-btn .option-letter { width: 28px; height: 28px; font-size: 13px; }
+  .result-stats { grid-template-columns: 1fr; }
+  .certificate { padding: 32px 20px; }
+  .cert-title { font-size: 22px; }
+  .cert-score { font-size: 36px; }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-in {
+  animation: slideUp 0.4s ease forwards;
+}
+
+.pulse { animation: pulse 0.3s ease; }
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="brand-icon">AECT</div>
+      <div>
+        <div class="header-title" data-en="RePL & AROC Training" data-zh="RePL & AROC 培训系统">RePL & AROC Training</div>
+        <div class="header-subtitle" data-en="Remote Pilot Licence | Aeronautical Radio Operator Certificate" data-zh="远程飞行员执照 | 航空无线电操作证书">Remote Pilot Licence | Aeronautical Radio Operator Certificate</div>
+      </div>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- START SCREEN -->
+  <div id="start-screen" class="screen active">
+    <div class="start-screen">
+      <div class="start-hero animate-in">
+        <h1 data-en="RePL & AROC Assessment Preparation" data-zh="RePL & AROC 考试备考系统">RePL & AROC Assessment Preparation</h1>
+        <p data-en="Prepare for your Australian CASA Remote Pilot Licence and Aeronautical Radio Operator Certificate with this interactive training module." data-zh="通过此互动培训模块，为您的澳大利亚CASA远程飞行员执照和航空无线电操作证书考试做准备。">Prepare for your Australian CASA Remote Pilot Licence and Aeronautical Radio Operator Certificate with this interactive training module.</p>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card animate-in" style="animation-delay:0.1s">
+          <div class="icon blue">&#9993;</div>
+          <h3 data-en="133 Questions" data-zh="133道题目">133 Questions</h3>
+          <p data-en="Covering all key CASR Part 101 topics from equipment and airspace to emergency procedures." data-zh="涵盖CASR第101部分的所有关键主题，从设备和空域到紧急程序。">Covering all key CASR Part 101 topics from equipment and airspace to emergency procedures.</p>
+        </div>
+        <div class="info-card animate-in" style="animation-delay:0.2s">
+          <div class="icon red">&#9888;</div>
+          <h3 data-en="85% Pass Threshold" data-zh="85% 通过线">85% Pass Threshold</h3>
+          <p data-en="Must achieve 85% or above. Incorrect questions are re-tested until you pass." data-zh="必须达到85%以上。错误的题目将被重复测试直到通过。">Must achieve 85% or above. Incorrect questions are re-tested until you pass.</p>
+        </div>
+        <div class="info-card animate-in" style="animation-delay:0.3s">
+          <div class="icon green">&#10004;</div>
+          <h3 data-en="Instant Feedback" data-zh="即时反馈">Instant Feedback</h3>
+          <p data-en="See correct answers and explanations immediately after each question." data-zh="每道题后立即查看正确答案和解释。">See correct answers and explanations immediately after each question.</p>
+        </div>
+      </div>
+
+      <div id="category-tags" class="category-tags"></div>
+
+      <button class="start-btn" onclick="startQuiz()">
+        <span data-en="Start Training" data-zh="开始培训">Start Training</span> &#8594;
+      </button>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quiz-screen" class="screen">
+    <div id="retry-banner" class="retry-banner" style="display:none;">
+      <span class="retry-icon">&#128260;</span>
+      <div class="retry-text">
+        <strong data-en="Retry Round" data-zh="重试轮次">Retry Round</strong>
+        <span id="retry-info"></span>
+      </div>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-stats">
+        <div class="progress-left">
+          <div>
+            <span class="stat-label" data-en="Question" data-zh="题目">Question</span>
+            <span class="stat-value" id="q-counter">1/43</span>
+          </div>
+          <div>
+            <span class="stat-label" data-en="Correct" data-zh="正确">Correct</span>
+            <span class="stat-value" id="correct-counter">0</span>
+          </div>
+        </div>
+        <div id="score-badge" class="score-badge neutral">
+          <span id="score-pct">0%</span>
+        </div>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <div class="timer-bar">
+        <div class="timer-fill" id="timer-fill" style="width:100%"></div>
+      </div>
+    </div>
+
+    <div class="question-card animate-in" id="question-card">
+      <div class="question-header">
+        <span class="question-category" id="q-category"></span>
+        <span class="question-number" id="q-number"></span>
+      </div>
+      <div class="question-body">
+        <div class="question-text" id="q-text"></div>
+        <div class="options-list" id="options-list"></div>
+        <div class="feedback-box" id="feedback-box">
+          <div class="feedback-title" id="feedback-title"></div>
+          <div id="feedback-text"></div>
+        </div>
+        <button class="next-btn" id="next-btn" style="display:none" onclick="nextQuestion()">
+          <span data-en="Next Question" data-zh="下一题">Next Question</span> &#8594;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div id="results-screen" class="screen">
+    <div class="results-screen" id="results-content"></div>
+  </div>
+
+</div>
+
+<script>
+// ===== QUESTION DATA =====
+const ALL_QUESTIONS = [
+  {id:1,category:"Equipment & Operations",category_zh:"设备与操作",en:"Select the most correct statement regarding additional RPA equipment.",zh:"关于额外RPA设备，选择最正确的陈述。",options_en:["No extra equipment is required when conducting tethered operations.","Ground lighting must be provided at each designated and alternate landing area when conducting night RPA operations.","An ADS-B transponder is required when conducting night RPA operations.","An aeronautical radio is always required when conducting night RPA operations."],options_zh:["进行系留操作时不需要额外设备。","进行夜间RPA操作时，每个指定和备用着陆区必须提供地面照明。","进行夜间RPA操作时需要ADS-B应答器。","进行夜间RPA操作时始终需要航空无线电。"],correct:1,explanation_en:"Night RPA operations require ground lighting at each designated and alternate landing area to ensure safe operations in reduced visibility.",explanation_zh:"夜间RPA操作需要在每个指定和备用着陆区提供地面照明，以确保在能见度降低时安全操作。"},
+  {id:2,category:"Responsibilities",category_zh:"职责",en:"Before a flight, whose responsibility is it to confirm that the RPA is in an airworthy condition?",zh:"飞行前，谁负责确认RPA处于适航状态？",options_en:["The Chief Remote Pilot.","The Maintenance Controller.","The Remote Pilot in Command.","The Camera Operator."],options_zh:["首席远程飞行员。","维护控制员。","遥控飞行员指挥官（RPIC）。","摄像操作员。"],correct:2,explanation_en:"The Remote Pilot in Command (RPIC) bears the responsibility to confirm the RPA is airworthy before each flight.",explanation_zh:"遥控飞行员指挥官（RPIC）负责在每次飞行前确认RPA处于适航状态。"},
+  {id:3,category:"Documentation",category_zh:"文档",en:"Where can you find the company procedures for operating near aerodromes?",zh:"在哪里可以找到在机场附近操作的公司程序？",options_en:["Operations Manual.","Flight Log.","Maintenance Log.","Aeronautical Information Publication."],options_zh:["运营手册。","飞行日志。","维护日志。","航空信息出版物。"],correct:0,explanation_en:"Company-specific procedures for operations near aerodromes are documented in the Operations Manual.",explanation_zh:"在机场附近操作的公司特定程序记录在运营手册中。"},
+  {id:4,category:"Fitness & Duty",category_zh:"适航与职责",en:"What conditions must a remote pilot meet to be considered fit for duty?",zh:"远程飞行员必须满足什么条件才能被视为适合执勤？",options_en:["At least 12 hours of rest before commencing duty.","Must avoid prescription drugs that could negatively impact the Remote Pilot.","RPAS pilots are not subject to any fitness requirements.","Must submit for a DAMP test before commencing duty."],options_zh:["执勤前至少休息12小时。","必须避免可能对远程飞行员产生负面影响的处方药。","RPAS飞行员不受任何适航要求约束。","执勤前必须提交DAMP测试。"],correct:1,explanation_en:"Remote pilots must avoid prescription drugs that could negatively impact their performance and ability to operate safely.",explanation_zh:"远程飞行员必须避免可能对其表现和安全操作能力产生负面影响的处方药。"},
+  {id:5,category:"Separation & Safety",category_zh:"间隔与安全",en:"Respectively, what is the minimum lateral distance an RPA must maintain from persons who have been informed and briefed on the operation, and persons who haven't been briefed?",zh:"RPA必须与已被告知和简报的人员以及未被简报的人员分别保持的最小横向距离是多少？",options_en:["5 metres and 30 metres","10 metres and 15 metres","15 metres and 30 metres","50 metres and 150 metres"],options_zh:["5米和30米","10米和15米","15米和30米","50米和150米"],correct:2,explanation_en:"Under CASR Part 101, the minimum lateral distance is 15m from briefed persons and 30m from non-briefed persons.",explanation_zh:"根据CASR第101部分，与已简报人员的最小横向距离为15米，与未简报人员为30米。"},
+  {id:6,category:"Hazards",category_zh:"危险",en:"When a remote pilot encounters a bird hazard, what action should they take?",zh:"当远程飞行员遇到鸟类危险时，应采取什么行动？",options_en:["Ascend to avoid the bird.","Land the RPA immediately.","Attempt to evade the bird.","Notify the ATSB and continue the operation."],options_zh:["上升以避开鸟类。","立即降落RPA。","尝试躲避鸟类。","通知ATSB并继续操作。"],correct:2,explanation_en:"The pilot should attempt to evade the bird through manoeuvring, rather than ascending (which may worsen the encounter) or immediately landing.",explanation_zh:"飞行员应通过机动尝试躲避鸟类，而不是上升（可能加剧遭遇）或立即着陆。"},
+  {id:7,category:"Airspace & Altitude",category_zh:"空域与高度",en:"What is the highest altitude an RPA can legally fly without needing approval from CASA?",zh:"RPA可以合法飞行的最高高度是多少而不需要CASA批准？",options_en:["500 feet AGL","300 feet AGL","400 feet AGL","600 feet AGL"],options_zh:["500英尺AGL","300英尺AGL","400英尺AGL","600英尺AGL"],correct:2,explanation_en:"The maximum altitude for RPA operations without CASA approval is 400 feet (120m) AGL under standard conditions.",explanation_zh:"在标准条件下，RPA操作无需CASA批准的最大高度为400英尺（120米）AGL。"},
+  {id:8,category:"Responsibilities",category_zh:"职责",en:"Which of the following best describes the main role of a Maintenance Controller?",zh:"以下哪项最能描述维护控制员的主要角色？",options_en:["Reviewing and approving flight schedules","Supervising all maintenance activities for RPAS","Updating personnel records","Enforcing RPA lateral separations"],options_zh:["审查和批准飞行计划","监督RPAS的所有维护活动","更新人员记录","执行RPA横向间隔"],correct:1,explanation_en:"The Maintenance Controller's main role is supervising all maintenance activities for RPAS, both scheduled and unscheduled.",explanation_zh:"维护控制员的主要角色是监督RPAS的所有维护活动，包括计划内和计划外。"},
+  {id:9,category:"Documentation",category_zh:"文档",en:"Where can procedures for flying in Special Use Airspace be found?",zh:"在特殊用途空域飞行的程序可以在哪里找到？",options_en:["Operations Manual","Flight Authorisation Form","Maintenance Log","CASA Instrument approval"],options_zh:["运营手册","飞行授权表","维护日志","CASA仪器批准"],correct:0,explanation_en:"Procedures for flying in Special Use Airspace are documented in the Operations Manual.",explanation_zh:"在特殊用途空域飞行的程序记录在运营手册中。"},
+  {id:10,category:"Fitness & Duty",category_zh:"适航与职责",en:"What is the rule regarding alcohol consumption for a remote pilot before duty?",zh:"关于远程飞行员执勤前饮酒的规定是什么？",options_en:["Must abstain from alcohol for at least 4 hours before flying.","Must not consume alcohol 8 hours prior to commencing operations.","No alcohol consumption within 24 hours of duty.","Alcohol consumption is permitted up to 2 hours before flying."],options_zh:["飞行前至少4小时不得饮酒。","开始操作前8小时不得饮酒。","执勤前24小时内不得饮酒。","飞行前2小时内允许饮酒。"],correct:1,explanation_en:"Remote pilots must not consume alcohol for 8 hours prior to commencing operations, as per aviation safety regulations.",explanation_zh:"根据航空安全法规，远程飞行员在开始操作前8小时不得饮酒。"},
+  {id:11,category:"Airspace & Altitude",category_zh:"空域与高度",en:"Under what maximum weight can an RPA operate within 5.5 km of a controlled airport without needing CASA approval, given it stays below 45 meters AGL and avoids approach and departure paths?",zh:"在不需要CASA批准的情况下，RPA在受控机场5.5公里内可以操作的最大重量是多少，前提是保持在45米AGL以下并避开进近和离场路径？",options_en:["5 kg","2 kg","25 kg","250 g"],options_zh:["5公斤","2公斤","25公斤","250克"],correct:1,explanation_en:"An RPA under 2 kg may operate within 5.5 km of a controlled airport if it stays below 45m AGL and avoids approach/departure paths.",explanation_zh:"重量低于2公斤的RPA可以在受控机场5.5公里内操作，前提是保持在45米AGL以下并避开进近/离场路径。"},
+  {id:12,category:"Airspace & Altitude",category_zh:"空域与高度",en:"Before conducting operations in restricted airspace with an RPA, what specific approval must be obtained?",zh:"在使用RPA进入限制空域进行操作之前，必须获得什么具体批准？",options_en:["Approval from the controlling authority","Only ATC clearance is required","Verification from the RPA manufacturer","Permission from the nearest airport"],options_zh:["获得管控机构的批准","只需要ATC许可","RPA制造商的验证","最近机场的许可"],correct:0,explanation_en:"Operations in restricted airspace require specific approval from the controlling authority responsible for that airspace.",explanation_zh:"在限制空域内操作需要获得负责该空域的管控机构的具体批准。"},
+  {id:13,category:"Emergency Procedures",category_zh:"紧急程序",en:"If an RPA's battery ignites during flight, what immediate action should the pilot take?",zh:"如果RPA的电池在飞行中起火，飞行员应立即采取什么行动？",options_en:["Initiate an emergency landing as soon as possible","Continue flying until the battery fully discharges","Lower the RPA's altitude gradually","Set up a safety perimeter around the affected area"],options_zh:["尽快启动紧急着陆","继续飞行直到电池完全放电","逐渐降低RPA的高度","在受影响区域设置安全警戒线"],correct:0,explanation_en:"A battery fire is a critical emergency. The pilot must initiate an emergency landing as soon as possible to mitigate risk.",explanation_zh:"电池起火是紧急情况。飞行员必须尽快启动紧急着陆以减轻风险。"},
+  {id:14,category:"Documentation",category_zh:"文档",en:"What is the recommended frequency for conducting an internal audit of RPA operations?",zh:"进行RPA运营内部审计的推荐频率是什么？",options_en:["Annually","Biannually","Seven years","Monthly"],options_zh:["每年","每半年","每七年","每月"],correct:0,explanation_en:"Internal audits of RPA operations should be conducted annually to ensure ongoing compliance.",explanation_zh:"RPA运营的内部审计应每年进行一次，以确保持续合规。"},
+  {id:15,category:"Responsibilities",category_zh:"职责",en:"Who is tasked with ensuring that the Flight Record is accurately completed following each RPA mission?",zh:"谁负责确保每次RPA任务后飞行记录被准确完成？",options_en:["The Remote Pilot","The Operations Manager","The Safety Officer","The Ground Crew"],options_zh:["远程飞行员","运营经理","安全官员","地勤人员"],correct:0,explanation_en:"The Remote Pilot is responsible for ensuring the Flight Record is accurately completed after each mission.",explanation_zh:"远程飞行员负责确保每次任务后飞行记录被准确完成。"},
+  {id:16,category:"Responsibilities",category_zh:"职责",en:"What specific duty is the Maintenance Controller responsible for regarding RPAS?",zh:"维护控制员在RPAS方面负责什么具体职责？",options_en:["Overseeing all RPAS maintenance, both scheduled and unscheduled","Coordinating pilot training and certification processes.","Assessing the operational standards and proficiency of the RP and OC","Managing crew scheduling and rostering"],options_zh:["监督所有RPAS维护，包括计划内和计划外","协调飞行员培训和认证流程。","评估RP和OC的操作标准和熟练程度","管理机组调度和排班"],correct:0,explanation_en:"The Maintenance Controller oversees all RPAS maintenance, including both scheduled and unscheduled work.",explanation_zh:"维护控制员监督所有RPAS维护工作，包括计划内和计划外。"},
+  {id:17,category:"Responsibilities",category_zh:"职责",en:"What is a primary responsibility of the Chief Remote Pilot regarding RPA operations?",zh:"首席远程飞行员在RPA操作方面的主要职责是什么？",options_en:["Ensuring operations comply with ReOC conditions and civil aviation legislation","Verifying that sufficient qualified personnel are available","Overseeing the financial and resource allocation for operations","Setting and reviewing safety performance indicators and targets"],options_zh:["确保操作符合ReOC条件和民航法规","验证有足够的合格人员","监督运营的财务和资源分配","设定和审查安全绩效指标和目标"],correct:0,explanation_en:"The Chief Remote Pilot's primary responsibility is ensuring operations comply with ReOC conditions and civil aviation legislation.",explanation_zh:"首席远程飞行员的主要职责是确保操作符合ReOC条件和民航法规。"},
+  {id:18,category:"Roles & Personnel",category_zh:"角色与人员",en:"The Type Specialist is considered Key Personnel in RPA operations.",zh:"类型专家被视为RPA操作中的关键人员。",options_en:["True","False"],options_zh:["正确","错误"],correct:1,explanation_en:"False. The Type Specialist is not considered Key Personnel in RPA operations. Key Personnel include positions such as Chief Remote Pilot and Maintenance Controller.",explanation_zh:"错误。类型专家不被视为RPA操作中的关键人员。关键人员包括首席远程飞行员和维护控制员等职位。"},
+  {id:19,category:"Operations",category_zh:"操作",en:"In a pre-operational briefing for a team-based RPA operation, which detail is not necessary for the RPIC to cover?",zh:"在团队RPA操作的预操作简报中，RPIC不需要涵盖哪个细节？",options_en:["The battery weight of the RPAS","Potential hazards","Crew responsibilities","Emergency procedures"],options_zh:["RPAS的电池重量","潜在危险","机组职责","紧急程序"],correct:0,explanation_en:"Battery weight is not a standard element of a pre-operational briefing. Hazards, crew responsibilities, and emergency procedures are essential topics.",explanation_zh:"电池重量不是预操作简报的标准内容。危险、机组职责和紧急程序是必须涵盖的主题。"},
+  {id:20,category:"Approvals",category_zh:"审批",en:"After obtaining a ReOC, which of the following can you perform without requiring any further approvals from CASA?",zh:"获得ReOC后，以下哪项可以无需CASA进一步批准即可执行？",options_en:["Conduct flights at night","Conduct EVLOS flights","Conduct BVLOS flights","Conduct flights that utilise multiple drones at the same time"],options_zh:["进行夜间飞行","进行超视距飞行（EVLOS）","进行超视距飞行（BVLOS）","同时使用多架无人机进行飞行"],correct:0,explanation_en:"Night operations can be conducted under a ReOC without further CASA approval. EVLOS, BVLOS, and multi-drone operations each require additional approvals.",explanation_zh:"夜间操作可以在ReOC下进行，无需CASA进一步批准。EVLOS、BVLOS和多无人机操作各需要额外的批准。"},
+  {id:21,category:"Emergency Procedures",category_zh:"紧急程序",en:"When conducting RPAS operations, which set of initial action principles should be followed for solo and multi-crew scenarios, respectively?",zh:"进行RPAS操作时，单人和多人场景分别应遵循哪套初始行动原则？",options_en:["Solo RPAS: Aviate, Communicate, Navigate, Administrate (ACNA); Multi-crew RPAS: Aviate, Navigate, Communicate, Administrate (ANCA).","Solo RPAS: Navigate, Communicate, Aviate, Administrate (NCAA); Multi-crew RPAS: Communicate, Aviate, Administrate, Communicate (CAAC).","Solo RPAS: Aviate, Navigate, Communicate, Administrate (ANCA); Multi-crew RPAS: Communicate (between crew), Aviate, Communicate (externally), Administrate (CANCA).","Solo RPAS: Aviate, Administrate, Communicate, Navigate (AACN); Multi-crew RPAS: Aviate, Communicate, Navigate, Administrate (ACNA)."],options_zh:["单人RPAS：飞行、通信、导航、管理（ACNA）；多人RPAS：飞行、导航、通信、管理（ANCA）。","单人RPAS：导航、通信、飞行、管理（NCAA）；多人RPAS：通信、飞行、管理、通信（CAAC）。","单人RPAS：飞行、导航、通信、管理（ANCA）；多人RPAS：通信（机组间）、飞行、通信（外部）、管理（CANCA）。","单人RPAS：飞行、管理、通信、导航（AACN）；多人RPAS：飞行、通信、导航、管理（ACNA）。"],correct:2,explanation_en:"Solo: ANCA (Aviate, Navigate, Communicate, Administrate). Multi-crew: CANCA (Communicate between crew, Aviate, Navigate, Communicate externally, Administrate).",explanation_zh:"单人：ANCA（飞行、导航、通信、管理）。多人：CANCA（机组间通信、飞行、导航、外部通信、管理）。"},
+  {id:22,category:"Conversions",category_zh:"单位换算",en:"120 metres is approximately equal to how many feet?",zh:"120米大约等于多少英尺？",options_en:["400 feet","434 feet","150 feet","230 feet"],options_zh:["400英尺","434英尺","150英尺","230英尺"],correct:0,explanation_en:"120 metres is approximately 400 feet (1 metre = approximately 3.28 feet; 120 x 3.28 = 393.6, rounded to 400).",explanation_zh:"120米约等于400英尺（1米约等于3.28英尺；120 x 3.28 = 393.6，约为400）。"},
+  {id:23,category:"Conversions",category_zh:"单位换算",en:"5.5 kilometres is approximately equal to how many nautical miles?",zh:"5.5公里大约等于多少海里？",options_en:["3 nautical miles","5.5 nautical miles","4.3 nautical miles","9.7 nautical miles"],options_zh:["3海里","5.5海里","4.3海里","9.7海里"],correct:0,explanation_en:"5.5 km is approximately 3 nautical miles (1 NM = 1.852 km; 5.5 / 1.852 = 2.97, approximately 3 NM).",explanation_zh:"5.5公里约等于3海里（1海里 = 1.852公里；5.5 / 1.852 = 2.97，约3海里）。"},
+  {id:24,category:"Regulations",category_zh:"法规",en:"Which part of the CASR specifically covers RPAS operations?",zh:"CASR的哪一部分专门涵盖RPAS操作？",options_en:["CASR Part 101","CASR Part 121","CASR Part 61","CASR Part 73"],options_zh:["CASR第101部分","CASR第121部分","CASR第61部分","CASR第73部分"],correct:0,explanation_en:"CASR Part 101 is the specific regulation that covers RPAS (Remotely Piloted Aircraft Systems) operations in Australia.",explanation_zh:"CASR第101部分是专门涵盖澳大利亚RPAS（远程驾驶飞机系统）操作的法规。"},
+  {id:25,category:"Fitness & Duty",category_zh:"适航与职责",en:"Which of the following would disqualify a person from performing a safety-related task for an RPA under an ReOC?",zh:"以下哪项会使人员在ReOC下无法执行RPA安全相关任务？",options_en:["Consuming an over-the-counter medication with no known side effects within 8 hours of duty.","Being well-rested, in good health, and having no alcohol or drugs in their system.","Consuming alcohol less than 8 hours before duty.","Reporting to duty with a minor injury that does not impair performance."],options_zh:["在执勤前8小时内服用无已知副作用的非处方药。","休息充足、健康状况良好、体内无酒精或药物。","在执勤前不到8小时饮酒。","带有不影响工作能力的轻伤报到执勤。"],correct:2,explanation_en:"Consuming alcohol less than 8 hours before duty disqualifies a person from performing safety-related tasks under an ReOC.",explanation_zh:"在执勤前不到8小时饮酒会使人员在ReOC下无法执行安全相关任务。"},
+  {id:26,category:"Documentation",category_zh:"文档",en:"What information can you find on NAIPS?",zh:"在NAIPS上可以找到什么信息？",options_en:["NOTAMs","CASA regulations","FAA guidelines","CASR Part 101 details"],options_zh:["航行通告（NOTAMs）","CASA法规","FAA指南","CASR第101部分详情"],correct:0,explanation_en:"NAIPS (National Aeronautical Information Processing System) provides NOTAMs (Notices to Airmen) and other aeronautical information.",explanation_zh:"NAIPS（国家航空信息处理系统）提供NOTAMs（航行通告）和其他航空信息。"},
+  {id:27,category:"Documentation",category_zh:"文档",en:"What information can you find in the VTC Legend?",zh:"在VTC图例中可以找到什么信息？",options_en:["The meaning of symbols on an aviation chart","Notices to Airmen (NOTAMs)","Operational procedures in the Operations Manual","Regulations in MOS Part 101"],options_zh:["航空图上符号的含义","航行通告（NOTAMs）","运营手册中的操作程序","MOS第101部分的法规"],correct:0,explanation_en:"The VTC (Visual Terminal Chart) Legend explains the meaning of symbols used on aviation charts.",explanation_zh:"VTC（目视终端图）图例解释了航空图上使用的符号含义。"},
+  {id:28,category:"Airspace & Altitude",category_zh:"空域与高度",en:"What is the classification of airspace that is considered uncontrolled?",zh:"被认为是非管制空域的空域分类是什么？",options_en:["Class G","Class C","Class D","Class A"],options_zh:["G类","C类","D类","A类"],correct:0,explanation_en:"Class G airspace is uncontrolled airspace, where ATC services are not provided.",explanation_zh:"G类空域是非管制空域，不提供空中交通管制服务。"},
+  {id:29,category:"Roles & Personnel",category_zh:"角色与人员",en:"What type of change is it considered when the Chief Remote Pilot is replaced?",zh:"更换首席远程飞行员被视为什么类型的变更？",options_en:["A \"Significant Change\"","An \"Insignificant Change\"","Not a \"Significant Change\" if no other key positions are altered","A \"Significant Change\" only if the CEO is also replaced"],options_zh:["\"重大变更\"","\"非重大变更\"","如果没有其他关键职位变更则不是\"重大变更\"","只有CEO也被更换时才是\"重大变更\""],correct:0,explanation_en:"Replacing the Chief Remote Pilot is always considered a 'Significant Change' that must be notified to CASA.",explanation_zh:"更换首席远程飞行员始终被视为'重大变更'，必须通知CASA。"},
+  {id:30,category:"Hazards",category_zh:"危险",en:"In which situation involving bird interference should automated flight functions, such as RTH or automated waypoint navigation, be avoided?",zh:"在涉及鸟类干扰的哪种情况下，应避免使用自动飞行功能，如返航（RTH）或自动航点导航？",options_en:["When a bird is circling near the RPA","When a bird is attempting to land on the RPA","When a bird is displaying erratic flight behaviour around the RPA","All of the above"],options_zh:["当鸟类在RPA附近盘旋时","当鸟类试图降落在RPA上时","当鸟类在RPA周围表现出不稳定的飞行行为时","以上所有"],correct:3,explanation_en:"All scenarios of bird interference require manual control. Automated functions may cause unpredictable movements that worsen the situation.",explanation_zh:"所有鸟类干扰场景都需要手动控制。自动功能可能导致不可预测的移动，使情况恶化。"},
+  {id:31,category:"Approvals",category_zh:"审批",en:"Who would need to approve your application if you wish to conduct EVLOS flights?",zh:"如果你希望进行超视距飞行（EVLOS），谁需要批准你的申请？",options_en:["FAA","NASA","Air Services Australia","CASA"],options_zh:["FAA","NASA","澳大利亚航空服务","CASA"],correct:3,explanation_en:"CASA (Civil Aviation Safety Authority) must approve applications for EVLOS (Extended Visual Line of Sight) operations in Australia.",explanation_zh:"CASA（民航安全局）必须批准在澳大利亚进行EVLOS（扩展视距）操作的申请。"},
+  {id:32,category:"Regulations",category_zh:"法规",en:"Where would you find the Civil Aviation Safety Regulations (CASR)?",zh:"你在哪里可以找到民航安全法规（CASR）？",options_en:["NAIPS Website","En route supplement Australia","Aeronautical Information Publication","Federal Register of Legislation"],options_zh:["NAIPS网站","澳大利亚航路补充","航空信息出版物","联邦立法登记册"],correct:3,explanation_en:"The Civil Aviation Safety Regulations (CASR) can be found on the Federal Register of Legislation.",explanation_zh:"民航安全法规（CASR）可以在联邦立法登记册上找到。"},
+  {id:33,category:"Responsibilities",category_zh:"职责",en:"Who is accountable for verifying that all necessary equipment is operational before a flight?",zh:"谁负责在飞行前验证所有必要设备是否正常运行？",options_en:["CRP (Chief Remote Pilot)","RPIC (Remote Pilot in Command)","MC (Maintenance Controller)","CEO (Chief Executive Officer)"],options_zh:["CRP（首席远程飞行员）","RPIC（遥控飞行员指挥官）","MC（维护控制员）","CEO（首席执行官）"],correct:1,explanation_en:"The RPIC (Remote Pilot in Command) is accountable for verifying all necessary equipment is operational before a flight.",explanation_zh:"RPIC（遥控飞行员指挥官）负责在飞行前验证所有必要设备是否正常运行。"},
+  {id:34,category:"Operations",category_zh:"操作",en:"Under standard operating procedures, what is the maximum number of RPAS a pilot is permitted to operate simultaneously?",zh:"在标准操作程序下，飞行员最多可以同时操作多少架RPAS？",options_en:["No Limit","3","2","1"],options_zh:["无限制","3架","2架","1架"],correct:3,explanation_en:"Under standard operating procedures, a pilot may only operate one RPAS at a time. Multi-drone operations require additional CASA approval.",explanation_zh:"在标准操作程序下，飞行员一次只能操作一架RPAS。多无人机操作需要额外的CASA批准。"},
+  {id:35,category:"Responsibilities",category_zh:"职责",en:"What is one of the Chief Remote Pilot's responsibilities for ensuring compliance and safety in RPA operations?",zh:"首席远程飞行员在确保RPA运营合规和安全方面的职责之一是什么？",options_en:["Conduct external audits of other ReOC holders","Schedule and crew roster reviews to prevent fatigue-related safety risks","Approve all external training for the RPA team","Oversee all financial transactions related to RPA operations"],options_zh:["对其他ReOC持有者进行外部审计","审查排班和机组名册以防止疲劳相关的安全风险","批准RPA团队的所有外部培训","监督与RPA运营相关的所有财务交易"],correct:1,explanation_en:"The Chief Remote Pilot reviews schedules and crew rosters to prevent fatigue-related safety risks in RPA operations.",explanation_zh:"首席远程飞行员审查排班和机组名册，以防止RPA运营中疲劳相关的安全风险。"},
+  {id:36,category:"Airspace & Altitude",category_zh:"空域与高度",en:"Which airspace type permits VLOS operations without requiring clearance from air traffic control when operating above 400 ft?",zh:"哪种空域类型允许在400英尺以上进行目视视距操作而无需空中交通管制许可？",options_en:["Class A","Class C","Class G","Class D"],options_zh:["A类","C类","G类","D类"],correct:2,explanation_en:"Class G (uncontrolled) airspace permits VLOS operations above 400 ft without ATC clearance, though CASA approval is still needed for altitude.",explanation_zh:"G类（非管制）空域允许在400英尺以上进行VLOS操作而无需ATC许可，但仍需CASA批准高度。"},
+  {id:37,category:"Documentation",category_zh:"文档",en:"What document must be available during RPA operations to verify the pilot's qualifications?",zh:"在RPA操作期间必须提供什么文件来验证飞行员的资质？",options_en:["Maintenance log","RePL (Remote Pilot Licence)","RPAS Flight Log","Both B and C"],options_zh:["维护日志","RePL（远程飞行员执照）","RPAS飞行日志","B和C都是"],correct:3,explanation_en:"Both the RePL (Remote Pilot Licence) and the RPAS Flight Log must be available during operations to verify pilot qualifications.",explanation_zh:"在操作期间必须提供RePL（远程飞行员执照）和RPAS飞行日志，以验证飞行员资质。"},
+  {id:38,category:"Scenario",category_zh:"场景",en:"During a survey mission, you need to capture images at an altitude of 450ft AGL. What must you obtain before conducting this operation?",zh:"在测量任务中，你需要在450英尺AGL的高度拍摄图像。在进行此操作之前你必须获得什么？",options_en:["Transponder for altitude verification","Authorisation from CASA","Night-time operational waiver","No additional requirements"],options_zh:["用于高度验证的应答器","CASA的授权","夜间操作豁免","无额外要求"],correct:1,explanation_en:"450ft exceeds the standard 400ft AGL limit, so CASA authorisation is required before conducting this operation.",explanation_zh:"450英尺超过标准的400英尺AGL限制，因此在进行此操作之前需要CASA授权。"},
+  {id:39,category:"Scenario",category_zh:"场景",en:"You've been assigned to film a public event in a city park, which is considered a populous area. Under what condition can you legally operate your RPA there?",zh:"你被指派在城市公园拍摄公共活动，该地区被认为是人口密集区。在什么条件下你可以合法操作RPA？",options_en:["If you keep the RPA below 120m","Only if the RPA weighs less than 2kg","Only with CASA approval","If the area is cordoned off"],options_zh:["如果RPA保持在120米以下","仅当RPA重量低于2公斤","仅经CASA批准","如果该区域已被封锁"],correct:2,explanation_en:"Operating in a populous area requires specific CASA approval regardless of altitude or RPA weight.",explanation_zh:"在人口密集区操作需要CASA的具体批准，无论高度或RPA重量如何。"},
+  {id:40,category:"Scenario",category_zh:"场景",en:"You're tasked with capturing footage near a controlled aerodrome, and your RPA weighs over 250g. What must you do to legally conduct this operation within 3 NM of the aerodrome?",zh:"你的任务是在受控机场附近拍摄画面，你的RPA重量超过250克。要在机场3海里内合法进行此操作，你必须做什么？",options_en:["Operate only in an emergency situation","Obtain specific CASA approval regardless of altitude","Fly below 100ft without needing approval","Operate freely without restrictions"],options_zh:["仅在紧急情况下操作","无论高度如何都需获得CASA的具体批准","在100英尺以下飞行无需批准","无限制自由操作"],correct:1,explanation_en:"Operating within 3 NM of a controlled aerodrome with an RPA over 250g requires specific CASA approval, regardless of altitude.",explanation_zh:"使用超过250克的RPA在受控机场3海里内操作需要CASA的具体批准，无论高度如何。"},
+  {id:41,category:"Emergency Procedures",category_zh:"紧急程序",en:"During a survey flight, your RPA suddenly loses its control link with the remote controller. What is the appropriate course of action?",zh:"在测量飞行中，你的RPA突然与遥控器失去控制链接。适当的行动方案是什么？",options_en:["Increase altitude to avoid obstacles","Attempt to re-establish the link or activate the Return to Home (RTH) function","Continue the mission manually without corrective action","Land the RPA immediately"],options_zh:["增加高度以避开障碍物","尝试重新建立链接或激活返航（RTH）功能","手动继续任务而不采取纠正措施","立即降落RPA"],correct:1,explanation_en:"When the control link is lost, the pilot should attempt to re-establish the link or activate the RTH (Return to Home) function.",explanation_zh:"当控制链接丢失时，飞行员应尝试重新建立链接或激活RTH（返航）功能。"},
+  {id:42,category:"Separation & Safety",category_zh:"间隔与安全",en:"While filming a public event, you notice a group of bystanders nearby who are not involved in the operation. What is the minimum distance you must keep between the RPA and these individuals?",zh:"在拍摄公共活动时，你注意到附近有一群不参与操作的旁观者。你必须在RPA和这些人之间保持的最小距离是多少？",options_en:["5 metres","10 metres","30 metres","50 metres"],options_zh:["5米","10米","30米","50米"],correct:2,explanation_en:"The minimum distance from non-briefed persons (bystanders) is 30 metres under CASR Part 101.",explanation_zh:"根据CASR第101部分，与未简报人员（旁观者）的最小距离为30米。"},
+  {id:43,category:"Emergency Procedures",category_zh:"紧急程序",en:"While conducting a mapping mission, you notice sudden changes in weather, including increasing wind and darkening clouds. How should you respond to ensure safety?",zh:"在进行测绘任务时，你注意到天气突然变化，包括风力增大和乌云密布。你应如何应对以确保安全？",options_en:["Fly higher to avoid the weather","Continue the flight to complete the mission","Land the RPA as soon as practical in a safe location","Turn off the RPA and wait for conditions to improve"],options_zh:["飞高以避开天气","继续飞行以完成任务","尽快在安全位置降落RPA","关闭RPA等待条件改善"],correct:2,explanation_en:"When weather deteriorates, the safe response is to land the RPA as soon as practical in a safe location.",explanation_zh:"当天气恶化时，安全的应对方式是尽快在安全位置降落RPA。"},
+  {"id":44,"category":"Meteorology","category_zh":"气象学","en":"Which cloud type is most associated with severe turbulence, heavy rain, hail, and lightning?","zh":"哪种云类型最常与严重湍流、暴雨、冰雹和闪电相关？","options_en":["Cirrostratus","Altostratus","Cumulonimbus","Nimbostratus"],"options_zh":["卷层云","高层云","积雨云","雨层云"],"correct":2,"explanation_en":"Cumulonimbus (Cb) clouds are vertically developed clouds associated with severe weather including heavy rain, hail, lightning, and severe turbulence. They are the most hazardous cloud type for aviation.","explanation_zh":"积雨云（Cumulonimbus, Cb）是垂直发展的云，与暴雨、冰雹、闪电和严重湍流等恶劣天气有关。它们是航空中最危险的云类型。"},
+  {"id":45,"category":"Meteorology","category_zh":"气象学","en":"What type of cloud is typically thin, wispy, and composed of ice crystals found at high altitudes?","zh":"哪种云通常是薄而卷曲的，由高空冰晶组成？","options_en":["Cumulus","Stratus","Cirrus","Altostratus"],"options_zh":["积云","层云","卷云","高层云"],"correct":2,"explanation_en":"Cirrus clouds are thin, feather-like ice crystal clouds found at high altitudes (above 6,000m/20,000ft). They appear as delicate wisps or 'mares' tails' and generally indicate fair weather, though they can signal an approaching warm front.","explanation_zh":"卷云（Cirrus）是薄而羽毛状的冰晶云，分布在高空（6,000米/20,000英尺以上）。它们呈现为纤细的丝状或\"马尾状\"，通常指示晴好天气，但也可能预示暖锋的接近。"},
+  {"id":46,"category":"Meteorology","category_zh":"气象学","en":"A katabatic wind is BEST described as:","zh":"下坡风（Katabatic wind）的最佳描述是：","options_en":["A warm wind rising up a mountain slope during the day","A cold wind flowing downhill due to cooling of air at the surface","A sea breeze that develops in the afternoon","A strong wind caused by pressure gradient differences"],"options_zh":["白天沿山坡上升的暖风","由于地表空气冷却而沿山坡下沉的冷风","午后形成的海风","由气压梯度差异引起的强风"],"correct":1,"explanation_en":"A katabatic wind is a downslope wind caused by the cooling of air at higher elevations (particularly at night). The cool, dense air flows downhill under gravity, and is strongest just before sunrise when surface cooling is greatest.","explanation_zh":"下坡风（Katabatic wind）是由高海拔地区空气冷却（尤其在夜间）引起的下坡风。冷而密度大的空气在重力作用下沿山坡下沉，在日出前最强，此时地表冷却最为充分。"},
+  {"id":47,"category":"Meteorology","category_zh":"气象学","en":"When is a katabatic wind typically at its strongest?","zh":"下坡风通常在什么时候最强？","options_en":["In the early afternoon","During mid-morning","Just prior to sunrise","Immediately after sunset"],"options_zh":["午后早期","上午中段","日出前","日落后不久"],"correct":2,"explanation_en":"Katabatic winds are strongest just prior to sunrise because the ground surface and the air in contact with it have had the maximum time to cool overnight, creating the greatest density difference and strongest downslope flow.","explanation_zh":"下坡风在日出前最强，因为此时地表和与之接触的空气经过整夜冷却达到最低温度，产生最大的密度差异和最强的下坡气流。"},
+  {"id":48,"category":"Meteorology","category_zh":"气象学","en":"A sea breeze develops because:","zh":"海风形成的原因是：","options_en":["The sea cools faster than the land during the day","The land heats faster than the sea during the day, causing air to rise over land","High-pressure systems always form over the ocean","Cold fronts push maritime air onshore"],"options_zh":["白天海面比陆地冷却更快","白天陆地比海面升温更快，导致陆地上方空气上升","高压系统总是在海洋上方形成","冷锋将海洋空气推向陆地"],"correct":1,"explanation_en":"During the day, land heats faster than the sea. Warm air rises over land creating lower pressure, and cooler air from over the sea flows onshore to replace it. This creates the sea breeze, typically developing mid-morning and reaching maximum strength in the afternoon.","explanation_zh":"白天陆地比海面升温更快。陆地上方暖空气上升形成低压区，海面上方较冷的空气流向陆地进行补充。这就形成了海风，通常在上午中段开始发展，午后达到最大强度。"},
+  {"id":49,"category":"Meteorology","category_zh":"气象学","en":"A Foehn (or Fohn) wind on the lee side of a mountain produces:","zh":"焚风（Foehn wind）在山脉背风面产生的效果是：","options_en":["Cool, moist air with heavy precipitation","Warm, dry air with good visibility","Cold, dry air with low cloud","Unstable air with thunderstorm activity"],"options_zh":["凉爽、潮湿的空气伴有大量降水","温暖、干燥的空气，能见度良好","寒冷、干燥的空气伴有低云","不稳定的空气伴有雷暴活动"],"correct":1,"explanation_en":"A Foehn wind occurs when moist air is forced up over a mountain range, losing moisture as precipitation on the windward side. As it descends the lee side, it warms adiabatically and arrives as warm, dry air with significantly reduced humidity and improved visibility.","explanation_zh":"焚风是当湿空气被迫翻越山脉时产生的，在迎风面以降水形式损失水分。当空气沿背风面下沉时，发生绝热增温，到达时变为温暖、干燥的空气，湿度明显降低，能见度改善。"},
+  {"id":50,"category":"Meteorology","category_zh":"气象学","en":"What is the BEST indicator that radiation fog may form?","zh":"辐射雾可能形成的最佳指标是什么？","options_en":["Strong winds and overcast skies","A small temperature/dew point spread with clear skies and light winds","Rapidly falling barometric pressure","The passage of a cold front"],"options_zh":["强风和阴天","温度与露点差值小，天空晴朗且风力微弱","气压快速下降","冷锋过境"],"correct":1,"explanation_en":"Radiation fog forms on clear, calm nights when the ground cools by radiation, cooling the air in contact with it. A small temperature/dew point spread (3 degrees C or less), clear skies, and light winds are the ideal conditions. When the temperature drops to the dew point, condensation occurs and fog forms.","explanation_zh":"辐射雾在晴朗、无风的夜间形成，此时地面通过辐射冷却，使接触地面的空气降温。温度与露点差值小（3摄氏度或以下）、天空晴朗和风力微弱是理想条件。当温度降至露点时，发生凝结并形成雾。"},
+  {"id":51,"category":"Meteorology","category_zh":"气象学","en":"Stable air is MOST likely to produce which of the following conditions?","zh":"稳定大气最可能产生以下哪种条件？","options_en":["Cumulonimbus clouds, good visibility, turbulence","Stratiform clouds, poor visibility in haze, smooth air","Cumulus clouds, showery precipitation, gusty winds","Clear skies, excellent visibility, strong thermals"],"options_zh":["积雨云、良好能见度、湍流","层状云、能见度差（有霾）、气流平稳","积云、阵性降水、阵风","晴空、极佳能见度、强热力对流"],"correct":1,"explanation_en":"Stable air resists vertical movement. It produces stratiform (layered) clouds, continuous precipitation if any, smooth air, and fair to poor visibility due to haze, smoke, and fog being trapped near the surface.","explanation_zh":"稳定大气抑制垂直运动。它产生层状（水平分布）云、连续性降水（如有）、平稳气流，以及由于霾、烟和雾被困在近地面而导致的中等到差的能见度。"},
+  {"id":52,"category":"Meteorology","category_zh":"气象学","en":"Wind shear is defined as:","zh":"风切变的定义是：","options_en":["A steady increase in wind speed throughout the day","A sudden change in wind speed and/or direction over a short distance","Wind that consistently blows from the same direction","The prevailing wind pattern over a 24-hour period"],"options_zh":["风速在一天中持续增加","在短距离内风速和/或风向的突然变化","风持续从同一方向吹来","24小时内的盛行风型态"],"correct":1,"explanation_en":"Wind shear is a sudden change in wind speed and/or direction over a short distance or time period. It is particularly hazardous near thunderstorms, strong temperature inversions, and frontal boundaries, and can cause rapid changes in airspeed and altitude for aircraft.","explanation_zh":"风切变是在短距离或短时间内风速和/或风向的突然变化。它在雷暴附近、强逆温层和锋面边界附近特别危险，可导致飞行器空速和高度的快速变化。"},
+  {"id":53,"category":"Meteorology","category_zh":"气象学","en":"In the Southern Hemisphere, wind circulates around a LOW pressure system in which direction?","zh":"在南半球，风绕低压系统以什么方向环流？","options_en":["Clockwise","Counter-clockwise","Straight inward toward the centre","From east to west only"],"options_zh":["顺时针","逆时针","径直向中心流入","仅从东向西"],"correct":0,"explanation_en":"In the Southern Hemisphere, due to the Coriolis effect, wind circulates clockwise around a low-pressure system and counter-clockwise around a high-pressure system. This is the opposite of the Northern Hemisphere.","explanation_zh":"在南半球，由于科里奥利效应，风绕低压系统顺时针环流，绕高压系统逆时针环流。这与北半球相反。"},
+  {"id":54,"category":"Meteorology","category_zh":"气象学","en":"Closely spaced isobars on a weather chart indicate:","zh":"天气图上等压线密集表示：","options_en":["Light winds and calm conditions","A steep pressure gradient and stronger winds","An area of fog formation","High humidity and precipitation"],"options_zh":["微风和平静条件","气压梯度大，风力较强","雾形成区域","高湿度和降水"],"correct":1,"explanation_en":"Isobars are lines connecting points of equal atmospheric pressure. When they are closely spaced, it indicates a steep pressure gradient, which produces stronger winds. Widely spaced isobars indicate light winds.","explanation_zh":"等压线是连接等气压点的线条。当等压线密集时，表示气压梯度大，会产生较强的风。等压线稀疏则表示风力微弱。"},
+  {"id":55,"category":"Meteorology","category_zh":"气象学","en":"The weather conditions typically associated with the passage of a cold front include:","zh":"冷锋过境通常伴随的天气条件包括：","options_en":["Gradual clearing, steady temperatures, light winds","A sudden wind shift, drop in temperature, cumuliform clouds and possible thunderstorms","Fog formation and drizzle with steady winds","High cirrus clouds with no precipitation"],"options_zh":["逐渐转晴、温度稳定、微风","风向突然转变、温度下降、积状云和可能的雷暴","雾的形成和毛毛雨伴有稳定风","高卷云，无降水"],"correct":1,"explanation_en":"Cold front passage is marked by a sudden wind shift (typically from northerly to southerly in Australia), a drop in temperature, rising pressure, cumuliform clouds, and potentially heavy showers or thunderstorms with turbulence and gusty winds.","explanation_zh":"冷锋过境的标志是风向突然转变（在澳大利亚通常从北风转为南风）、温度下降、气压上升、积状云以及可能的强阵雨或雷暴，伴有湍流和阵风。"},
+  {"id":56,"category":"Meteorology","category_zh":"气象学","en":"Density altitude is BEST described as:","zh":"密度高度的最佳描述是：","options_en":["The altitude read directly from the altimeter","The height above mean sea level","The pressure altitude corrected for non-standard temperature","The altitude above the aerodrome elevation"],"options_zh":["直接从高度表读取的高度","平均海平面以上的高度","经非标准温度修正后的气压高度","机场标高以上的高度"],"correct":2,"explanation_en":"Density altitude is the pressure altitude corrected for non-standard temperature. It represents the altitude at which the aircraft 'thinks' it is flying based on air density. Higher temperatures, higher elevation, and higher humidity all increase density altitude, reducing aircraft performance.","explanation_zh":"密度高度是经非标准温度修正后的气压高度。它代表飞行器基于空气密度\"认为\"自己所处的高度。较高温度、较高海拔和较高湿度都会增加密度高度，降低飞行器性能。"},
+  {"id":57,"category":"Meteorology","category_zh":"气象学","en":"The temperature at which air becomes saturated and water vapour begins to condense is called the:","zh":"空气达到饱和、水蒸气开始凝结时的温度称为：","options_en":["Lapse rate","Inversion point","Dew point","Condensation level"],"options_zh":["温度递减率","逆温点","露点","凝结高度"],"correct":2,"explanation_en":"The dew point is the temperature at which air becomes fully saturated (100% relative humidity) and water vapour begins to condense into visible moisture such as fog, dew, or clouds. When the temperature and dew point converge, precipitation or fog formation is likely.","explanation_zh":"露点是空气达到完全饱和（相对湿度100%）、水蒸气开始凝结为可见水汽（如雾、露或云）时的温度。当温度和露点趋于一致时，可能发生降水或雾的形成。"},
+  {"id":58,"category":"Meteorology","category_zh":"气象学","en":"What type of weather observation is a METAR?","zh":"METAR是什么类型的天气观测？","options_en":["A weather forecast for the next 24-30 hours","A routine observation of current weather conditions at an aerodrome","A severe weather warning issued by the Bureau of Meteorology","A pilot report of in-flight weather conditions"],"options_zh":["未来24-30小时的天气预报","机场当前天气状况的例行观测","气象局发布的恶劣天气警告","飞行员的空中天气状况报告"],"correct":1,"explanation_en":"A METAR (Meteorological Aerodrome Report) is a routine observation of actual/current weather conditions at an aerodrome, typically issued every 30 minutes or hourly. It includes wind, visibility, cloud, temperature, dew point, and pressure information.","explanation_zh":"METAR（机场例行天气报告）是对机场实际/当前天气状况的例行观测，通常每30分钟或每小时发布一次。包括风、能见度、云量、温度、露点和气压信息。"},
+  {"id":59,"category":"Meteorology","category_zh":"气象学","en":"What type of weather product is a TAF?","zh":"TAF是什么类型的天气产品？","options_en":["An observation of current conditions","A forecast of expected weather conditions at an aerodrome over a period of time","A warning of severe turbulence","A record of historical weather data"],"options_zh":["当前条件的观测","某一时间段内机场预期天气状况的预报","严重湍流警告","历史天气数据记录"],"correct":1,"explanation_en":"A TAF (Terminal Area Forecast) is a forecast of expected weather conditions for a specific aerodrome, typically covering a 24 to 30 hour period. It uses the same coding as METARs and includes forecast changes in wind, visibility, cloud, and significant weather.","explanation_zh":"TAF（机场区域预报）是针对特定机场预期天气状况的预报，通常覆盖24至30小时。它使用与METAR相同的编码格式，包括风、能见度、云量和重要天气变化的预报。"},
+  {"id":60,"category":"Meteorology","category_zh":"气象学","en":"A SPECI weather report is issued when:","zh":"SPECI天气报告在什么时候发布？","options_en":["Conditions are expected to improve significantly","Rapidly changing or significant weather conditions occur between routine observations","A new day begins at midnight UTC","Wind speeds exceed 15 knots"],"options_zh":["预计条件将显著改善时","在例行观测之间发生快速变化或重要天气状况时","UTC午夜新一天开始时","风速超过15节时"],"correct":1,"explanation_en":"A SPECI is a special weather observation issued whenever significant changes in weather conditions occur between regular METAR reports. This includes rapid changes in visibility, wind, cloud ceiling, or the onset of significant weather phenomena.","explanation_zh":"SPECI是在常规METAR报告之间、天气状况发生重大变化时发布的特殊天气观测。包括能见度、风、云底高度的快速变化，或重要天气现象的出现。"},
+  {"id":61,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"The international aeronautical emergency frequency is:","zh":"国际航空紧急频率是：","options_en":["118.1 MHz","126.7 MHz","121.5 MHz","124.5 MHz"],"options_zh":["118.1 MHz","126.7 MHz","121.5 MHz","124.5 MHz"],"correct":2,"explanation_en":"121.5 MHz is the international aeronautical emergency (distress) frequency. It is monitored by ATC and search and rescue services. Any pilot in distress should transmit a MAYDAY call on this frequency if unable to contact ATC on any other frequency.","explanation_zh":"121.5 MHz是国际航空紧急（遇险）频率。由空管和搜救服务部门监听。任何遇险飞行员如无法在其他频率联系空管，应在此频率发送MAYDAY呼叫。"},
+  {"id":62,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"The MULTICOM frequency used for broadcasting in non-towered areas in Australia is:","zh":"澳大利亚在非塔台管制区域广播使用的MULTICOM频率是：","options_en":["121.5 MHz","126.7 MHz","118.7 MHz","119.1 MHz"],"options_zh":["121.5 MHz","126.7 MHz","118.7 MHz","119.1 MHz"],"correct":1,"explanation_en":"126.7 MHz is the MULTICOM frequency used in Australia for self-announce broadcasts at non-towered aerodromes and in Class G airspace areas where no specific CTAF frequency is assigned. It is not monitored by ATC.","explanation_zh":"126.7 MHz是澳大利亚的MULTICOM频率，用于在非塔台管制机场和G类空域中未指定特定CTAF频率的区域进行自我通报广播。该频率不受空管监听。"},
+  {"id":63,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"A MAYDAY call is used when:","zh":"MAYDAY呼叫在什么时候使用？","options_en":["A pilot wishes to report a minor equipment malfunction","An aircraft is threatened by serious and/or imminent danger requiring immediate assistance","A pilot needs to request a frequency change","Weather conditions require an alternate route"],"options_zh":["飞行员希望报告轻微设备故障时","飞行器面临严重和/或紧迫的危险，需要立即援助时","飞行员需要请求更换频率时","天气条件需要改变航线时"],"correct":1,"explanation_en":"MAYDAY is the international distress signal used when an aircraft is in a condition of being threatened by serious and/or imminent danger and requires immediate assistance. It takes absolute priority over all other communications.","explanation_zh":"MAYDAY是国际遇险信号，在飞行器面临严重和/或紧迫的危险并需要立即援助时使用。它拥有对所有其他通信的绝对优先权。"},
+  {"id":64,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"A PAN PAN call is used when:","zh":"PAN PAN呼叫在什么时候使用？","options_en":["An aircraft has crashed and requires rescue","There is an urgency condition concerning the safety of an aircraft or person but the situation does not require immediate assistance","The pilot has lost radio contact with ATC","A pilot wishes to land at an aerodrome without a tower"],"options_zh":["飞行器已坠毁并需要救援时","存在涉及飞行器或人员安全的紧急情况，但不需要立即援助时","飞行员与空管失去无线电联系时","飞行员希望在无塔台机场降落时"],"correct":1,"explanation_en":"PAN PAN is the international urgency signal. It indicates there is concern about the safety of the aircraft, vehicle, or person on board, but the situation does not require immediate assistance. It has priority over all communications except MAYDAY.","explanation_zh":"PAN PAN是国际紧急信号。表示对飞行器、车辆或机上人员的安全存在关切，但情况不需要立即援助。它的优先级高于除MAYDAY以外的所有通信。"},
+  {"id":65,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"In aviation radio communications, the word 'ROGER' means:","zh":"在航空无线电通信中，'ROGER'一词的意思是：","options_en":["Yes, I agree","I will comply with your instruction","I have received all of your last transmission","Please repeat your message"],"options_zh":["是的，我同意","我将遵照你的指令执行","Roger（我已收到你上次发送的全部信息）","请重复你的信息"],"correct":2,"explanation_en":"ROGER means 'I have received all of your last transmission.' It is an acknowledgement only and does NOT mean 'yes' or that the pilot will comply. It should not be used to answer a question requiring a yes or no response.","explanation_zh":"ROGER的意思是\"我已收到你上次发送的全部信息\"。它仅仅是一个确认收悉，并不表示\"是\"或飞行员将遵照执行。不应用于回答需要\"是\"或\"否\"的问题。"},
+  {"id":66,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"In aviation radio communications, the word 'WILCO' means:","zh":"在航空无线电通信中，'WILCO'一词的意思是：","options_en":["I have received your message","I understand your message and will comply with it","I do not understand, please repeat","I am unable to comply"],"options_zh":["我已收到你的信息","Wilco（我理解你的信息并将遵照执行）","我没有理解，请重复","我无法遵照执行"],"correct":1,"explanation_en":"WILCO is an abbreviation of 'will comply' and means 'I understand your message and will comply with it.' Since WILCO already includes acknowledgement, saying 'Roger, Wilco' together is redundant.","explanation_zh":"WILCO是\"will comply\"（将遵照执行）的缩写，意思是\"我理解你的信息并将遵照执行\"。由于WILCO已经包含了确认收悉的含义，同时说\"Roger, Wilco\"是多余的。"},
+  {"id":67,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"The correct aviation term for 'Yes' in radio communications is:","zh":"在无线电通信中，表示\"是\"的正确航空术语是：","options_en":["Roger","Wilco","Affirm","Copy"],"options_zh":["Roger","Wilco","Affirm（肯定）","Copy"],"correct":2,"explanation_en":"AFFIRM (or AFFIRMATIVE) is the correct standard aviation phraseology meaning 'yes.' ROGER should not be used in place of 'yes' as it only means the transmission was received, not that the pilot agrees.","explanation_zh":"AFFIRM（或AFFIRMATIVE）是标准航空用语中表示\"是\"的正确术语。不应使用ROGER代替\"是\"，因为ROGER仅表示已收到传输信息，并不表示飞行员同意。"},
+  {"id":68,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"When transmitting a MAYDAY call, the distress signal should be spoken:","zh":"发送MAYDAY呼叫时，遇险信号应如何说出？","options_en":["Once, followed by the aircraft callsign","Twice, followed by the nature of the emergency","Three times — 'MAYDAY MAYDAY MAYDAY'","Continuously until a response is received"],"options_zh":["说一次，然后说飞行器呼号","说两次，然后说紧急情况性质","说三次——'MAYDAY MAYDAY MAYDAY'","持续发送直到收到回复"],"correct":2,"explanation_en":"The standard format for a distress call begins with the word MAYDAY spoken three times: 'MAYDAY MAYDAY MAYDAY.' This is followed by the station being called (or ALL STATIONS), the aircraft callsign, nature of the emergency, position, altitude, pilot intentions, and number of persons on board.","explanation_zh":"标准遇险呼叫格式以MAYDAY一词说三次开始：'MAYDAY MAYDAY MAYDAY'。随后是被叫台（或ALL STATIONS），飞行器呼号，紧急情况性质，位置，高度，飞行员意图，以及机上人数。"},
+  {"id":69,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"What does 'SAY AGAIN' mean in aviation radio communications?","zh":"在航空无线电通信中，'SAY AGAIN'是什么意思？","options_en":["I am repeating my message","Please repeat your last transmission","I did not understand your instruction","The message has been acknowledged"],"options_zh":["我正在重复我的信息","Say Again（请重复你上次的发送内容）","我没有理解你的指令","信息已被确认收悉"],"correct":1,"explanation_en":"SAY AGAIN is the standard aviation phraseology requesting the other station to repeat their last transmission. The word 'REPEAT' is avoided in aviation radio because it has a specific meaning in military operations (requesting repeated artillery fire).","explanation_zh":"SAY AGAIN是标准航空用语，用于请求对方台重复上次的发送内容。航空无线电中避免使用\"REPEAT\"一词，因为它在军事通信中有特定含义（请求重复炮火射击）。"},
+  {"id":70,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"A readability scale of 5 means:","zh":"可读性等级5表示：","options_en":["Unreadable","Readable now and then","Readable with difficulty","Perfectly readable"],"options_zh":["无法辨认","时断时续可辨认","勉强可辨认","完全清晰可辨认"],"correct":3,"explanation_en":"The readability scale ranges from 1 to 5: 1 = Unreadable, 2 = Readable now and then, 3 = Readable with difficulty, 4 = Readable, 5 = Perfectly readable. This scale is used when responding to a radio check.","explanation_zh":"可读性等级从1到5：1 = 无法辨认，2 = 时断时续可辨认，3 = 勉强可辨认，4 = 可辨认，5 = 完全清晰可辨认。该等级在回复无线电检查时使用。"},
+  {"id":71,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"What should be the LAST item in a readback of an ATC clearance or instruction?","zh":"复诵空管许可或指令时，最后一项应该是什么？","options_en":["The frequency assigned","The instruction details","Your aircraft callsign","The word 'Roger'"],"options_zh":["分配的频率","指令详情","你的飞行器呼号","'Roger'一词"],"correct":2,"explanation_en":"The last item in any readback of an ATC clearance or instruction should always be your aircraft (or RPAS) callsign. This confirms who is reading back the instruction and ensures ATC can verify the correct station has received it.","explanation_zh":"复诵空管许可或指令时，最后一项应始终是你的飞行器（或RPAS）呼号。这确认了是谁在复诵指令，并使空管能够核实正确的电台已收到信息。"},
+  {"id":72,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"The squawk code 7700 on a transponder indicates:","zh":"应答机编码7700表示：","options_en":["Radio failure","Unlawful interference (hijack)","Emergency/distress","VFR flight in uncontrolled airspace"],"options_zh":["无线电故障","非法干扰（劫持）","紧急/遇险","非管制空域VFR飞行"],"correct":2,"explanation_en":"Transponder code 7700 indicates a general emergency/distress. Code 7600 indicates radio communication failure, and code 7500 indicates unlawful interference (hijack). These are standard ICAO squawk codes recognised internationally.","explanation_zh":"应答机编码7700表示一般紧急/遇险。编码7600表示无线电通信故障，编码7500表示非法干扰（劫持）。这些是国际民航组织（ICAO）标准的国际通用应答机编码。"},
+  {"id":73,"category":"AROC Radio Procedures","category_zh":"AROC无线电程序","en":"The letter 'M' in the ICAO phonetic alphabet is spoken as:","zh":"ICAO音标字母表中字母'M'读作：","options_en":["Metro","Mike","Mark","Morse"],"options_zh":["Metro","Mike","Mark","Morse"],"correct":1,"explanation_en":"In the ICAO/NATO phonetic alphabet used for aviation communications, 'M' is spoken as 'Mike.' The phonetic alphabet is: Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-ray, Yankee, Zulu.","explanation_zh":"在航空通信使用的ICAO/NATO音标字母表中，'M'读作'Mike'。音标字母表为：Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-ray, Yankee, Zulu。"},
+  {"id":74,"category":"Human Performance","category_zh":"人为因素","en":"What does the 'I' in the IMSAFE self-assessment checklist stand for?","zh":"IMSAFE自我评估检查表中的'I'代表什么？","options_en":["Instruction","Illness","Instrument","Identification"],"options_zh":["指令","疾病","仪表","身份识别"],"correct":1,"explanation_en":"IMSAFE stands for Illness, Medication, Stress, Alcohol, Fatigue, and Emotion/Eating. The 'I' stands for Illness — pilots should ask themselves 'Am I suffering from any illness or symptom that might affect my ability to fly safely?'","explanation_zh":"IMSAFE代表Illness（疾病）、Medication（药物）、Stress（压力）、Alcohol（酒精）、Fatigue（疲劳）和Emotion/Eating（情绪/饮食）。'I'代表Illness（疾病）——飞行员应自问\"我是否有任何可能影响安全飞行能力的疾病或症状？\""},
+  {"id":75,"category":"Human Performance","category_zh":"人为因素","en":"Which of the following BEST describes acute fatigue?","zh":"以下哪项最能描述急性疲劳？","options_en":["A long-term state of exhaustion that requires extended rest to recover","Short-term tiredness caused by physical/mental strain, immobility, heavy workload, or lack of sleep","A medical condition requiring treatment by an aviation medical examiner","A permanent reduction in cognitive ability"],"options_zh":["一种需要长期休息才能恢复的长期疲惫状态","由体力/脑力消耗、静止不动、繁重工作量或睡眠不足引起的短期疲倦","一种需要航空体检医生治疗的医学状况","认知能力的永久性降低"],"correct":1,"explanation_en":"Acute fatigue is short-term tiredness resulting from physical/mental strain, heavy workload, emotional pressure, monotony, or lack of sleep. It can usually be resolved with adequate rest. Chronic fatigue, by contrast, is a long-term condition that accumulates when insufficient rest occurs between episodes of acute fatigue.","explanation_zh":"急性疲劳是由体力/脑力消耗、繁重工作量、情绪压力、单调作业或睡眠不足引起的短期疲倦。通常可以通过充分休息来恢复。相比之下，慢性疲劳是在急性疲劳之间未能充分休息时积累的长期状况。"},
+  {"id":76,"category":"Human Performance","category_zh":"人为因素","en":"Chronic fatigue occurs when:","zh":"慢性疲劳在什么情况下发生？","options_en":["A pilot flies too high without supplemental oxygen","There is insufficient time for full recovery between episodes of acute fatigue","A pilot consumes medication before flight","Dehydration occurs during extended operations"],"options_zh":["飞行员在没有补充氧气的情况下飞得太高时","在急性疲劳之间没有充分的恢复时间时","飞行员在飞行前服用药物时","长时间作业中发生脱水时"],"correct":1,"explanation_en":"Chronic fatigue develops when there is not enough time for full recovery between episodes of acute fatigue. Unlike acute fatigue which can be resolved with a good rest, chronic fatigue requires a prolonged period of rest and may need medical attention.","explanation_zh":"慢性疲劳在急性疲劳之间没有足够的完全恢复时间时产生。与可以通过良好休息恢复的急性疲劳不同，慢性疲劳需要较长时间的休息，可能需要医疗干预。"},
+  {"id":77,"category":"Human Performance","category_zh":"人为因素","en":"The combination of stress and fatigue in a pilot is considered:","zh":"飞行员压力和疲劳的叠加被认为是：","options_en":["Manageable with caffeine and energy drinks","Only an issue for commercial airline pilots","An extremely hazardous combination that can impair judgment","Not relevant to RPAS operations"],"options_zh":["可以通过咖啡因和能量饮料来管理","仅对商业航空飞行员有影响","一种极其危险的组合，可能损害判断力","与RPAS操作无关"],"correct":2,"explanation_en":"Stress and fatigue together create an extremely hazardous combination. Continuous stress additions decrease performance, impair judgment, and lead to unwarranted risk-taking. This applies equally to RPAS pilots, even though they are not physically in the aircraft.","explanation_zh":"压力和疲劳的叠加会产生极其危险的组合。持续增加的压力会降低表现、损害判断力并导致不当冒险。这同样适用于RPAS飞行员，即使他们本人不在飞行器内。"},
+  {"id":78,"category":"Human Performance","category_zh":"人为因素","en":"What is situational awareness in the context of RPAS operations?","zh":"在RPAS操作中，态势感知是什么？","options_en":["Knowing the battery level of the RPAS at all times","A comprehensive awareness of the surrounding environment, airspace, weather, and operational conditions","The ability to read aeronautical charts","Having line of sight with the RPAS at all times"],"options_zh":["随时了解RPAS的电池电量","对周围环境、空域、天气和运行条件的全面感知","能够阅读航空图","始终保持与RPAS的目视接触"],"correct":1,"explanation_en":"Situational awareness is the comprehensive perception and understanding of all factors affecting the operation, including the surrounding environment, other aircraft, weather conditions, airspace status, RPAS status, and potential hazards. Loss of situational awareness is a leading contributor to aviation incidents.","explanation_zh":"态势感知是对影响操作的所有因素的全面感知和理解，包括周围环境、其他飞行器、天气状况、空域状态、RPAS状态和潜在危害。态势感知的丧失是导致航空事故的主要因素之一。"},
+  {"id":79,"category":"Human Performance","category_zh":"人为因素","en":"The 'PAVE' checklist is a pre-flight risk assessment tool. What does 'PAVE' stand for?","zh":"'PAVE'检查表是一种飞行前风险评估工具。'PAVE'代表什么？","options_en":["Pilot, Aircraft, enVironment, External pressures","Pressure, Altitude, Velocity, Equipment","Plan, Assess, Verify, Execute","Pilot, Awareness, Visibility, Emergency"],"options_zh":["Pilot（飞行员）、Aircraft（飞行器）、enVironment（环境）、External pressures（外部压力）","Pressure（气压）、Altitude（高度）、Velocity（速度）、Equipment（设备）","Plan（计划）、Assess（评估）、Verify（验证）、Execute（执行）","Pilot（飞行员）、Awareness（意识）、Visibility（能见度）、Emergency（紧急情况）"],"correct":0,"explanation_en":"PAVE stands for Pilot (fitness and currency), Aircraft (airworthiness and equipment), enVironment (weather, terrain, airspace), and External pressures (time, schedule, task completion). It is a structured tool for identifying and mitigating risks before flight.","explanation_zh":"PAVE代表Pilot（飞行员——身体状况和资质时效）、Aircraft（飞行器——适航性和设备）、enVironment（环境——天气、地形、空域）和External pressures（外部压力——时间、日程、任务完成压力）。它是飞行前识别和缓解风险的结构化工具。"},
+  {"id":80,"category":"Human Performance","category_zh":"人为因素","en":"Spatial disorientation for an RPAS pilot is MOST likely caused by:","zh":"RPAS飞行员的空间迷失最可能由什么引起？","options_en":["Flying the RPAS too fast","Visual illusions when the RPAS is at a distance, making orientation difficult to determine","Using first-person view (FPV) goggles indoors","Operating in controlled airspace"],"options_zh":["RPAS飞行速度过快","RPAS在远距离时产生的视觉错觉，使方位难以判断","在室内使用第一人称视角（FPV）眼镜","在管制空域操作"],"correct":1,"explanation_en":"RPAS pilots can experience spatial disorientation when the aircraft is at a distance and visual cues are insufficient to accurately determine its orientation, heading, or attitude. Without the physiological cues available to manned aircraft pilots, RPAS operators are susceptible to visual illusions.","explanation_zh":"RPAS飞行员在飞行器距离较远、视觉线索不足以准确判断其方位、航向或姿态时，可能会产生空间迷失。由于缺少有人驾驶飞行器飞行员所拥有的生理感知线索，RPAS操作员容易受到视觉错觉的影响。"},
+  {"id":81,"category":"Human Performance","category_zh":"人为因素","en":"The Threat and Error Management (TEM) model identifies which three components?","zh":"威胁与差错管理（TEM）模型识别哪三个要素？","options_en":["Weather, Equipment, Pilot","Threats, Errors, Undesired Aircraft States","Hazards, Controls, Consequences","Plan, Do, Check"],"options_zh":["天气、设备、飞行员","威胁、差错、非预期飞行器状态","危害、控制措施、后果","计划、执行、检查"],"correct":1,"explanation_en":"The TEM model identifies Threats (external factors that increase operational complexity), Errors (actions or inactions by the crew that deviate from intentions), and Undesired Aircraft States (positions or conditions of the aircraft that clearly reduce safety margins). The goal is to manage threats and trap errors before they lead to undesired states.","explanation_zh":"TEM模型识别三个要素：威胁（增加操作复杂性的外部因素）、差错（机组人员偏离意图的操作或不作为）和非预期飞行器状态（明显降低安全裕度的飞行器位置或状况）。目标是管理威胁并在差错导致非预期状态之前将其捕获。"},
+  {"id":82,"category":"Electrical Systems","category_zh":"电气系统","en":"What is the nominal voltage of a single fully charged LiPo (Lithium Polymer) battery cell?","zh":"单节完全充电的LiPo（锂聚合物）电池的标称电压是多少？","options_en":["3.0V","3.7V","4.2V","5.0V"],"options_zh":["3.0V","3.7V","4.2V","5.0V"],"correct":2,"explanation_en":"A single LiPo cell has a nominal voltage of 3.7V, but when fully charged it reaches 4.2V. The minimum safe voltage is approximately 3.0V per cell. Discharging below this level can cause permanent damage and create safety hazards.","explanation_zh":"单节LiPo电池的标称电压为3.7V，但完全充电时达到4.2V。最低安全电压约为每节3.0V。放电低于此水平可能导致永久损坏并产生安全隐患。"},
+  {"id":83,"category":"Electrical Systems","category_zh":"电气系统","en":"What is the recommended storage voltage per cell for LiPo batteries when not in use for extended periods?","zh":"LiPo电池长期不使用时，每节建议的存储电压是多少？","options_en":["3.0V per cell","3.7V to 3.85V per cell","4.2V per cell","4.5V per cell"],"options_zh":["每节3.0V","每节3.7V至3.85V","每节4.2V","每节4.5V"],"correct":1,"explanation_en":"LiPo batteries should be stored at approximately 3.7V to 3.85V per cell (around 50% charge) for long-term storage. Storing them fully charged (4.2V) causes accelerated chemical degradation and increases the risk of swelling/puffing. Storing them fully discharged can cause cells to drop below safe voltage.","explanation_zh":"LiPo电池长期存储时应保持在每节约3.7V至3.85V（约50%电量）。满电存储（4.2V）会加速化学降解并增加膨胀/鼓包风险。完全放电存储则可能导致电芯电压降至安全值以下。"},
+  {"id":84,"category":"Electrical Systems","category_zh":"电气系统","en":"A LiPo battery that appears swollen or 'puffed' indicates:","zh":"LiPo电池出现膨胀或\"鼓包\"表示：","options_en":["The battery is fully charged and ready for flight","Internal gas buildup due to damage or degradation — the battery should be retired","Normal expansion due to temperature changes","The battery needs to be balanced charged"],"options_zh":["电池已充满电，可以飞行","因损坏或老化导致内部气体积聚——电池应停止使用","因温度变化引起的正常膨胀","电池需要进行均衡充电"],"correct":1,"explanation_en":"A swollen or puffed LiPo battery indicates internal gas buildup from chemical decomposition, typically caused by overcharging, over-discharging, physical damage, or age-related degradation. A puffed battery should be immediately removed from service and safely disposed of, as it poses a fire risk.","explanation_zh":"膨胀或鼓包的LiPo电池表示因化学分解导致的内部气体积聚，通常由过充、过放、物理损坏或老化引起。鼓包的电池应立即停止使用并安全处置，因为存在起火风险。"},
+  {"id":85,"category":"Electrical Systems","category_zh":"电气系统","en":"What happens when a LiPo battery is overcharged beyond 4.2V per cell?","zh":"LiPo电池过充超过每节4.2V时会发生什么？","options_en":["The battery stores more energy for longer flight times","Lithium plating occurs on the anode, gas is produced, and the battery may vent or catch fire","The battery management system automatically prevents any damage","The battery simply stops accepting charge"],"options_zh":["电池储存更多能量以延长飞行时间","阳极上会发生锂镀层沉积，产生气体，电池可能排气或起火","电池管理系统会自动防止任何损坏","电池简单地停止接受充电"],"correct":1,"explanation_en":"When overcharged, lithium metal plates on the anode and the cathode produces carbon dioxide gas. Internal pressure rises until the battery casing can rupture, venting flammable gases that can ignite. This is why proper chargers with cell-level voltage monitoring are essential.","explanation_zh":"过充时，锂金属会在阳极上镀层沉积，阴极产生二氧化碳气体。内部压力升高直到电池外壳可能破裂，排出可燃气体并可能引燃。这就是为什么需要具有电芯级电压监测功能的专用充电器。"},
+  {"id":86,"category":"Electrical Systems","category_zh":"电气系统","en":"What does the 'C' rating on a LiPo battery indicate?","zh":"LiPo电池上的'C'评级表示什么？","options_en":["The total capacity of the battery in watt-hours","The maximum safe discharge rate relative to the battery's capacity","The number of charge cycles the battery can endure","The battery's voltage under load"],"options_zh":["电池的总容量（以瓦时为单位）","相对于电池容量的最大安全放电倍率","电池可承受的充电循环次数","电池在负载下的电压"],"correct":1,"explanation_en":"The C rating indicates the maximum safe continuous discharge rate relative to the battery's capacity. For example, a 2000mAh battery with a 25C rating can safely discharge at 25 x 2000 = 50,000mA (50A). Higher C ratings allow greater current draw for more demanding applications.","explanation_zh":"C评级表示相对于电池容量的最大安全连续放电倍率。例如，一个2000mAh电池的25C评级意味着可以安全地以25 x 2000 = 50,000mA（50A）放电。更高的C评级允许更大的电流输出，适用于更高要求的应用。"},
+  {"id":87,"category":"Electrical Systems","category_zh":"电气系统","en":"Electromagnetic interference (EMI) can affect RPAS operations by:","zh":"电磁干扰（EMI）会如何影响RPAS操作？","options_en":["Only affecting the camera quality","Disrupting the command and control link between pilot and aircraft, potentially causing a flyaway","Reducing battery life by 50%","Making the RPAS fly faster"],"options_zh":["仅影响相机画质","干扰飞行员与飞行器之间的指挥控制链路，可能导致失控飞行","使电池寿命减少50%","使RPAS飞行更快"],"correct":1,"explanation_en":"EMI or radio frequency interference (RFI) can disrupt the control link (C2 link) between the pilot and the RPAS, potentially causing signal loss or a flyaway. Sources include power lines, transmission towers, and other electronic equipment. Pilots should check the local RF environment before flight.","explanation_zh":"电磁干扰（EMI）或射频干扰（RFI）可以干扰飞行员与RPAS之间的控制链路（C2链路），可能导致信号丢失或失控飞行（flyaway）。干扰源包括高压电线、发射塔和其他电子设备。飞行员应在飞行前检查当地的射频环境。"},
+  {"id":88,"category":"Electrical Systems","category_zh":"电气系统","en":"An IMU (Inertial Measurement Unit) in a drone typically combines which sensors?","zh":"无人机中的IMU（惯性测量单元）通常组合了哪些传感器？","options_en":["Camera and GPS only","Gyroscopes, accelerometers, and sometimes magnetometers","Barometer and thermometer only","LiDAR and ultrasonic sensors"],"options_zh":["仅相机和GPS","陀螺仪、加速度计，有时还有磁力计","仅气压计和温度计","LiDAR和超声波传感器"],"correct":1,"explanation_en":"An IMU typically combines gyroscopes (measuring angular velocity/rotation), accelerometers (measuring linear acceleration), and often magnetometers (measuring magnetic field for heading reference). These sensors work together to determine the drone's orientation, movement, and heading.","explanation_zh":"IMU通常组合了陀螺仪（测量角速度/旋转）、加速度计（测量线性加速度）和通常还有磁力计（测量磁场以提供航向参考）。这些传感器协同工作，确定无人机的方位、运动和航向。"},
+  {"id":89,"category":"Electrical Systems","category_zh":"电气系统","en":"A barometric sensor (barometer) in a drone is primarily used to determine:","zh":"无人机中的气压传感器（气压计）主要用于确定：","options_en":["Wind speed","Altitude by measuring atmospheric pressure","Distance to obstacles","Battery voltage"],"options_zh":["风速","通过测量大气压力来确定高度","与障碍物的距离","电池电压"],"correct":1,"explanation_en":"A barometric pressure sensor measures atmospheric pressure, which decreases with altitude. The drone's flight controller uses this data to estimate altitude above the takeoff point. This provides more stable altitude holding than GPS-only altitude measurement, especially at low altitudes.","explanation_zh":"气压传感器通过测量大气压力来工作，大气压力随高度升高而降低。无人机的飞控系统利用该数据估算相对于起飞点的高度。与仅依赖GPS的高度测量相比，气压传感器在低空飞行时能提供更稳定的定高效果。"},
+  {"id":90,"category":"Navigation","category_zh":"导航","en":"What is the difference between true north and magnetic north?","zh":"真北和磁北有什么区别？","options_en":["There is no difference; they are the same point","True north is the geographic North Pole; magnetic north is where a compass needle points, and they differ by the magnetic variation/declination","Magnetic north is always exactly 10 degrees east of true north","True north changes over time but magnetic north is fixed"],"options_zh":["没有区别；它们是同一个点","真北是地理北极；磁北是指南针指向的方向，两者之间存在磁差/磁偏角","磁北始终在真北以东恰好10度","真北会随时间变化，但磁北是固定的"],"correct":1,"explanation_en":"True north is the geographic North Pole (the axis around which the Earth rotates). Magnetic north is where a compass needle points, determined by Earth's magnetic field. The angular difference between them is called magnetic variation (or declination), which changes depending on location and slowly changes over time.","explanation_zh":"真北是地理北极（地球自转轴的方向）。磁北是指南针指针所指的方向，由地球磁场决定。两者之间的角度差称为磁差（或磁偏角），其数值因地理位置而异，并且随时间缓慢变化。"},
+  {"id":91,"category":"Navigation","category_zh":"导航","en":"Magnetic variation in Australia is generally:","zh":"澳大利亚的磁差通常为：","options_en":["Zero degrees everywhere","Easterly across the entire continent","Varies from approximately 4 degrees East to 12 degrees East across the continent","Always exactly 10 degrees West"],"options_zh":["全境均为零度","全境均为东偏","在整个大陆范围内从大约东偏4度到东偏12度不等","始终恰好为西偏10度"],"correct":2,"explanation_en":"Magnetic variation across Australia generally ranges from approximately 4 degrees East in Western Australia to approximately 12 degrees East in eastern Australia. The exact value varies by location and changes slowly over time. This information is shown on aeronautical charts with isogonic lines.","explanation_zh":"澳大利亚各地的磁差通常从西澳的大约东偏4度到东部各州的大约东偏12度不等。具体数值因地点而异，并随时间缓慢变化。该信息在航空图上以等偏线（等磁差线）标示。"},
+  {"id":92,"category":"Navigation","category_zh":"导航","en":"Lines of latitude run:","zh":"纬线的走向为：","options_en":["North to south, converging at the poles","East to west, parallel to the equator","Diagonally across the globe","Only through the Southern Hemisphere"],"options_zh":["南北走向，在两极汇聚","东西走向，与赤道平行","斜穿地球","仅穿过南半球"],"correct":1,"explanation_en":"Lines of latitude (parallels) run east to west around the Earth, parallel to the equator. They measure angular distance north or south of the equator (0 to 90 degrees). Lines of longitude (meridians) run north to south from pole to pole.","explanation_zh":"纬线（平行线）环绕地球东西走向，与赤道平行。它们用于测量赤道以北或以南的角距离（0至90度）。经线（子午线）则从北极到南极呈南北走向。"},
+  {"id":93,"category":"Navigation","category_zh":"导航","en":"One degree of latitude is approximately equal to:","zh":"一度纬度大约等于：","options_en":["1 nautical mile","10 nautical miles","60 nautical miles","100 nautical miles"],"options_zh":["1海里","10海里","60海里","100海里"],"correct":2,"explanation_en":"One degree of latitude equals approximately 60 nautical miles (111 km). Therefore, one minute of latitude equals approximately 1 nautical mile (1.852 km). This relationship is fundamental to navigation and distance calculation on aeronautical charts.","explanation_zh":"一度纬度约等于60海里（111公里）。因此，一分纬度约等于1海里（1.852公里）。这一换算关系是航空图上导航和距离计算的基础。"},
+  {"id":94,"category":"Aeronautical Charts","category_zh":"航空图","en":"Which aeronautical chart is MOST commonly used for RPAS flight planning in the vicinity of controlled aerodromes in Australia?","zh":"在澳大利亚，进行管制机场附近的RPAS飞行计划时，最常用的航空图是哪种？","options_en":["En-Route Chart Low (ERC-L)","World Aeronautical Chart (WAC)","Visual Terminal Chart (VTC)","En-Route Chart High (ERC-H)"],"options_zh":["低空航路图（ERC-L）","世界航空图（WAC）","目视终端区图（VTC）","高空航路图（ERC-H）"],"correct":2,"explanation_en":"The Visual Terminal Chart (VTC) is the most commonly used chart for RPAS operations near controlled aerodromes. It provides detailed information about the terminal area including airspace boundaries, obstacles, terrain features, and aerodrome details at a large scale suitable for low-level operations.","explanation_zh":"目视终端区图（VTC）是在管制机场附近进行RPAS操作时最常用的航图。它以较大比例尺提供终端区域的详细信息，包括空域边界、障碍物、地形特征和机场详情，适合低空飞行操作。"},
+  {"id":95,"category":"Aeronautical Charts","category_zh":"航空图","en":"On an Australian VTC, an aerodrome information box typically contains:","zh":"在澳大利亚的VTC上，机场信息框通常包含：","options_en":["Only the aerodrome name","The aerodrome name, navigation aids, frequencies, elevation, and runway information","Only the GPS coordinates","Only the CTAF frequency"],"options_zh":["仅机场名称","机场名称、导航设施、频率、标高及跑道信息","仅GPS坐标","仅CTAF频率"],"correct":1,"explanation_en":"An aerodrome information box on a VTC contains key data including: the aerodrome name, navigation aid identifier, types and frequencies of navigation aids, aerodrome frequency/CTAF, elevation, and runway details. This information is essential for RPAS pilots operating near aerodromes.","explanation_zh":"VTC上的机场信息框包含关键数据，包括：机场名称、导航设施标识、导航设施类型和频率、机场频率/CTAF、机场标高以及跑道详情。这些信息对于在机场附近操作的RPAS飞行员至关重要。"},
+  {"id":96,"category":"Aeronautical Charts","category_zh":"航空图","en":"Airspace categories and their lateral and vertical limits in Australia are depicted on which charts?","zh":"澳大利亚的空域类别及其水平和垂直范围标注在哪些航图上？","options_en":["Only the Visual Terminal Chart (VTC)","En-Route Chart Low (ERC-L), Terminal Area Chart (TAC), and Visual Terminal Chart (VTC)","Only road maps and topographic charts","Only the NAIPS website, not on paper charts"],"options_zh":["仅目视终端区图（VTC）","低空航路图（ERC-L）、终端区图（TAC）和目视终端区图（VTC）","仅公路地图和地形图","仅NAIPS网站，纸质航图上不标注"],"correct":1,"explanation_en":"Airspace categories and their limits are depicted on En-Route Charts (ERC-L and ERC-H), Terminal Area Charts (TAC), and Visual Terminal Charts (VTC). Each chart serves different purposes and scales but all show the relevant airspace information for their coverage area.","explanation_zh":"空域类别及其范围标注在航路图（ERC-L和ERC-H）、终端区图（TAC）和目视终端区图（VTC）上。每种航图的用途和比例尺各不相同，但都会显示其覆盖区域内的相关空域信息。"},
+  {"id":97,"category":"Aeronautical Charts","category_zh":"航空图","en":"On a VTC, a solid blue line surrounding an aerodrome indicates:","zh":"在VTC上，环绕机场的蓝色实线表示：","options_en":["Restricted airspace","Class C controlled airspace boundary","A danger area","A mandatory broadcast zone"],"options_zh":["限制空域","C类管制空域边界","危险区","强制广播区"],"correct":1,"explanation_en":"On Australian VTCs, Class C controlled airspace is depicted with a solid blue line. Class D airspace is shown with a blue dashed line. Understanding these chart symbols is essential for RPAS pilots to identify where they need specific approvals to operate.","explanation_zh":"在澳大利亚的VTC上，C类管制空域以蓝色实线标示。D类空域则以蓝色虚线标示。RPAS飞行员必须理解这些航图符号，以识别哪些区域需要获得特定批准才能运行。"},
+  {"id":98,"category":"Aeronautical Charts","category_zh":"航空图","en":"On a VTC, a blue dashed line surrounding an aerodrome indicates:","zh":"在VTC上，环绕机场的蓝色虚线表示：","options_en":["Class A airspace","Prohibited area","Class D controlled airspace boundary","A helicopter landing area"],"options_zh":["A类空域","禁区","D类管制空域边界","直升机起降区"],"correct":2,"explanation_en":"A blue dashed line on a VTC indicates the boundary of Class D controlled airspace. Class D airspace typically extends from the surface to a specified altitude around tower-controlled aerodromes. RPAS pilots need CASA approval and ATC clearance to operate within Class D airspace.","explanation_zh":"VTC上的蓝色虚线表示D类管制空域边界。D类空域通常从地面延伸至塔台管制机场周围的指定高度。RPAS飞行员需要获得CASA批准和ATC许可才能在D类空域内运行。"},
+  {"id":99,"category":"Airspace","category_zh":"空域","en":"Class A airspace in Australia is typically found:","zh":"澳大利亚的A类空域通常位于：","options_en":["At the surface around all aerodromes","Above FL180 (18,000 feet) in designated areas and on published airways","Only over the ocean","Below 1,000 feet AGL"],"options_zh":["所有机场周围的地面附近","FL180（18,000英尺）以上的指定区域及已公布的航路上","仅在海洋上空","地面以上1,000英尺以下"],"correct":1,"explanation_en":"Class A airspace in Australia is found above FL180 and on published airways. Only IFR (Instrument Flight Rules) operations are permitted. No VFR flights or RPAS operations are allowed in Class A airspace without specific exemption.","explanation_zh":"澳大利亚的A类空域位于FL180以上及已公布的航路上。仅允许IFR（仪表飞行规则）运行。未经特别豁免，不允许VFR飞行或RPAS在A类空域内运行。"},
+  {"id":100,"category":"Airspace","category_zh":"空域","en":"Class C airspace in Australia typically extends from the surface to what altitude around major aerodromes?","zh":"澳大利亚的C类空域通常从地面延伸至主要机场上方什么高度？","options_en":["1,000 feet AGL","2,500 feet AGL","4,000 to 8,500 feet above the aerodrome elevation","FL180"],"options_zh":["地面以上1,000英尺","地面以上2,500英尺","机场标高以上4,000至8,500英尺","FL180"],"correct":2,"explanation_en":"Class C airspace surrounds major aerodromes (like capital city airports) and typically extends from the surface to between 4,000 and 8,500 feet above aerodrome elevation. Both IFR and VFR traffic are permitted but all aircraft require ATC clearance. RPAS operations require CASA approval.","explanation_zh":"C类空域环绕主要机场（如首府城市机场），通常从地面延伸至机场标高以上4,000至8,500英尺。IFR和VFR航空器均可运行，但所有航空器都需要获得ATC许可。RPAS运行需要CASA批准。"},
+  {"id":101,"category":"Airspace","category_zh":"空域","en":"What is the MAIN difference between Class D and Class E airspace?","zh":"D类空域和E类空域的主要区别是什么？","options_en":["Class D allows RPAS but Class E does not","Class D has a control tower and requires radio contact; Class E does not require radio contact for VFR flights","Class E is above FL180; Class D is below 1,000 feet","There is no difference; they are the same"],"options_zh":["D类空域允许RPAS，但E类不允许","D类空域设有管制塔台，要求无线电联络；E类空域的VFR飞行不要求无线电联络","E类在FL180以上；D类在1,000英尺以下","没有区别；两者相同"],"correct":1,"explanation_en":"Class D airspace is associated with tower-controlled aerodromes where radio contact with ATC is mandatory for all aircraft. Class E is controlled airspace but does not have a control tower; IFR flights receive separation services but VFR flights may operate without ATC contact (though they must comply with VFR requirements).","explanation_zh":"D类空域与塔台管制机场相关联，所有航空器都必须与ATC保持无线电联络。E类是管制空域但没有管制塔台；IFR航班享受间隔服务，但VFR航班可在不与ATC联络的情况下运行（但必须符合VFR要求）。"},
+  {"id":102,"category":"Airspace","category_zh":"空域","en":"A CTAF (Common Traffic Advisory Frequency) is used at:","zh":"CTAF（公共交通咨询频率）用于：","options_en":["International airports only","Non-towered aerodromes and certain areas for pilots to self-announce position and intentions","Military restricted areas only","Only above FL180"],"options_zh":["仅国际机场","非塔台管制机场及特定区域，供飞行员自行通报位置和意图","仅军事限制区","仅FL180以上"],"correct":1,"explanation_en":"A CTAF is a designated frequency used at non-towered aerodromes (and some areas outside towered aerodromes) for pilots to broadcast their position and intentions to other traffic in the area. It is not monitored by ATC but allows situational awareness between pilots.","explanation_zh":"CTAF是在非塔台管制机场（以及塔台管制机场外的某些区域）指定使用的频率，供飞行员向该区域内的其他航空器广播其位置和意图。该频率不由ATC监听，但能够增强飞行员之间的态势感知。"},
+  {"id":103,"category":"Emergency Procedures","category_zh":"紧急程序","en":"In the event of a command and control (C2) link failure during RPAS operations, the MOST important first action is to:","zh":"在RPAS运行过程中发生指挥与控制（C2）链路失效时，最重要的首要行动是：","options_en":["Immediately call emergency services (000)","Attempt to re-establish the link and monitor the RPAS failsafe response (e.g., RTH, hover, or land)","Abandon the operation and leave the area","Contact CASA to report the incident"],"options_zh":["立即拨打紧急服务电话（000）","尝试重新建立链路，并监控RPAS的失效保护响应（如返航、悬停或降落）","放弃操作并离开该区域","联系CASA报告该事件"],"correct":1,"explanation_en":"Upon C2 link loss, the pilot should first attempt to re-establish the link while monitoring whether the RPAS executes its pre-programmed failsafe action (Return to Home, hover, or land). The pilot should be familiar with the aircraft's failsafe behaviour before each flight.","explanation_zh":"C2链路丢失后，飞行员应首先尝试重新建立链路，同时观察RPAS是否执行了预设的失效保护动作（返航、悬停或降落）。飞行员应在每次飞行前熟悉航空器的失效保护行为。"},
+  {"id":104,"category":"Emergency Procedures","category_zh":"紧急程序","en":"A 'flyaway' is BEST described as:","zh":"\"飞行失控\"（flyaway）最准确的描述是：","options_en":["A planned automated flight along waypoints","An uncontrolled flight where the RPAS does not respond to pilot inputs and flies away from the intended area","A normal return-to-home sequence","Flying the RPAS beyond visual line of sight intentionally"],"options_zh":["沿航点的计划自动飞行","RPAS不响应飞行员操控输入、飞离预定区域的失控飞行","正常的返航程序","故意超出目视视距范围飞行RPAS"],"correct":1,"explanation_en":"A flyaway is an uncontrolled, unintended flight where the RPAS does not respond to pilot control inputs and flies away from the intended operational area. Causes can include EMI, GPS errors, compass interference, or software malfunctions. Pilots should note last known position, altitude, and heading.","explanation_zh":"飞行失控（flyaway）是指RPAS不响应飞行员控制输入、飞离预定操作区域的失控非计划飞行。原因可能包括电磁干扰（EMI）、GPS误差、罗盘干扰或软件故障。飞行员应记录最后已知的位置、高度和航向。"},
+  {"id":105,"category":"Emergency Procedures","category_zh":"紧急程序","en":"During a drone flyaway event, the RPIC should immediately:","zh":"在无人机飞行失控事件中，RPIC（遥控航空器驾驶员）应立即：","options_en":["Chase the drone on foot","Inform all crew members and bystanders, and if in controlled airspace, notify ATC","Turn off the controller to reset the connection","Continue normal operations with a backup drone"],"options_zh":["徒步追赶无人机","通知所有机组成员和旁观者；如在管制空域内，通知ATC","关闭遥控器以重置连接","使用备用无人机继续正常操作"],"correct":1,"explanation_en":"During a flyaway, the RPIC should immediately inform all crew members and bystanders of the situation. If operating in controlled airspace, ATC must be notified. The pilot should record the last known position, altitude, and heading, and take note of battery endurance remaining to estimate where the RPAS may land or crash.","explanation_zh":"飞行失控期间，RPIC应立即通知所有机组成员和旁观者。如在管制空域内运行，必须通知ATC。飞行员应记录最后已知的位置、高度和航向，并记录剩余电池续航时间，以估算RPAS可能降落或坠毁的位置。"},
+  {"id":106,"category":"Emergency Procedures","category_zh":"紧急程序","en":"The typical failsafe options that can be pre-programmed in an RPAS for C2 link loss include:","zh":"针对C2链路丢失，可在RPAS中预设的典型失效保护选项包括：","options_en":["Self-destruct, continue mission, hover indefinitely","Return to Home (RTH), hover in place, or auto-land","Fly higher, switch to manual mode, circle overhead","Contact ATC automatically, activate parachute, continue mission"],"options_zh":["自毁、继续任务、无限期悬停","返航（RTH）、原地悬停或自动降落","爬升、切换到手动模式、在上方盘旋","自动联系ATC、启动降落伞、继续任务"],"correct":1,"explanation_en":"Most consumer and commercial RPAS offer three common failsafe options for C2 link loss: Return to Home (RTH) — the most common option, where the drone returns to the launch point; Hover in place — maintaining position until the link is re-established or battery is low; and Auto-land — descending vertically to land at the current position.","explanation_zh":"大多数消费级和商用RPAS针对C2链路丢失提供三种常见的失效保护选项：返航（RTH）——最常见的选项，无人机返回起飞点；原地悬停——保持位置直到链路恢复或电量不足；自动降落——在当前位置垂直下降着陆。"},
+  {"id":107,"category":"Emergency Procedures","category_zh":"紧急程序","en":"Vortex Ring State (settling with power) in a multirotor RPAS is MOST likely to occur when:","zh":"多旋翼RPAS的涡环状态（动力下沉）最可能发生在：","options_en":["Flying at maximum forward speed","Descending vertically through its own downwash at a rate greater than about 50% of the maximum descent rate","Hovering in a strong crosswind","Climbing rapidly to maximum altitude"],"options_zh":["以最大前飞速度飞行时","以超过最大下降速率约50%的速度垂直穿过自身下洗气流下降时","在强侧风中悬停时","快速爬升至最大高度时"],"correct":1,"explanation_en":"Vortex Ring State occurs when a multirotor descends vertically (or near-vertically) into its own downwash. The disturbed air recirculates through the rotors, causing a loss of lift even at full power. Recovery involves moving forward or laterally to fly into clean, undisturbed air.","explanation_zh":"涡环状态发生在多旋翼垂直（或接近垂直）下降进入自身下洗气流时。被扰动的空气在旋翼间重新循环，导致即使全功率也会失去升力。恢复方法是向前或向侧方飞行，进入未被扰动的洁净空气中。"},
+  {"id":108,"category":"Risk Management","category_zh":"风险管理","en":"In a risk matrix, risk is assessed as a function of:","zh":"在风险矩阵中，风险评估基于以下因素：","options_en":["Cost and schedule only","Likelihood (probability) and consequence (severity)","Equipment age and maintenance history","Weather conditions and time of day"],"options_zh":["仅成本和进度","可能性（概率）和后果（严重程度）","设备使用年限和维护历史","天气条件和时间"],"correct":1,"explanation_en":"A risk matrix evaluates risk by combining the likelihood (probability) of a hazard occurring with the severity (consequence) of the potential outcome. By plotting both dimensions, the risk level (e.g., low, medium, high, extreme) can be determined to guide decision-making and mitigation strategies.","explanation_zh":"风险矩阵通过将危害发生的可能性（概率）与潜在后果的严重程度相结合来评估风险。通过绘制这两个维度，可以确定风险等级（如低、中、高、极高），以指导决策和制定缓解策略。"},
+  {"id":109,"category":"Risk Management","category_zh":"风险管理","en":"A 'bow-tie' risk analysis model shows:","zh":"\"领结\"（bow-tie）风险分析模型展示的是：","options_en":["Only the consequences of an incident","Only the causes of a hazard","The hazard at the centre, with preventive barriers (controls) on the left and recovery/mitigation barriers on the right","A timeline of events in chronological order"],"options_zh":["仅事故的后果","仅危害的原因","危害位于中心，左侧为预防屏障（控制措施），右侧为恢复/缓解屏障","按时间顺序排列的事件时间线"],"correct":2,"explanation_en":"The bow-tie model places the top event (hazard) at the centre. The left side shows threats and their preventive barriers (controls that prevent the event from occurring). The right side shows consequences and their recovery/mitigation barriers (controls that reduce the impact if the event does occur). It provides a comprehensive visual representation of risk scenarios.","explanation_zh":"领结模型将顶部事件（危害）置于中心。左侧展示威胁及其预防屏障（防止事件发生的控制措施）。右侧展示后果及其恢复/缓解屏障（在事件发生后减轻影响的控制措施）。它提供了风险情景的全面直观呈现。"},
+  {"id":110,"category":"Risk Management","category_zh":"风险管理","en":"The first step in the risk management process is:","zh":"风险管理过程的第一步是：","options_en":["Implementing control measures","Monitoring and reviewing","Hazard identification","Developing an emergency response plan"],"options_zh":["实施控制措施","监控和审查","危害识别","制定应急响应计划"],"correct":2,"explanation_en":"Hazard identification is the starting point of the risk management process. You must first identify what can go wrong before you can assess the risk, develop controls, and implement mitigation strategies. The general process is: Identify hazards, Assess risks, Develop controls, Implement, then Monitor and review.","explanation_zh":"危害识别是风险管理过程的起点。必须首先识别可能出现的问题，然后才能评估风险、制定控制措施并实施缓解策略。一般流程为：识别危害、评估风险、制定控制措施、实施、然后监控和审查。"},
+  {"id":111,"category":"Risk Management","category_zh":"风险管理","en":"In the hierarchy of controls, which control measure is MOST effective?","zh":"在控制措施层级中，哪种控制措施最有效？","options_en":["Personal Protective Equipment (PPE)","Administrative controls (procedures and training)","Elimination of the hazard","Engineering controls"],"options_zh":["个人防护装备（PPE）","管理控制措施（程序和培训）","消除危害","工程控制措施"],"correct":2,"explanation_en":"The hierarchy of controls ranks control measures from most to least effective: 1. Elimination (remove the hazard entirely), 2. Substitution (replace with less hazardous alternative), 3. Engineering controls (isolate people from the hazard), 4. Administrative controls (procedures, training), 5. PPE (personal protective equipment). Elimination is always the most effective control.","explanation_zh":"控制措施层级从最有效到最不有效排列为：1. 消除（完全移除危害）；2. 替代（用危害较小的替代品替换）；3. 工程控制（将人员与危害隔离）；4. 管理控制（程序、培训）；5. PPE（个人防护装备）。消除始终是最有效的控制措施。"},
+  {"id":112,"category":"Risk Management","category_zh":"风险管理","en":"A Safety Management System (SMS) is BEST described as:","zh":"安全管理体系（SMS）最准确的描述是：","options_en":["A single document listing all safety rules","A systematic approach to managing safety, including organisational structures, policies, procedures, and accountability","An emergency plan activated only during incidents","A computer system that tracks aircraft maintenance"],"options_zh":["列出所有安全规则的单一文件","一种系统化的安全管理方法，包括组织结构、政策、程序和责任制","仅在事故发生时启动的应急计划","跟踪航空器维护的计算机系统"],"correct":1,"explanation_en":"An SMS is a comprehensive, systematic approach to managing safety that integrates organisational structures, accountabilities, policies, and procedures. It includes safety risk management, safety assurance, safety promotion, and safety policy as its four pillars/components.","explanation_zh":"SMS是一种全面、系统化的安全管理方法，整合了组织结构、责任制、政策和程序。它包括安全风险管理、安全保障、安全推广和安全政策四大支柱/组成部分。"},
+  {"id":113,"category":"Flight Planning","category_zh":"飞行计划","en":"When planning an RPAS flight, the maximum take-off weight (MTOW) includes:","zh":"在规划RPAS飞行时，最大起飞重量（MTOW）包括：","options_en":["Only the weight of the airframe","The total weight including airframe, battery, payload, and all accessories attached to the RPAS","Only the weight of the battery and payload","The weight of the RPAS without the battery"],"options_zh":["仅机身重量","总重量，包括机身、电池、有效载荷及安装在RPAS上的所有附件","仅电池和有效载荷的重量","不含电池的RPAS重量"],"correct":1,"explanation_en":"Maximum Take-Off Weight (MTOW) is the total weight of the RPAS including the airframe, batteries, all payloads (cameras, sensors, LiDAR, etc.), and any accessories attached to the aircraft. This total weight determines which regulatory category applies under CASA regulations.","explanation_zh":"最大起飞重量（MTOW）是RPAS的总重量，包括机身、电池、所有有效载荷（相机、传感器、LiDAR等）以及安装在航空器上的所有附件。该总重量决定了根据CASA法规适用的监管类别。"},
+  {"id":114,"category":"Flight Planning","category_zh":"飞行计划","en":"For RPAS operations, a NOTAM should be checked because it provides:","zh":"进行RPAS操作时应查看NOTAM，因为它提供：","options_en":["Long-term weather forecasts","Temporary or permanent changes to aeronautical information that may affect operations","Aircraft maintenance schedules","Insurance requirements"],"options_zh":["长期天气预报","可能影响运行的航空信息临时或永久变更","航空器维护计划","保险要求"],"correct":1,"explanation_en":"NOTAMs (Notices to Air Missions) alert pilots to temporary or permanent changes that may affect operations, such as airspace restrictions, military exercises, runway closures, obstacles, and other hazards. Checking NOTAMs is an essential part of pre-flight planning to ensure safe operations.","explanation_zh":"NOTAM（航行通告）提醒飞行员注意可能影响运行的临时或永久变更，如空域限制、军事演习、跑道关闭、障碍物及其他危害。查看NOTAM是飞行前准备的重要环节，以确保安全运行。"},
+  {"id":115,"category":"Flight Planning","category_zh":"飞行计划","en":"A ReOC holder who has a NOTAM requirement in their instrument of approval must:","zh":"持有ReOC且其批准文件中包含NOTAM要求的运营商必须：","options_en":["Issue the NOTAM verbally to nearby pilots","Submit a NOTAM request to Airservices Australia (if authorised) or to CASA","Only inform local police of the operation","Post notice on social media"],"options_zh":["口头向附近飞行员发布NOTAM","向澳大利亚航空服务公司（Airservices Australia）（如获授权）或向CASA提交NOTAM申请","仅通知当地警方有关该操作","在社交媒体上发布通知"],"correct":1,"explanation_en":"If a ReOC holder's instrument of approval requires NOTAM issuance, they must complete the Airservices Australia NOTAM request form and submit it to either Airservices Australia (if they are a NOTAM authorised person) or to CASA (if they are not). This ensures other airspace users are informed of the RPAS operation.","explanation_zh":"如果ReOC持有人的批准文件要求发布NOTAM，他们必须填写Airservices Australia的NOTAM申请表，并将其提交给Airservices Australia（如为NOTAM授权人员）或CASA（如非授权人员）。这确保其他空域使用者能获知该RPAS操作信息。"},
+  {"id":116,"category":"Flight Planning","category_zh":"飞行计划","en":"What effect does high density altitude have on RPAS performance?","zh":"高密度高度对RPAS性能有什么影响？","options_en":["Improved performance due to thinner air reducing drag","Reduced performance due to thinner air providing less lift from the rotors","No effect on multirotor RPAS","Only affects fixed-wing RPAS, not multirotors"],"options_zh":["由于空气稀薄、阻力减小，性能提高","由于空气稀薄、旋翼升力减小，性能下降","对多旋翼RPAS没有影响","仅影响固定翼RPAS，不影响多旋翼"],"correct":1,"explanation_en":"High density altitude (caused by high temperature, high elevation, or high humidity) means thinner air. Thinner air reduces rotor efficiency, resulting in less lift and thrust. This means reduced payload capacity, shorter flight times, and decreased overall performance for all RPAS including multirotors.","explanation_zh":"高密度高度（由高温、高海拔或高湿度引起）意味着空气稀薄。稀薄的空气降低旋翼效率，产生较少的升力和推力。这意味着包括多旋翼在内的所有RPAS的载荷能力降低、飞行时间缩短、整体性能下降。"},
+  {"id":117,"category":"Operations and Procedures","category_zh":"操作与程序","en":"The 'CANCA' protocol used in multi-crew RPAS operations stands for:","zh":"多机组RPAS操作中使用的'CANCA'协议代表：","options_en":["Check, Alert, Navigate, Communicate, Assess","Communicate (internally), Aviate, Navigate, Communicate (externally), Administrate","Control, Adjust, Notify, Confirm, Act","Clear, Approach, Navigate, Climb, Advise"],"options_zh":["Check（检查）、Alert（警告）、Navigate（导航）、Communicate（通信）、Assess（评估）","Communicate（内部沟通）、Aviate（操纵飞行器）、Navigate（导航）、Communicate（外部通信）、Administrate（行政管理）","Control（控制）、Adjust（调整）、Notify（通知）、Confirm（确认）、Act（行动）","Clear（清除）、Approach（进近）、Navigate（导航）、Climb（爬升）、Advise（通报）"],"correct":1,"explanation_en":"CANCA is the multi-crew RPAS operations protocol: Communicate (between crew members), Aviate (fly the aircraft safely), Navigate (ensure correct flight path), Communicate (externally to ATC/stakeholders), and Administrate (complete required documentation and reporting).","explanation_zh":"CANCA是多机组RPAS操作协议：Communicate（机组成员之间的内部沟通）、Aviate（安全操纵飞行器）、Navigate（确保正确的飞行路线）、Communicate（与ATC/利益相关方的外部通信）、Administrate（完成所需的文件记录和报告）。"},
+  {"id":118,"category":"Operations and Procedures","category_zh":"操作与程序","en":"An anabatic wind is:","zh":"谷风（anabatic wind）是指：","options_en":["A wind that flows down a mountain slope at night","A wind that rises up a slope due to daytime heating of the hillside","A strong wind associated with cold front passage","A wind that blows from the sea to the land"],"options_zh":["夜间沿山坡向下流动的风","由于白天山坡受热，沿坡面上升的风","与冷锋过境相关的强风","从海面吹向陆地的风"],"correct":1,"explanation_en":"An anabatic wind rises up a slope during the daytime. Solar heating warms the air in contact with the slope, making it less dense than the surrounding air at the same altitude. This buoyant air rises along the slope. Anabatic winds are the daytime counterpart of katabatic (downslope) winds.","explanation_zh":"谷风（anabatic wind）在白天沿坡面上升。太阳加热使接触坡面的空气温度升高，密度小于同一高度的周围空气。这种浮力较大的空气沿坡面上升。谷风是山风（katabatic wind，夜间下坡风）的白天对应现象。"},
+  {"id":119,"category":"Operations and Procedures","category_zh":"操作与程序","en":"In Mode 2 transmitter configuration, pulling the right stick to the left will cause the RPAS to:","zh":"在Mode 2（美国手）遥控器配置中，将右摇杆向左推会使RPAS：","options_en":["Yaw to the left","Roll to the left (move laterally left)","Climb","Pitch forward"],"options_zh":["向左偏航","向左滚转（向左横向移动）","爬升","俯仰向前"],"correct":1,"explanation_en":"In Mode 2 (the most common transmitter configuration), the right stick controls pitch (forward/back) and roll (left/right). Moving the right stick to the left causes the RPAS to roll left, moving it laterally to the left. The left stick controls throttle (up/down) and yaw (left/right rotation).","explanation_zh":"在Mode 2（最常见的遥控器配置）中，右摇杆控制俯仰（前/后）和滚转（左/右）。将右摇杆向左推会使RPAS向左滚转，即向左横向移动。左摇杆控制油门（上/下）和偏航（左/右旋转）。"},
+  {"id":120,"category":"Operations and Procedures","category_zh":"操作与程序","en":"The four forces acting on an RPAS in flight are:","zh":"作用在飞行中RPAS上的四个力是：","options_en":["Lift, Weight, Thrust, Drag","Speed, Direction, Altitude, Power","Roll, Pitch, Yaw, Throttle","Gravity, Inertia, Friction, Momentum"],"options_zh":["升力、重力、推力、阻力","速度、方向、高度、功率","滚转、俯仰、偏航、油门","重力、惯性、摩擦力、动量"],"correct":0,"explanation_en":"The four fundamental forces acting on any aircraft including RPAS are: Lift (upward force generated by the rotors/wings), Weight (downward force due to gravity), Thrust (forward force from the propulsion system), and Drag (rearward force opposing motion through the air). For level, unaccelerated flight, lift equals weight and thrust equals drag.","explanation_zh":"作用在包括RPAS在内的任何航空器上的四个基本力为：升力（旋翼/机翼产生的向上的力）、重力（因重力作用产生的向下的力）、推力（推进系统产生的向前的力）和阻力（空气对运动的阻碍力）。在平飞等速飞行中，升力等于重力，推力等于阻力。"},
+  {"id":121,"category":"Operations and Procedures","category_zh":"操作与程序","en":"Controlled airspace that extends upward from a specified altitude (not from the surface) is called a:","zh":"从指定高度（而非地面）向上延伸的管制空域称为：","options_en":["Control Zone (CTR)","Control Area (CTA)","Prohibited Area","Restricted Area"],"options_zh":["管制地带（CTR）","管制区（CTA）","禁区","限制区"],"correct":1,"explanation_en":"A Control Area (CTA) is controlled airspace that extends upward from a specified altitude above the earth's surface. A Control Zone (CTR), by contrast, extends from the surface upward to a specified altitude. RPAS pilots must understand the difference as it determines whether operations at low altitudes may be in uncontrolled airspace beneath a CTA.","explanation_zh":"管制区（CTA）是从地面以上指定高度向上延伸的管制空域。而管制地带（CTR）则从地面向上延伸至指定高度。RPAS飞行员必须理解两者的区别，因为这决定了低空操作是否位于CTA下方的非管制空域内。"},
+  {"id":122,"category":"Operations and Procedures","category_zh":"操作与程序","en":"What is geofencing in the context of RPAS operations?","zh":"在RPAS操作中，地理围栏（geofencing）是什么？","options_en":["A physical fence placed around the operating area","Software-defined virtual boundaries that restrict or warn when the RPAS approaches restricted areas","GPS jamming to prevent flyaways","A requirement to operate within fenced private property only"],"options_zh":["围绕操作区域设置的实体围栏","软件定义的虚拟边界，当RPAS接近限制区域时进行限制或发出警告","用于防止飞行失控的GPS干扰","仅在有围栏的私人物业内运行的要求"],"correct":1,"explanation_en":"Geofencing uses software-defined virtual boundaries programmed into the RPAS flight controller or control app. When the aircraft approaches or reaches these boundaries (which often correspond to restricted airspace, airports, or other no-fly zones), it may warn the pilot, prevent entry, or automatically return to the operating area.","explanation_zh":"地理围栏使用编程到RPAS飞控或控制应用中的软件定义虚拟边界。当航空器接近或到达这些边界（通常对应限制空域、机场或其他禁飞区）时，系统可能会警告飞行员、阻止进入或自动返回操作区域。"},
+  {"id":123,"category":"Operations and Procedures","category_zh":"操作与程序","en":"What is the purpose of a pre-flight compass calibration on an RPAS?","zh":"RPAS飞行前罗盘校准的目的是什么？","options_en":["To charge the battery faster","To ensure the magnetometer accurately reads the Earth's magnetic field for reliable heading and navigation","To test the camera gimbal","To set the maximum flight altitude"],"options_zh":["更快地为电池充电","确保磁力计准确读取地球磁场，以提供可靠的航向和导航信息","测试相机云台","设置最大飞行高度"],"correct":1,"explanation_en":"Compass calibration ensures the magnetometer accurately reads the local magnetic field for reliable heading information and GPS-assisted flight modes. Calibration should be performed when flying in a new location, after firmware updates, or when the manufacturer's app recommends it. Nearby metal structures or magnetic sources can cause errors if not calibrated.","explanation_zh":"罗盘校准确保磁力计准确读取当地磁场，以提供可靠的航向信息和GPS辅助飞行模式。在新地点飞行、固件更新后或制造商应用程序提示时应进行校准。附近的金属结构或磁源如未校准可能导致误差。"},
+  {"id":124,"category":"Maintenance and Logging","category_zh":"维护与记录","en":"A ReOC holder is required to maintain which of the following records?","zh":"ReOC持有人需要保存哪些记录？","options_en":["Only the pilot's personal diary","Flight logs, maintenance records, and pilot currency details","Only financial records of operations","Only customer complaint records"],"options_zh":["仅飞行员的个人日记","飞行日志、维护记录和飞行员资质有效期详情","仅运营的财务记录","仅客户投诉记录"],"correct":1,"explanation_en":"ReOC holders must keep comprehensive records including flight logs (detailing each operation), maintenance records (all maintenance performed on each RPAS), and pilot currency details (ensuring all remote pilots meet ongoing training and proficiency requirements). These must be available for CASA inspection.","explanation_zh":"ReOC持有人必须保存完整的记录，包括飞行日志（详细记录每次操作）、维护记录（对每架RPAS执行的所有维护工作）以及飞行员资质有效期详情（确保所有遥控飞行员满足持续培训和技能熟练度要求）。这些记录必须可供CASA检查。"},
+  {"id":125,"category":"Maintenance and Logging","category_zh":"维护与记录","en":"A flight log for RPAS operations should typically include:","zh":"RPAS操作的飞行日志通常应包括：","options_en":["Only the pilot's name and the date","Date, pilot name, RPAS details, location, flight duration, purpose, weather conditions, and any incidents","Only the battery serial number and charge cycles","Only the client's name and payment details"],"options_zh":["仅飞行员姓名和日期","日期、飞行员姓名、RPAS详情、地点、飞行时长、目的、天气条件及任何事件","仅电池序列号和充电周期","仅客户姓名和付款详情"],"correct":1,"explanation_en":"A comprehensive flight log should record: date and time, pilot name and licence number, RPAS type and registration/serial number, location, flight duration, purpose of flight, weather conditions, crew members, any incidents or equipment issues, and any relevant observations. This documentation supports regulatory compliance and operational safety.","explanation_zh":"完整的飞行日志应记录：日期和时间、飞行员姓名和执照号码、RPAS型号和注册/序列号、地点、飞行时长、飞行目的、天气条件、机组成员、任何事件或设备问题以及任何相关观察。该文档支持法规合规和运行安全。"},
+  {"id":126,"category":"Insurance and Legal","category_zh":"保险与法律","en":"For RPAS operations under a ReOC in Australia, aviation insurance is:","zh":"在澳大利亚，持有ReOC进行RPAS商业运营时，航空保险是：","options_en":["Not required under any circumstances","Mandatory by CASA regulation for all ReOC operations","Recommended but not legally mandated by CASA, though strongly advised for commercial operations","Only required when flying over people"],"options_zh":["在任何情况下都不需要","CASA法规对所有ReOC运营强制要求","CASA不做法律强制要求，但强烈建议商业运营购买","仅在飞越人群上方时需要"],"correct":2,"explanation_en":"While CASA does not legally mandate aviation insurance for ReOC holders, comprehensive public liability insurance covering RPAS operations is strongly recommended for all commercial operations. Many clients and contracts require proof of insurance, and operating without insurance exposes the operator to significant financial liability in the event of an incident.","explanation_zh":"虽然CASA没有法律强制要求ReOC持有人购买航空保险，但强烈建议所有商业运营购买涵盖RPAS操作的综合公众责任保险。许多客户和合同要求提供保险证明，未购买保险将使运营商在发生事故时面临重大财务责任。"},
+  {"id":127,"category":"Insurance and Legal","category_zh":"保险与法律","en":"Under CASR Part 101, an RPAS incident that results in serious injury to a person must be reported to:","zh":"根据CASR Part 101，导致人员严重受伤的RPAS事故必须报告给：","options_en":["Only the local police","The Australian Transport Safety Bureau (ATSB)","Only the RPAS manufacturer","No reporting is required for RPAS incidents"],"options_zh":["仅当地警方","澳大利亚运输安全局（ATSB）","仅RPAS制造商","RPAS事故无需报告"],"correct":1,"explanation_en":"Under aviation safety regulations, RPAS incidents involving serious injury, death, or significant damage must be reported to the Australian Transport Safety Bureau (ATSB) as the independent transport safety investigation body. Failure to report is a serious regulatory breach.","explanation_zh":"根据航空安全法规，涉及严重伤亡或重大损害的RPAS事故必须报告给澳大利亚运输安全局（ATSB），ATSB是独立的运输安全调查机构。未按要求报告属于严重的法规违规行为。"},
+  {"id":128,"category":"Operations and Procedures","category_zh":"操作与程序","en":"The BVLOS (Beyond Visual Line of Sight) exam administered by CASA consists of how many questions?","zh":"CASA管理的BVLOS（超视距飞行）考试包含多少道题目？","options_en":["20 questions","30 questions","40 questions","85 questions"],"options_zh":["20道题","30道题","40道题","85道题"],"correct":2,"explanation_en":"The CASA BVLOS exam for operations outside controlled airspace (OCTA) consists of 40 multiple-choice questions. The pass rate is 70%. It covers BVLOS flights, aeronautics, instrumentation, and human factors. It is an alternate pathway for RePL holders who do not hold a crewed aviation Instrument Rating.","explanation_zh":"CASA的管制空域外（OCTA）BVLOS考试包含40道多选题。及格率为70%。考试内容涵盖BVLOS飞行、航空学、仪表和人为因素。对于未持有有人驾驶航空仪表等级的RePL持有人，这是一条替代途径。"},
+  {"id":129,"category":"Meteorology","category_zh":"气象学","en":"A temperature inversion occurs when:","zh":"逆温现象发生在：","options_en":["Temperature decreases with altitude, as expected","Temperature increases with altitude, trapping pollutants and reducing visibility below the inversion layer","Temperature remains constant at all altitudes","Temperature drops suddenly by more than 10 degrees"],"options_zh":["温度按预期随高度升高而降低","温度随高度升高而升高，将污染物困在逆温层下方并降低能见度","温度在所有高度保持不变","温度突然下降超过10度"],"correct":1,"explanation_en":"Normally temperature decreases with altitude. A temperature inversion is the reverse — a layer where temperature increases with altitude. This creates a stable cap that traps haze, smoke, and pollutants below the inversion, reducing visibility. It also suppresses convection and turbulence but can create significant wind shear at the inversion boundary.","explanation_zh":"正常情况下温度随高度升高而降低。逆温则相反——是温度随高度升高而升高的大气层。这形成了一个稳定的盖层，将霾、烟和污染物困在逆温层下方，降低能见度。逆温还抑制对流和湍流，但在逆温边界处可能产生显著的风切变。"},
+  {"id":130,"category":"Meteorology","category_zh":"气象学","en":"The standard atmospheric lapse rate is approximately:","zh":"标准大气温度递减率大约为：","options_en":["1 degree C per 1,000 feet","2 degrees C per 1,000 feet","3 degrees C per 1,000 feet","5 degrees C per 1,000 feet"],"options_zh":["每1,000英尺下降1摄氏度","每1,000英尺下降2摄氏度","每1,000英尺下降3摄氏度","每1,000英尺下降5摄氏度"],"correct":1,"explanation_en":"The International Standard Atmosphere (ISA) lapse rate is approximately 2 degrees Celsius per 1,000 feet (or 6.5 degrees C per 1,000 metres). This means that in standard conditions, the temperature decreases by about 2 degrees C for every 1,000 feet increase in altitude. The actual lapse rate on any given day may differ significantly.","explanation_zh":"国际标准大气（ISA）温度递减率约为每1,000英尺2摄氏度（或每1,000米6.5摄氏度）。这意味着在标准条件下，每升高1,000英尺温度大约下降2摄氏度。实际任何一天的温度递减率可能有显著差异。"},
+  {"id":131,"category":"Aeronautical Charts","category_zh":"航空图","en":"Wind direction reported in a TAF or METAR is referenced to:","zh":"TAF或METAR中报告的风向参考的是：","options_en":["Magnetic north","True north","Grid north","The local runway heading"],"options_zh":["磁北","真北","坐标北","当地跑道方向"],"correct":1,"explanation_en":"Wind direction in METARs and TAFs is always referenced to true north, not magnetic north. However, when ATC or ATIS provides wind information over the radio, it is given referenced to magnetic north. This is an important distinction for pilots interpreting weather reports versus radio communications.","explanation_zh":"METAR和TAF中的风向始终参考真北，而非磁北。但当ATC或ATIS通过无线电提供风向信息时，则参考磁北。飞行员在解读气象报告与无线电通信时，理解这一重要区别非常关键。"},
+  {"id":132,"category":"Aeronautical Charts","category_zh":"航空图","en":"A NOTAMs system in Australia is managed by:","zh":"澳大利亚的NOTAM系统由哪个机构管理？","options_en":["Bureau of Meteorology","Airservices Australia","Department of Defence","State Government aviation departments"],"options_zh":["气象局（Bureau of Meteorology）","澳大利亚航空服务公司（Airservices Australia）","国防部","州政府航空部门"],"correct":1,"explanation_en":"In Australia, the NOTAM (Notice to Air Missions) system is managed by Airservices Australia. NOTAMs are distributed through the NAIPS (National Aeronautical Information Processing System) and can be accessed online. RPAS operators with NOTAM requirements submit their requests to Airservices Australia.","explanation_zh":"在澳大利亚，NOTAM（航行通告）系统由Airservices Australia管理。NOTAM通过NAIPS（国家航空信息处理系统）发布，可在线查询。有NOTAM要求的RPAS运营商向Airservices Australia提交申请。"},
+  {"id":133,"category":"Operations and Procedures","category_zh":"操作与程序","en":"The QNH altimeter setting provides altitude above:","zh":"QNH气压设定提供的是相对于哪个基准的高度？","options_en":["The aerodrome elevation","Mean sea level (MSL)","The ground level at the current position","The standard pressure datum of 1013.25 hPa"],"options_zh":["机场标高","平均海平面（MSL）","当前位置的地面高度","标准气压基准1013.25 hPa"],"correct":1,"explanation_en":"QNH is the atmospheric pressure at sea level. When set on an altimeter, it provides the altitude above mean sea level (AMSL). QFE provides height above the aerodrome elevation, and the standard setting (1013.25 hPa) provides pressure altitude (used above the transition altitude).","explanation_zh":"QNH是海平面气压值。当设置在高度表上时，它提供相对于平均海平面（AMSL）的高度。QFE提供相对于机场标高的高度，而标准设定（1013.25 hPa）则提供气压高度（在过渡高度以上使用）。"},
+
+];
+
+// ===== STATE =====
+let lang = 'en';
+let currentQuestions = [];
+let currentIndex = 0;
+let correctInRound = 0;
+let totalCorrectEver = 0; // tracks correct across all rounds for the 133 questions
+let answered = new Set(); // set of question IDs answered correctly
+let wrongThisRound = [];
+let attemptNumber = 1;
+let isRetry = false;
+let timerInterval = null;
+let timeLeft = 60;
+const TOTAL_QUESTIONS = ALL_QUESTIONS.length;
+const PASS_THRESHOLD = 0.85;
+const TIME_LIMIT = 60;
+
+// ===== LANGUAGE =====
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === (l === 'en' ? 'EN' : '中文'));
+  });
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + l);
+  });
+  // Re-render current view if quiz is active
+  if (document.getElementById('quiz-screen').classList.contains('active') && currentQuestions.length > 0) {
+    renderQuestion();
+  }
+  if (document.getElementById('start-screen').classList.contains('active')) {
+    renderCategoryTags();
+  }
+}
+
+// ===== CATEGORIES =====
+function getCategories() {
+  const cats = new Set();
+  ALL_QUESTIONS.forEach(q => cats.add(q.category));
+  return Array.from(cats);
+}
+
+function renderCategoryTags() {
+  const container = document.getElementById('category-tags');
+  const cats = getCategories();
+  container.innerHTML = cats.map(cat => {
+    const q = ALL_QUESTIONS.find(q => q.category === cat);
+    const label = lang === 'en' ? cat : (q.category_zh || cat);
+    return `<span class="cat-tag">${label}</span>`;
+  }).join('');
+}
+
+// ===== SHUFFLE =====
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ===== SCREENS =====
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// ===== START =====
+function startQuiz() {
+  attemptNumber = 1;
+  totalCorrectEver = 0;
+  answered = new Set();
+  isRetry = false;
+  currentQuestions = shuffle([...ALL_QUESTIONS]);
+  currentIndex = 0;
+  correctInRound = 0;
+  wrongThisRound = [];
+  showScreen('quiz-screen');
+  document.getElementById('retry-banner').style.display = 'none';
+  renderQuestion();
+}
+
+function startRetryRound(wrongQs) {
+  attemptNumber++;
+  isRetry = true;
+  currentQuestions = shuffle([...wrongQs]);
+  currentIndex = 0;
+  correctInRound = 0;
+  wrongThisRound = [];
+  showScreen('quiz-screen');
+  const retryBanner = document.getElementById('retry-banner');
+  retryBanner.style.display = 'flex';
+  const info = document.getElementById('retry-info');
+  if (lang === 'en') {
+    info.textContent = ` - Attempt ${attemptNumber}: Re-testing ${currentQuestions.length} incorrect question${currentQuestions.length > 1 ? 's' : ''}. Need ${Math.ceil(TOTAL_QUESTIONS * PASS_THRESHOLD) - totalCorrectEver} more correct to pass.`;
+  } else {
+    info.textContent = ` - 第${attemptNumber}次尝试：重新测试${currentQuestions.length}道错误题目。还需答对${Math.ceil(TOTAL_QUESTIONS * PASS_THRESHOLD) - totalCorrectEver}题才能通过。`;
+  }
+  renderQuestion();
+}
+
+// ===== TIMER =====
+function startTimer() {
+  clearInterval(timerInterval);
+  timeLeft = TIME_LIMIT;
+  const fill = document.getElementById('timer-fill');
+  fill.style.width = '100%';
+  fill.classList.remove('warning');
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    const pct = (timeLeft / TIME_LIMIT) * 100;
+    fill.style.width = pct + '%';
+    if (timeLeft <= 15) fill.classList.add('warning');
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      autoAnswer();
+    }
+  }, 1000);
+}
+
+function autoAnswer() {
+  // Time ran out, mark as wrong
+  const q = currentQuestions[currentIndex];
+  handleAnswer(-1, q);
+}
+
+// ===== RENDER QUESTION =====
+function renderQuestion() {
+  const q = currentQuestions[currentIndex];
+  const totalInRound = currentQuestions.length;
+  const overallAnswered = totalCorrectEver;
+  const overallPct = TOTAL_QUESTIONS > 0 ? Math.round((overallAnswered / TOTAL_QUESTIONS) * 100) : 0;
+
+  // Counters
+  document.getElementById('q-counter').textContent = `${currentIndex + 1}/${totalInRound}`;
+  document.getElementById('correct-counter').textContent = totalCorrectEver;
+
+  const scoreBadge = document.getElementById('score-badge');
+  const scorePct = document.getElementById('score-pct');
+  scorePct.textContent = overallPct + '%';
+  scoreBadge.className = 'score-badge ' + (overallPct >= 85 ? 'good' : overallPct >= 50 ? 'neutral' : 'bad');
+
+  // Progress
+  const progressPct = ((currentIndex) / totalInRound) * 100;
+  document.getElementById('progress-fill').style.width = progressPct + '%';
+
+  // Category
+  const catEl = document.getElementById('q-category');
+  catEl.textContent = lang === 'en' ? q.category : (q.category_zh || q.category);
+
+  // Question number
+  document.getElementById('q-number').textContent = `#${q.id}`;
+
+  // Question text
+  document.getElementById('q-text').textContent = lang === 'en' ? q.en : q.zh;
+
+  // Options
+  const letters = ['A', 'B', 'C', 'D'];
+  const opts = lang === 'en' ? q.options_en : q.options_zh;
+  const optsList = document.getElementById('options-list');
+  optsList.innerHTML = opts.map((opt, i) => `
+    <button class="option-btn" onclick="handleAnswer(${i}, ALL_QUESTIONS.find(x=>x.id===${q.id}))" data-index="${i}">
+      <span class="option-letter">${letters[i]}</span>
+      <span>${opt}</span>
+    </button>
+  `).join('');
+
+  // Reset feedback
+  const fb = document.getElementById('feedback-box');
+  fb.className = 'feedback-box';
+  fb.style.display = 'none';
+  document.getElementById('next-btn').style.display = 'none';
+
+  // Animate
+  const card = document.getElementById('question-card');
+  card.classList.remove('animate-in');
+  void card.offsetWidth;
+  card.classList.add('animate-in');
+
+  // Start timer
+  startTimer();
+}
+
+// ===== HANDLE ANSWER =====
+function handleAnswer(selectedIndex, q) {
+  clearInterval(timerInterval);
+
+  const optBtns = document.querySelectorAll('.option-btn');
+  const isCorrect = selectedIndex === q.correct;
+
+  // Disable all buttons
+  optBtns.forEach(btn => {
+    btn.classList.add('disabled');
+    btn.onclick = null;
+    const idx = parseInt(btn.getAttribute('data-index'));
+    if (idx === q.correct) {
+      btn.classList.add('correct');
+    }
+    if (idx === selectedIndex && !isCorrect) {
+      btn.classList.add('wrong');
+    }
+  });
+
+  // Feedback
+  const fb = document.getElementById('feedback-box');
+  const fbTitle = document.getElementById('feedback-title');
+  const fbText = document.getElementById('feedback-text');
+
+  if (isCorrect) {
+    fb.className = 'feedback-box show correct-feedback';
+    fbTitle.textContent = lang === 'en' ? 'Correct!' : '正确！';
+    fbText.textContent = lang === 'en' ? q.explanation_en : q.explanation_zh;
+    correctInRound++;
+    totalCorrectEver++;
+    answered.add(q.id);
+  } else {
+    fb.className = 'feedback-box show wrong-feedback';
+    const letters = ['A', 'B', 'C', 'D'];
+    const correctOpt = lang === 'en' ? q.options_en[q.correct] : q.options_zh[q.correct];
+    if (selectedIndex === -1) {
+      fbTitle.textContent = lang === 'en' ? 'Time\'s Up!' : '时间到！';
+    } else {
+      fbTitle.textContent = lang === 'en' ? 'Incorrect' : '错误';
+    }
+    const prefix = lang === 'en' ? `The correct answer is ${letters[q.correct]}: ${correctOpt}` : `正确答案是 ${letters[q.correct]}：${correctOpt}`;
+    fbText.textContent = prefix + '\n' + (lang === 'en' ? q.explanation_en : q.explanation_zh);
+    wrongThisRound.push(q);
+  }
+
+  // Update score display
+  const overallPct = Math.round((totalCorrectEver / TOTAL_QUESTIONS) * 100);
+  document.getElementById('score-pct').textContent = overallPct + '%';
+  const scoreBadge = document.getElementById('score-badge');
+  scoreBadge.className = 'score-badge ' + (overallPct >= 85 ? 'good' : overallPct >= 50 ? 'neutral' : 'bad');
+  document.getElementById('correct-counter').textContent = totalCorrectEver;
+
+  // Show next button
+  const nextBtn = document.getElementById('next-btn');
+  nextBtn.style.display = 'flex';
+  const isLast = currentIndex >= currentQuestions.length - 1;
+  const nextSpan = nextBtn.querySelector('span');
+  if (isLast) {
+    nextSpan.textContent = lang === 'en' ? 'View Results' : '查看结果';
+  } else {
+    nextSpan.textContent = lang === 'en' ? 'Next Question' : '下一题';
+  }
+}
+
+// ===== NEXT QUESTION =====
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= currentQuestions.length) {
+    showResults();
+  } else {
+    renderQuestion();
+  }
+}
+
+// ===== RESULTS =====
+function showResults() {
+  clearInterval(timerInterval);
+  const overallPct = Math.round((totalCorrectEver / TOTAL_QUESTIONS) * 100);
+  const passed = overallPct >= Math.round(PASS_THRESHOLD * 100);
+
+  showScreen('results-screen');
+  const container = document.getElementById('results-content');
+
+  // Category breakdown
+  const catStats = {};
+  ALL_QUESTIONS.forEach(q => {
+    const cat = q.category;
+    if (!catStats[cat]) catStats[cat] = { total: 0, correct: 0, zh: q.category_zh };
+    catStats[cat].total++;
+    if (answered.has(q.id)) catStats[cat].correct++;
+  });
+
+  let breakdownHTML = '';
+  Object.keys(catStats).forEach(cat => {
+    const s = catStats[cat];
+    const pct = Math.round((s.correct / s.total) * 100);
+    const label = lang === 'en' ? cat : (s.zh || cat);
+    breakdownHTML += `
+      <div class="breakdown-row">
+        <span class="breakdown-cat">${label}</span>
+        <div class="breakdown-score">
+          <span style="font-size:12px;color:var(--gray-500)">${s.correct}/${s.total}</span>
+          <div class="breakdown-bar">
+            <div class="breakdown-bar-fill ${pct >= 85 ? 'pass' : 'fail'}" style="width:${pct}%"></div>
+          </div>
+          <span class="breakdown-pct" style="color:${pct >= 85 ? 'var(--green)' : 'var(--red)'}">${pct}%</span>
+        </div>
+      </div>
+    `;
+  });
+
+  if (passed) {
+    // Certificate screen
+    container.innerHTML = `
+      <div class="certificate animate-in">
+        <div class="cert-badge">&#127942;</div>
+        <div class="cert-title">${lang === 'en' ? 'Congratulations! You Passed!' : '恭喜！您通过了！'}</div>
+        <div class="cert-detail">${lang === 'en' ? 'RePL & AROC Assessment Training' : 'RePL & AROC 考核培训'}</div>
+        <div class="cert-detail">${lang === 'en' ? 'CASA CASR Part 101 — Remote Pilot Licence' : 'CASA CASR 第101部分 — 远程飞行员执照'}</div>
+        <div class="cert-score">${overallPct}%</div>
+        <div class="cert-label">${lang === 'en' ? 'FINAL SCORE' : '最终成绩'}</div>
+        <div class="cert-brand">AECT Solutions &mdash; ${lang === 'en' ? 'Training Module' : '培训模块'} &mdash; ${new Date().toLocaleDateString()}</div>
+      </div>
+
+      <div class="result-card animate-in" style="animation-delay:0.2s">
+        <div class="result-stats">
+          <div class="result-stat">
+            <div class="label">${lang === 'en' ? 'Correct' : '正确'}</div>
+            <div class="value" style="color:var(--green)">${totalCorrectEver}</div>
+          </div>
+          <div class="result-stat">
+            <div class="label">${lang === 'en' ? 'Total' : '总题数'}</div>
+            <div class="value">${TOTAL_QUESTIONS}</div>
+          </div>
+          <div class="result-stat">
+            <div class="label">${lang === 'en' ? 'Attempts' : '尝试次数'}</div>
+            <div class="value">${attemptNumber}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="breakdown-section animate-in" style="animation-delay:0.3s">
+        <div class="breakdown-title">${lang === 'en' ? 'Performance by Category' : '按类别表现'}</div>
+        ${breakdownHTML}
+      </div>
+
+      <button class="restart-btn" onclick="resetAll()" style="margin-top:12px;">
+        &#8635; ${lang === 'en' ? 'Start Over' : '重新开始'}
+      </button>
+    `;
+    launchConfetti();
+  } else {
+    // Failed - show retry option
+    const needed = Math.ceil(TOTAL_QUESTIONS * PASS_THRESHOLD) - totalCorrectEver;
+    container.innerHTML = `
+      <div class="result-card animate-in">
+        <div class="result-icon fail">&#10060;</div>
+        <div class="result-title fail-title">${lang === 'en' ? 'Not Yet Passed' : '尚未通过'}</div>
+        <div class="result-subtitle">${lang === 'en' ? `You scored ${overallPct}% (need 85% to pass). ${wrongThisRound.length} question${wrongThisRound.length > 1 ? 's' : ''} will be re-tested.` : `您的得分为${overallPct}%（需要85%才能通过）。${wrongThisRound.length}道题将被重新测试。`}</div>
+
+        <div class="score-circle">
+          <svg width="160" height="160">
+            <circle cx="80" cy="80" r="70" fill="none" stroke="var(--gray-200)" stroke-width="10"/>
+            <circle cx="80" cy="80" r="70" fill="none" stroke="var(--red)" stroke-width="10"
+              stroke-dasharray="${2 * Math.PI * 70}"
+              stroke-dashoffset="${2 * Math.PI * 70 * (1 - overallPct / 100)}"
+              stroke-linecap="round"/>
+          </svg>
+          <div>
+            <div class="score-text" style="color:var(--red)">${overallPct}</div>
+            <div class="score-percent">%</div>
+          </div>
+        </div>
+
+        <div class="result-stats">
+          <div class="result-stat">
+            <div class="label">${lang === 'en' ? 'Correct' : '正确'}</div>
+            <div class="value" style="color:var(--green)">${totalCorrectEver}</div>
+          </div>
+          <div class="result-stat">
+            <div class="label">${lang === 'en' ? 'Need' : '还需'}</div>
+            <div class="value" style="color:var(--accent)">${needed}</div>
+          </div>
+          <div class="result-stat">
+            <div class="label">${lang === 'en' ? 'Attempt' : '尝试'}</div>
+            <div class="value">${attemptNumber}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="breakdown-section animate-in" style="animation-delay:0.1s">
+        <div class="breakdown-title">${lang === 'en' ? 'Performance by Category' : '按类别表现'}</div>
+        ${breakdownHTML}
+      </div>
+
+      <div style="margin-top:16px;">
+        <button class="retry-btn" onclick="retryWrong()">
+          &#128260; ${lang === 'en' ? `Retry ${wrongThisRound.length} Wrong Question${wrongThisRound.length > 1 ? 's' : ''}` : `重试${wrongThisRound.length}道错题`}
+        </button>
+        <button class="restart-btn" onclick="resetAll()">
+          &#8635; ${lang === 'en' ? 'Start Over' : '重新开始'}
+        </button>
+      </div>
+    `;
+  }
+}
+
+function retryWrong() {
+  startRetryRound(wrongThisRound);
+}
+
+function resetAll() {
+  attemptNumber = 1;
+  totalCorrectEver = 0;
+  answered = new Set();
+  isRetry = false;
+  currentQuestions = [];
+  currentIndex = 0;
+  correctInRound = 0;
+  wrongThisRound = [];
+  showScreen('start-screen');
+  renderCategoryTags();
+}
+
+// ===== CONFETTI =====
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const colors = ['#e94560', '#0f3460', '#27ae60', '#f39c12', '#3498db', '#9b59b6', '#1abc9c'];
+
+  for (let i = 0; i < 150; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: -10 - Math.random() * 200,
+      w: 6 + Math.random() * 6,
+      h: 4 + Math.random() * 4,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 4,
+      vy: 2 + Math.random() * 4,
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 8,
+      opacity: 1
+    });
+  }
+
+  let frame = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let alive = false;
+    particles.forEach(p => {
+      if (p.opacity <= 0) return;
+      alive = true;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rotation += p.rotSpeed;
+      p.vy += 0.05;
+      if (p.y > canvas.height - 50) p.opacity -= 0.02;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rotation * Math.PI) / 180);
+      ctx.globalAlpha = Math.max(0, p.opacity);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+
+    frame++;
+    if (alive && frame < 300) {
+      requestAnimationFrame(animate);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+  animate();
+}
+
+// ===== KEYBOARD SHORTCUTS =====
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('quiz-screen').classList.contains('active')) return;
+
+  const optBtns = document.querySelectorAll('.option-btn:not(.disabled)');
+  if (optBtns.length === 0) {
+    // Already answered, Enter/Space for next
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const nextBtn = document.getElementById('next-btn');
+      if (nextBtn.style.display !== 'none') nextQuestion();
+    }
+    return;
+  }
+
+  const keyMap = { '1': 0, '2': 1, '3': 2, '4': 3, 'a': 0, 'b': 1, 'c': 2, 'd': 3 };
+  const idx = keyMap[e.key.toLowerCase()];
+  if (idx !== undefined && idx < optBtns.length) {
+    e.preventDefault();
+    optBtns[idx].click();
+  }
+});
+
+// ===== INIT =====
+window.addEventListener('resize', () => {
+  const canvas = document.getElementById('confetti-canvas');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+renderCategoryTags();
+</script>
+</body>
+</html>
