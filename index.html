@@ -28,6 +28,14 @@
   --gray-800: #343a40;
   --gray-900: #212529;
   --white: #ffffff;
+  --card-bg: #ffffff;
+  --body-bg: #f8f9fa;
+  --body-color: #212529;
+  --border-color: #e9ecef;
+  --option-bg: #ffffff;
+  --option-border: #e9ecef;
+  --option-hover-bg: rgba(15,52,96,0.04);
+  --input-bg: #ffffff;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
   --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
@@ -36,13 +44,60 @@
   --transition: 0.25s ease;
 }
 
+/* Dark Theme */
+[data-theme="dark"] {
+  --gray-50: #0d1117;
+  --gray-100: #161b22;
+  --gray-200: #21262d;
+  --gray-300: #30363d;
+  --gray-400: #484f58;
+  --gray-500: #6e7681;
+  --gray-600: #8b949e;
+  --gray-700: #b1bac4;
+  --gray-800: #c9d1d9;
+  --gray-900: #e6edf3;
+  --white: #0d1117;
+  --card-bg: #161b22;
+  --body-bg: #0d1117;
+  --body-color: #e6edf3;
+  --border-color: #30363d;
+  --option-bg: #161b22;
+  --option-border: #30363d;
+  --option-hover-bg: rgba(56,139,253,0.1);
+  --input-bg: #0d1117;
+  --green-bg: rgba(39,174,96,0.15);
+  --red-bg: rgba(231,76,60,0.15);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.5);
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: var(--gray-50);
-  color: var(--gray-900);
+  background: var(--body-bg);
+  color: var(--body-color);
   line-height: 1.6;
   min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
 }
+
+/* Theme toggle */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4); }
 
 /* Header */
 .header {
@@ -174,11 +229,11 @@ body {
 }
 
 .info-card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: var(--radius-sm);
   padding: 24px 20px;
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border-color);
   text-align: left;
 }
 
@@ -193,9 +248,9 @@ body {
   margin-bottom: 12px;
 }
 
-.info-card .icon.blue { background: #e8f0fe; }
-.info-card .icon.red { background: #fce8ec; }
-.info-card .icon.green { background: #e6f4ea; }
+.info-card .icon.blue { background: rgba(15,52,96,0.15); }
+.info-card .icon.red { background: rgba(233,69,96,0.15); }
+.info-card .icon.green { background: rgba(39,174,96,0.15); }
 
 .info-card h3 {
   font-size: 15px;
@@ -220,7 +275,7 @@ body {
 
 .cat-tag {
   padding: 6px 14px;
-  background: var(--white);
+  background: var(--card-bg);
   border: 1px solid var(--gray-300);
   border-radius: 20px;
   font-size: 13px;
@@ -335,12 +390,12 @@ body {
 
 /* Question Card */
 .question-card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   overflow: hidden;
   margin-bottom: 20px;
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border-color);
 }
 
 .question-header {
@@ -358,8 +413,8 @@ body {
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  background: #e8f0fe;
-  color: var(--blue);
+  background: rgba(15,52,96,0.15);
+  color: var(--accent);
   border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
@@ -397,9 +452,9 @@ body {
   align-items: flex-start;
   gap: 14px;
   padding: 16px 20px;
-  border: 2px solid var(--gray-200);
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-sm);
-  background: var(--white);
+  background: var(--card-bg);
   cursor: pointer;
   transition: var(--transition);
   text-align: left;
@@ -431,7 +486,7 @@ body {
 
 .option-btn:hover:not(.disabled) .option-letter {
   background: var(--blue);
-  color: var(--white);
+  color: #ffffff;
 }
 
 .option-btn.correct {
@@ -441,7 +496,7 @@ body {
 
 .option-btn.correct .option-letter {
   background: var(--green);
-  color: var(--white);
+  color: #ffffff;
 }
 
 .option-btn.wrong {
@@ -451,7 +506,7 @@ body {
 
 .option-btn.wrong .option-letter {
   background: var(--red);
-  color: var(--white);
+  color: #ffffff;
 }
 
 .option-btn.disabled {
@@ -476,14 +531,14 @@ body {
 .feedback-box.show { display: block; }
 .feedback-box.correct-feedback {
   background: var(--green-bg);
-  border: 1px solid #a3d9b1;
-  color: #1a7a3a;
+  border: 1px solid rgba(39,174,96,0.3);
+  color: var(--green);
 }
 
 .feedback-box.wrong-feedback {
   background: var(--red-bg);
-  border: 1px solid #f0a8a1;
-  color: #a12b22;
+  border: 1px solid rgba(231,76,60,0.3);
+  color: var(--red);
 }
 
 .feedback-title {
@@ -580,8 +635,8 @@ body {
 .errorbook-empty .icon { font-size: 48px; margin-bottom: 12px; }
 .errorbook-list { display: flex; flex-direction: column; gap: 10px; }
 .errorbook-item {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 16px;
   cursor: default;
@@ -625,7 +680,7 @@ body {
   color: var(--gray-600);
   margin-top: 8px;
   padding: 10px 12px;
-  background: var(--gray-50);
+  background: var(--gray-100);
   border-radius: 6px;
   line-height: 1.6;
   border-left: 3px solid var(--green);
@@ -715,12 +770,12 @@ body {
 }
 
 .result-card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
   padding: 48px 32px;
   margin-bottom: 24px;
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border-color);
 }
 
 .result-icon {
@@ -927,10 +982,10 @@ body {
 
 /* Category breakdown */
 .breakdown-section {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border-color);
   padding: 24px;
   margin-bottom: 24px;
   text-align: left;
@@ -1051,9 +1106,12 @@ body {
         <div class="header-subtitle" data-en="Remote Pilot Licence | Aeronautical Radio Operator Certificate" data-zh="远程飞行员执照 | 航空无线电操作证书">Remote Pilot Licence | Aeronautical Radio Operator Certificate</div>
       </div>
     </div>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('zh')">中文</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
     </div>
   </div>
 </header>
@@ -2169,6 +2227,27 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
+// ===== DARK MODE =====
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  const newTheme = isDark ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('repl_theme', newTheme);
+  document.getElementById('theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+}
+
+// Load saved theme
+(function() {
+  const saved = localStorage.getItem('repl_theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  if (theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('theme-toggle').textContent = '☀️';
+  }
+})();
 
 renderCategoryTags();
 updateErrorBookBadge();
