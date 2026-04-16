@@ -618,6 +618,33 @@ body {
   font-size: 13px;
   color: var(--green);
   margin-top: 6px;
+  font-weight: 600;
+}
+.errorbook-item .eb-explanation {
+  font-size: 13px;
+  color: var(--gray-600);
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: var(--gray-50);
+  border-radius: 6px;
+  line-height: 1.6;
+  border-left: 3px solid var(--green);
+}
+.errorbook-item .eb-explanation .eb-exp-label {
+  font-weight: 700;
+  color: var(--gray-700);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+.errorbook-item .eb-bilingual {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--gray-300);
+  color: var(--gray-500);
+  font-size: 12px;
 }
 .errorbook-item .eb-remove {
   font-size: 12px;
@@ -1970,17 +1997,27 @@ function showErrorBook() {
 
   const letters = ['A','B','C','D'];
   contentEl.innerHTML = '<div class="errorbook-list">' + questions.map(q => {
-    const cat = lang === 'en' ? q.category : (q.category_zh || q.category);
-    const qText = lang === 'en' ? q.en : q.zh;
-    const correctOpt = lang === 'en' ? q.options_en[q.correct] : q.options_zh[q.correct];
+    const catEn = q.category;
+    const catZh = q.category_zh || q.category;
+    const correctOptEn = q.options_en[q.correct];
+    const correctOptZh = q.options_zh ? q.options_zh[q.correct] : correctOptEn;
     const errCount = eb[q.id]?.count || 0;
+    const expEn = q.explanation_en || '';
+    const expZh = q.explanation_zh || expEn;
     return `<div class="errorbook-item">
       <div class="eb-top">
-        <span class="eb-cat">${cat}</span>
-        <span class="eb-count">${lang === 'en' ? `Wrong ${errCount}x` : `错${errCount}次`}</span>
+        <span class="eb-cat">${catEn} / ${catZh}</span>
+        <span class="eb-count">${lang === 'en' ? `Wrong ${errCount}x` : `错${errCount}次`} | #${q.id}</span>
       </div>
-      <div class="eb-q">${qText}</div>
-      <div class="eb-answer">✓ ${letters[q.correct]}: ${correctOpt}</div>
+      <div class="eb-q">${q.en}</div>
+      <div class="eb-bilingual">${q.zh}</div>
+      <div class="eb-answer">✓ ${letters[q.correct]}: ${correctOptEn}</div>
+      <div class="eb-bilingual" style="margin-top:2px;border:none;padding:0">✓ ${letters[q.correct]}: ${correctOptZh}</div>
+      <div class="eb-explanation">
+        <span class="eb-exp-label">Explanation / 解释</span>
+        ${expEn}
+        <div class="eb-bilingual">${expZh}</div>
+      </div>
       <button class="eb-remove" onclick="removeFromErrorBook(${q.id})">${lang === 'en' ? 'Remove' : '移除'}</button>
     </div>`;
   }).join('') + '</div>';
